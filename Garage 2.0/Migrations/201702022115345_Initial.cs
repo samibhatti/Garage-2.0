@@ -19,7 +19,7 @@ namespace Garage_2._0.Migrations
                         VehicleLength = c.Int(nullable: false),
                         NumberOfSeats = c.Int(nullable: false),
                         ParkingStartTime = c.DateTime(nullable: false),
-                        ParingStopTime = c.DateTime(nullable: false),
+                        ParkingStopTime = c.DateTime(nullable: false),
                         NoOfTyres = c.Int(nullable: false),
                         Model = c.String(),
                         Fabricate = c.String(),
