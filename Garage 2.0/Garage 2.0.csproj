@@ -133,12 +133,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValidateController.cs" />
+    <Compile Include="Models\ViewModels\VehicleInformationViewModel.cs" />
     <Compile Include="Controllers\VehiclesController.cs" />
     <Compile Include="DAL\Garage_2_0_Context.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\parkingHelper.cs" />
+    <Compile Include="Helpers\parkingsLots.cs" />
     <Compile Include="Migrations\201702031007370_Initial.cs" />
     <Compile Include="Migrations\201702031007370_Initial.Designer.cs">
       <DependentUpon>201702031007370_Initial.cs</DependentUpon>
