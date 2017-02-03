@@ -132,19 +132,49 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ValidateController.cs" />
     <Compile Include="Controllers\VehiclesController.cs" />
     <Compile Include="DAL\Garage_2_0_Context.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\parkingHelper.cs" />
-    <Compile Include="Migrations\201702030115410_Initial.cs" />
-    <Compile Include="Migrations\201702030115410_Initial.Designer.cs">
-      <DependentUpon>201702030115410_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201702030527314_Initial2.cs" />
+    <Compile Include="Migrations\201702030527314_Initial2.Designer.cs">
+      <DependentUpon>201702030527314_Initial2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702081455084_Initial.cs" />
+    <Compile Include="Migrations\201702081455084_Initial.Designer.cs">
+      <DependentUpon>201702081455084_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702081528515_Initial1.cs" />
+    <Compile Include="Migrations\201702081528515_Initial1.Designer.cs">
+      <DependentUpon>201702081528515_Initial1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702091348462_Init.cs" />
+    <Compile Include="Migrations\201702091348462_Init.Designer.cs">
+      <DependentUpon>201702091348462_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702091413264_Init1.cs" />
+    <Compile Include="Migrations\201702091413264_Init1.Designer.cs">
+      <DependentUpon>201702091413264_Init1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702091439250_Init2.cs" />
+    <Compile Include="Migrations\201702091439250_Init2.Designer.cs">
+      <DependentUpon>201702091439250_Init2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702091557201_Init3.cs" />
+    <Compile Include="Migrations\201702091557201_Init3.Designer.cs">
+      <DependentUpon>201702091557201_Init3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702100811196_Init4.cs" />
+    <Compile Include="Migrations\201702100811196_Init4.Designer.cs">
+      <DependentUpon>201702100811196_Init4.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Vehicle.cs" />
     <Compile Include="Enum\VehicleTypeName.cs" />
+    <Compile Include="Models\ViewModels\VehicleCreateViewModel.cs" />
     <Compile Include="Models\ViewModels\VehicleDeleteViewModel.cs" />
     <Compile Include="Models\ViewModels\VehicleIndexViewModel.cs" />
     <Compile Include="Models\ViewModels\VehicleVoucherViewModel.cs" />
@@ -216,14 +246,36 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Validate\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201702030115410_Initial.resx">
-      <DependentUpon>201702030115410_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201702081455084_Initial.resx">
+      <DependentUpon>201702081455084_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702081528515_Initial1.resx">
+      <DependentUpon>201702081528515_Initial1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702091348462_Init.resx">
+      <DependentUpon>201702091348462_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702091413264_Init1.resx">
+      <DependentUpon>201702091413264_Init1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702091439250_Init2.resx">
+      <DependentUpon>201702091439250_Init2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702091557201_Init3.resx">
+      <DependentUpon>201702091557201_Init3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702100811196_Init4.resx">
+      <DependentUpon>201702100811196_Init4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702100812240_Init5.resx">
+      <DependentUpon>201702100812240_Init5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

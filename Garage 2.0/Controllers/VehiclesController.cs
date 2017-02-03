@@ -11,6 +11,7 @@ using Garage_2._0.Models;
 using System.ComponentModel;
 using Garage_2._0.Models.ViewModels;
 using log4net;
+using Garage_2._0.Helpers;
 
 namespace Garage_2._0.Controllers
 {
@@ -50,7 +51,7 @@ namespace Garage_2._0.Controllers
                         query = query.OrderBy(x => x.Model);
                         break;
 
-                    case "parkingLotNo":
+                    case "parkinglotno":
                         query = query.OrderBy(x => x.ParkingLotNo);
                         break;
 
@@ -86,7 +87,10 @@ namespace Garage_2._0.Controllers
         // GET: Vehicles/Create
         public ActionResult Create()
         {
-            return View();
+            var vehicles = db.Vehicles.ToList();
+            VehicleCreateViewModel model = new VehicleCreateViewModel();
+            model.Freeparking = parkingHelper.getFreeParkingLots(vehicles);
+            return View(model);
         }
 
         // POST: Vehicles/Create
@@ -94,19 +98,20 @@ namespace Garage_2._0.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,RegNr,VehicleTypeName,Color,ParkingLotNo,VehicleLength,NumberOfSeats,NoOfTyres,Model,Fabricate")] Vehicle vehicle)
+        public ActionResult Create([Bind(Include = "RegNr,VehicleTypeName,ParkingLotNo,Color,NoOfTyres,FabricateModel,Fabricate")]VehicleCreateViewModel model)
         {
             if (ModelState.IsValid)
             {
-                
-                vehicle.ParkingStartTime = DateTime.Now;
+                model.ParkingStartTime = DateTime.Now;
+                VehicleCreateViewModel m = new VehicleCreateViewModel();
+                var vehicle = m.toEnity(model);
                 //vehicle.ParkingStopTime = DateTime.Now;
                 db.Vehicles.Add(vehicle);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(vehicle);
+            return View(model);
         }
 
         // GET: Vehicles/Edit/5
