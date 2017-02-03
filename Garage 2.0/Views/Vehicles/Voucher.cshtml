@@ -1,13 +1,11 @@
-﻿@model Garage_2._0.Models.Vehicle
-
+﻿@model Garage_2._0.Models.ViewModels.VehicleVoucherViewModel
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Voucher";
 }
 
-<h2>Details</h2>
+<h2>Voucher @Html.DisplayFor(m => m.VoucherID)</h2>
 
 <div>
-    <h4>Vehicle</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -25,13 +23,20 @@
         <dd>
             @Html.DisplayFor(model => model.VehicleTypeName)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.Color)
+            @Html.DisplayNameFor(model => model.Fabricate)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Color)
+            @Html.DisplayFor(model => model.Fabricate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Model)
         </dd>
 
         <dt>
@@ -51,32 +56,27 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.NoOfTyres)
+            @Html.DisplayNameFor(model => model.ParkingStopTime)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.NoOfTyres)
+            @Html.DisplayFor(model => model.ParkingStopTime)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Model)
+            @Html.DisplayNameFor(model => model.Duration)
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.Model)
+            @Html.DisplayFor(model => model.Duration)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.Fabricate)
+            @Html.DisplayNameFor(model => model.PaymentAmount)
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.Fabricate)
+            @string.Format("{0:C}", Model.PaymentAmount)
         </dd>
-
+        <dt>
+            <a href="javascript:history.back()">Go Back to Check-Out</a>
+        </dt>
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
