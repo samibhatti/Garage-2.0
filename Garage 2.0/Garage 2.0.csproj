@@ -138,37 +138,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\parkingHelper.cs" />
-    <Compile Include="Migrations\201702081455084_Initial.cs" />
-    <Compile Include="Migrations\201702081455084_Initial.Designer.cs">
-      <DependentUpon>201702081455084_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702081528515_Initial1.cs" />
-    <Compile Include="Migrations\201702081528515_Initial1.Designer.cs">
-      <DependentUpon>201702081528515_Initial1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702091348462_Init.cs" />
-    <Compile Include="Migrations\201702091348462_Init.Designer.cs">
-      <DependentUpon>201702091348462_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702091413264_Init1.cs" />
-    <Compile Include="Migrations\201702091413264_Init1.Designer.cs">
-      <DependentUpon>201702091413264_Init1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702091439250_Init2.cs" />
-    <Compile Include="Migrations\201702091439250_Init2.Designer.cs">
-      <DependentUpon>201702091439250_Init2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702091557201_Init3.cs" />
-    <Compile Include="Migrations\201702091557201_Init3.Designer.cs">
-      <DependentUpon>201702091557201_Init3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702100811196_Init4.cs" />
-    <Compile Include="Migrations\201702100811196_Init4.Designer.cs">
-      <DependentUpon>201702100811196_Init4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702100812240_Init5.cs" />
-    <Compile Include="Migrations\201702100812240_Init5.Designer.cs">
-      <DependentUpon>201702100812240_Init5.cs</DependentUpon>
+    <Compile Include="Migrations\201702030115410_Initial.cs" />
+    <Compile Include="Migrations\201702030115410_Initial.Designer.cs">
+      <DependentUpon>201702030115410_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Vehicle.cs" />
@@ -250,14 +222,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201702022153291_Initial.resx">
-      <DependentUpon>201702022153291_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702100811196_Init4.resx">
-      <DependentUpon>201702100811196_Init4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702100812240_Init5.resx">
-      <DependentUpon>201702100812240_Init5.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201702030115410_Initial.resx">
+      <DependentUpon>201702030115410_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
