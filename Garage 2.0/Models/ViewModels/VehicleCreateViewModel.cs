@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Garage_2._0.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -47,6 +48,8 @@ namespace Garage_2._0.Models.ViewModels
         [StringLength(50)]
         [Display(Name = "Fabricate")]
         public string Fabricate { get; set; }
+
+        public List<string> Freeparking { get; set; }
 
 
         public Vehicle toEnity(VehicleCreateViewModel model)
