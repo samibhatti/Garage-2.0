@@ -1,6 +1,8 @@
 namespace Garage_2._0.Migrations
 {
+    using Models;
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
@@ -9,7 +11,7 @@ namespace Garage_2._0.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(Garage_2._0.DAL.Garage_2_0_Context context)
@@ -27,6 +29,15 @@ namespace Garage_2._0.Migrations
             //    );
             //
 
+            context.Vehicles.AddRange(new List<Vehicle> {
+                new Vehicle { Id = 1, RegNr = "PPA434", VehicleTypeName = VehicleTypeName.MiniBus, Color = "Black", ParkingLotNo = "A1", VehicleLength = 2990, ParkingStartTime = DateTime.Now, NoOfTyres = 4, Model = "V6", Fabricate = "Volvo" },
+                new Vehicle { Id = 2, RegNr = "QGK443", VehicleTypeName = VehicleTypeName.Motorcycle, Color = "Blue", ParkingLotNo = "A5", VehicleLength = 7876,  ParkingStartTime = DateTime.Now, NoOfTyres = 2, Model = "V6", Fabricate = "Honda" },
+                new Vehicle { Id = 3, RegNr = "RPG454", VehicleTypeName = VehicleTypeName.Kombi, Color = "Pink", ParkingLotNo = "A7", VehicleLength = 3790,  ParkingStartTime = DateTime.Now,  NoOfTyres = 4, Model = "V6", Fabricate = "Mazda" },
+                new Vehicle { Id = 4, RegNr = "TFK466", VehicleTypeName = VehicleTypeName.Sedan, Color = "Red", ParkingLotNo = "A9", VehicleLength = 2874, ParkingStartTime = DateTime.Now,  NoOfTyres = 4, Model = "V6", Fabricate = "Nissan" },
+                new Vehicle { Id = 5, RegNr = "MPJ748", VehicleTypeName = VehicleTypeName.Vagen, Color = "White", ParkingLotNo = "A3", VehicleLength = 4765,  ParkingStartTime = DateTime.Now,  NoOfTyres = 4, Model = "V6", Fabricate = "BMW" },
+                new Vehicle { Id = 6, RegNr = "ZWK844", VehicleTypeName = VehicleTypeName.Pickup, Color = "Silver", ParkingLotNo = "A7", VehicleLength = 6743, ParkingStartTime = DateTime.Now, NoOfTyres = 4, Model = "V6", Fabricate = "Scania" },
+
+            });
         }
     }
 }

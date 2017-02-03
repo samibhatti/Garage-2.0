@@ -1,0 +1,82 @@
+﻿@model Garage_2._0.Models.ViewModels.VehicleVoucherViewModel
+@{
+    ViewBag.Title = "Voucher";
+}
+
+<h2>Voucher @Html.DisplayFor(m => m.VoucherID)</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RegNr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegNr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehicleTypeName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Fabricate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fabricate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ParkingLotNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParkingLotNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ParkingStartTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParkingStartTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ParkingStopTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParkingStopTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Duration)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Duration)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentAmount)
+        </dt>
+        <dd>
+            @string.Format("{0:C}", Model.PaymentAmount)
+        </dd>
+        <dt>
+            <a href="javascript:history.back()">Back to Check-Out</a>
+        </dt>
+    </dl>
+</div>
