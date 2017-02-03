@@ -88,6 +88,14 @@ namespace Garage_2._0.Controllers
         public ActionResult Create()
         {
             var vehicles = db.Vehicles.ToList();
+
+            int count = parkingHelper.getFreeParkingLots(vehicles).Count();
+
+            if (count == 0)
+            {
+                return RedirectToAction("Error");
+            }
+
             VehicleCreateViewModel model = new VehicleCreateViewModel();
             model.Freeparking = parkingHelper.getFreeParkingLots(vehicles);
             return View(model);
@@ -100,18 +108,21 @@ namespace Garage_2._0.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "RegNr,VehicleTypeName,ParkingLotNo,Color,NoOfTyres,FabricateModel,Fabricate")]VehicleCreateViewModel model)
         {
-            if (ModelState.IsValid)
-            {
-                model.ParkingStartTime = DateTime.Now;
-                VehicleCreateViewModel m = new VehicleCreateViewModel();
-                var vehicle = m.toEnity(model);
-                //vehicle.ParkingStopTime = DateTime.Now;
-                db.Vehicles.Add(vehicle);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+            
 
-            return View(model);
+            if (ModelState.IsValid)
+                {
+
+                    model.ParkingStartTime = DateTime.Now;
+                    VehicleCreateViewModel m = new VehicleCreateViewModel();
+                    var vehicle = m.toEnity(model);
+                    //vehicle.ParkingStopTime = DateTime.Now;
+                    db.Vehicles.Add(vehicle);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            
+                return View(model);
         }
 
         // GET: Vehicles/Edit/5
@@ -225,6 +236,13 @@ namespace Garage_2._0.Controllers
                 }
             }
             return View(model);
+        }
+
+        public ActionResult Error()
+        {
+            ViewBag.Message = "Important Message!!!";
+
+            return View();
         }
 
         protected override void Dispose(bool disposing)
