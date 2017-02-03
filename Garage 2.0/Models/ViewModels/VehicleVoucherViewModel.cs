@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Garage_2._0.Helpers;
 
 namespace Garage_2._0.Models.ViewModels
 {
@@ -10,7 +11,7 @@ namespace Garage_2._0.Models.ViewModels
         public int id { get; set; }
         public int VoucherID { get; set;}
         public string RegNr { get; set; }
-        public string VehicleTypeName { get; set; }
+        public VehicleTypeName VehicleTypeName { get; set; }
         public string Color { get; set; }
         public string ParkingLotNo { get; set; }
         public int VehicleLength { get; set; }
@@ -30,15 +31,6 @@ namespace Garage_2._0.Models.ViewModels
             return voucherID;
         }
 
-        public string duration(DateTime startTime)
-        {
-            int days = (DateTime.Now - startTime).Days;
-            int hours = (DateTime.Now - startTime).Hours;
-            int minuts = (DateTime.Now - startTime).Minutes;
-            string duration = days + " Days " + hours + " Hours " + minuts + " Minuts";
-            return duration;
-        }
-
         public VehicleVoucherViewModel toViewModel(Vehicle vehicle)
         {
             VehicleVoucherViewModel model = new VehicleVoucherViewModel
@@ -55,19 +47,11 @@ namespace Garage_2._0.Models.ViewModels
                 NoOfTyres = vehicle.NoOfTyres,
                 Model = vehicle.Model,
                 Fabricate = vehicle.Fabricate,
-                Duration = duration(vehicle.ParkingStartTime),
-                PaymentAmount = paymentAmount(vehicle.ParkingStartTime)
+                Duration = parkingHelper.getDuration(vehicle.ParkingStartTime),
+                PaymentAmount = parkingHelper.getCost(vehicle.ParkingStartTime)
             };
             return model;
         }
 
-        public int paymentAmount(DateTime startTime)
-        {
-            int days = (DateTime.Now - startTime).Days;
-            int hours = (DateTime.Now - startTime).Hours;
-            int minuts = (DateTime.Now - startTime).Minutes;
-            int amount = (days * 24 * 60) + (hours * 60) + (minuts * 1);
-            return amount;
-        }
     }
 }

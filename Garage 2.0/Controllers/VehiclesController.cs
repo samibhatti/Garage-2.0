@@ -10,22 +10,29 @@ using Garage_2._0.DAL;
 using Garage_2._0.Models;
 using System.ComponentModel;
 using Garage_2._0.Models.ViewModels;
+using log4net;
 
 namespace Garage_2._0.Controllers
 {
     public class VehiclesController : Controller
     {
         private Garage_2_0_Context db = new Garage_2_0_Context();
-
+        private static log4net.ILog Log { get; set; }
+        ILog log = log4net.LogManager.GetLogger(typeof(VehiclesController));
 
         // GET: Vehicles
         public ActionResult Index(string orderBy, string searchTerm)
         {
+            //log.Debug("Debug message");
+            //log.Warn("Warn message");
+            //log.Error("Error message");
+            //log.Fatal("Fatal message");
+
             IQueryable<Vehicle> query = db.Vehicles;
             if(!string.IsNullOrEmpty(searchTerm))
             {
                 ViewBag.SearchTerm = searchTerm;
-                query = query.Where(x => x.RegNr == searchTerm || x.Fabricate == searchTerm || x.Model == searchTerm || x.ParkingLotNo == searchTerm);
+                query = query.Where(x => x.RegNr.Contains(searchTerm) || x.Fabricate.Contains(searchTerm) || x.Model.Contains(searchTerm) || x.ParkingLotNo.Contains(searchTerm));
             }
             if(!string.IsNullOrEmpty(orderBy))
             {
@@ -47,19 +54,17 @@ namespace Garage_2._0.Controllers
                         query = query.OrderBy(x => x.ParkingLotNo);
                         break;
 
-                    case "ParkingStartTime":
+                    default:
                         query = query.OrderBy(x => x.ParkingStartTime);
                         break;
-
-                    //default:
-                    //    query = query.OrderBy(x => x.ParkingStopTime);
-                    //    break;
                 }
+               
             }
+            
 
             VehicleIndexViewModel model = new VehicleIndexViewModel();
             model.Vehicles = model.toList(query.ToList());
-
+            log.Error(query + "Info message");
             return View(model);
         }
 
@@ -124,7 +129,7 @@ namespace Garage_2._0.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,RegNr,VehicleTypeName,Color,ParkingLotNo,VehicleLength,NumberOfSeats,ParkingStartTime,ParingStopTime,NoOfTyres,Model,Fabricate")] Vehicle vehicle)
+        public ActionResult Edit([Bind(Include = "Id,RegNr,VehicleTypeName,Color,ParkingLotNo,ParkingStartTime,Model,Fabricate")] Vehicle vehicle)
         {
             if (ModelState.IsValid)
             {
@@ -178,5 +183,6 @@ namespace Garage_2._0.Controllers
             }
             base.Dispose(disposing);
         }
+        
     }
 }
