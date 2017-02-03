@@ -5,10 +5,13 @@
 <div class="jumbotron">
     <h1>Garage 2.0</h1>
     <p class="lead">Garage is a free web application for Managing Garage.</p>
-    <p><a href="Vehicles/" class="btn btn-primary btn-lg">Check-In&raquo;</a>
-    <a href="Vehicles/" class="btn btn-primary btn-lg">Check-Out&raquo;</a></p>
+    
     @using (Html.BeginForm("", "Vehicles/Index", "Vehicles"))
     {
+        <p>
+            <a href="Vehicles/Create" class="btn btn-primary btn-lg">Check-In&raquo;</a>
+            <a href="Vehicles/" class="btn btn-primary btn-lg">Check-Out&raquo;</a>
+        </p>
         <input type="search" class="form-control text-box single-line" placeholder="Regnr, Fabricate, Model, ParkingLot" name="searchTerm" />
         <input type="submit" class="btn btn-default" value="Search"  />
     }
