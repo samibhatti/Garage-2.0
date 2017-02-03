@@ -139,6 +139,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\parkingHelper.cs" />
+    <Compile Include="Migrations\201702030527314_Initial2.cs" />
+    <Compile Include="Migrations\201702030527314_Initial2.Designer.cs">
+      <DependentUpon>201702030527314_Initial2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201702081455084_Initial.cs" />
     <Compile Include="Migrations\201702081455084_Initial.Designer.cs">
       <DependentUpon>201702081455084_Initial.cs</DependentUpon>
@@ -253,6 +257,9 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201702030527314_Initial2.resx">
+      <DependentUpon>201702030527314_Initial2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702081455084_Initial.resx">
       <DependentUpon>201702081455084_Initial.cs</DependentUpon>
     </EmbeddedResource>
