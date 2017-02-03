@@ -133,25 +133,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201702022115345_Initial.cs" />
-    <Compile Include="Migrations\201702022115345_Initial.Designer.cs">
-      <DependentUpon>201702022115345_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702091348462_Init.cs" />
-    <Compile Include="Migrations\201702091348462_Init.Designer.cs">
-      <DependentUpon>201702091348462_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702091413264_Init1.cs" />
-    <Compile Include="Migrations\201702091413264_Init1.Designer.cs">
-      <DependentUpon>201702091413264_Init1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702091439250_Init2.cs" />
-    <Compile Include="Migrations\201702091439250_Init2.Designer.cs">
-      <DependentUpon>201702091439250_Init2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702091557201_Init3.cs" />
-    <Compile Include="Migrations\201702091557201_Init3.Designer.cs">
-      <DependentUpon>201702091557201_Init3.cs</DependentUpon>
+    <Compile Include="Migrations\201702022153291_Initial.cs" />
+    <Compile Include="Migrations\201702022153291_Initial.Designer.cs">
+      <DependentUpon>201702022153291_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Vehicle.cs" />
@@ -199,7 +183,9 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -231,20 +217,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201702022115345_Initial.resx">
-      <DependentUpon>201702022115345_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702091348462_Init.resx">
-      <DependentUpon>201702091348462_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702091413264_Init1.resx">
-      <DependentUpon>201702091413264_Init1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702091439250_Init2.resx">
-      <DependentUpon>201702091439250_Init2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702091557201_Init3.resx">
-      <DependentUpon>201702091557201_Init3.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201702022153291_Initial.resx">
+      <DependentUpon>201702022153291_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
