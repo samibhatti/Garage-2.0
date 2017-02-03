@@ -12,17 +12,11 @@ namespace Garage_2._0.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Vehicle
+    public partial class C__MigrationHistory
     {
-        public int Id { get; set; }
-        public string RegNr { get; set; }
-        public int VehicleTypeName { get; set; }
-        public string Color { get; set; }
-        public string ParkingLotNo { get; set; }
-        public int VehicleLength { get; set; }
-        public System.DateTime ParkingStartTime { get; set; }
-        public int NoOfTyres { get; set; }
-        public string Model { get; set; }
-        public string Fabricate { get; set; }
+        public string MigrationId { get; set; }
+        public string ContextKey { get; set; }
+        public byte[] Model { get; set; }
+        public string ProductVersion { get; set; }
     }
 }
