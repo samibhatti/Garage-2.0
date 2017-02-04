@@ -24,49 +24,50 @@ namespace Garage_2._0.Controllers
         // GET: Vehicles
         public ActionResult Index(string orderBy, string searchTerm)
         {
-            //log.Debug("Debug message");
-            //log.Warn("Warn message");
-            //log.Error("Error message");
-            //log.Fatal("Fatal message");
-
             IQueryable<Vehicle> query = db.Vehicles;
-            if(!string.IsNullOrEmpty(searchTerm))
+            if (!string.IsNullOrEmpty(searchTerm))
             {
                 ViewBag.SearchTerm = searchTerm;
-                query = query.Where(x => x.RegNr.Contains(searchTerm) || x.Brand.Contains(searchTerm) || x.Model.Contains(searchTerm) || x.ParkingLotNumber.Contains(searchTerm));
+                query = query.Where(x => x.vehicleType.Name.Contains(searchTerm) || x.RegNr.Contains(searchTerm) || x.Brand.Contains(searchTerm) || x.Modell.Contains(searchTerm) || x.ParkingLotNumber.Contains(searchTerm));
             }
-            if(!string.IsNullOrEmpty(orderBy))
+            if (!string.IsNullOrEmpty(orderBy))
             {
-                switch(orderBy.ToLower())
+                switch (orderBy.ToLower())
                 {
+                    case "memberid":
+                        query = query.OrderBy(x => x.MemberId);
+                        break;
                     case "regnr":
                         query = query.OrderBy(x => x.RegNr);
                         break;
-
-                    case "fabricate":
+                    case "brand":
                         query = query.OrderBy(x => x.Brand);
                         break;
-
                     case "model":
-                        query = query.OrderBy(x => x.Model);
+                        query = query.OrderBy(x => x.Modell);
                         break;
-
-                    case "parkinglotno":
+                    case "parkinglotnumber":
                         query = query.OrderBy(x => x.ParkingLotNumber);
                         break;
-
+                    case "vehicletypeid":
+                        query = query.OrderBy(x => x.VehicleTypeId);
+                        break;
                     default:
                         query = query.OrderBy(x => x.ParkingStartTime);
                         break;
                 }
-               
             }
-            
 
-            VehicleIndexViewModel model = new VehicleIndexViewModel();
-            model.Vehicles = model.toList(query.ToList());
+            List<VehicleIndexViewModel> indexViewModel = new List<VehicleIndexViewModel>();
+            foreach (var item in query)
+            {
+                VehicleIndexViewModel elem = new VehicleIndexViewModel(item.Id, item.RegNr, item.vehicleType.Id, item.ParkingLotNumber,
+                    item.ParkingStartTime, item.Modell, item.Brand, item.MemberId);
+                indexViewModel.Add(elem);
+            }
+
             log.Error(query + "Info message");
-            return View(model);
+            return View(indexViewModel);
         }
 
         // GET: Vehicles/Details/5
@@ -76,12 +77,21 @@ namespace Garage_2._0.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Vehicle vehicle = db.Vehicles.Find(id);
             if (vehicle == null)
             {
                 return HttpNotFound();
             }
-            return View(vehicle);
+
+            var member = db.Members.Find(vehicle.MemberId);
+            var detailViewModel = new VehicleDetailViewModel
+            {
+                Vehicle = vehicle,
+                Member = member,
+            };
+
+            return View(detailViewModel);
         }
 
         public ActionResult ParkingDetails(int id)
@@ -94,7 +104,6 @@ namespace Garage_2._0.Controllers
         public ActionResult Create()
         {
             var vehicles = db.Vehicles.ToList();
-
             int count = ParkingHelper.GetFreeParkingLots(vehicles).Count();
 
             if (count == 0)
@@ -102,9 +111,14 @@ namespace Garage_2._0.Controllers
                 return RedirectToAction("Error");
             }
 
-            VehicleCreateViewModel model = new VehicleCreateViewModel();
-            model.Freeparking = ParkingHelper.GetFreeParkingLots(vehicles);
-            return View(model);
+            var createViewModel = new VehicleCreateViewModel
+            {
+                FreeParking = new SelectList(ParkingHelper.GetFreeParkingLots(vehicles)),
+                VehicleTypeList = new SelectList(db.VehicleTypes.ToList(), "Id", "Name"),
+                MemberList = new SelectList(db.Members.ToList(), "MemberId","FullName"), //We dont really want to do this, but this is an experiment
+            };
+
+            return View(createViewModel);
         }
 
         // POST: Vehicles/Create
@@ -112,23 +126,31 @@ namespace Garage_2._0.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RegNr,VehicleTypeName,ParkingLotNo,Color,NoOfTyres,FabricateModel,Fabricate")]VehicleCreateViewModel model)
+        // "MemberId,ParkingLotNumber,RegNr,VehicleTypeId,Color,NumberOfTyres,Model,Brand"
+        public ActionResult Create([Bind(Include = "MemberId, ParkingLotNumber,RegNr,VehicleTypeId,Color,NumberOfTyres,VModel,Brand")] VehicleCreateViewModel model)
         {
-            
-
-            if (ModelState.IsValid)
+                if (ModelState.IsValid)
                 {
+                    var vehicle = new Vehicle
+                    {
+                        Id = model.Id,
+                        MemberId = model.MemberId,
+                        ParkingLotNumber = model.ParkingLotNumber,
+                        RegNr = model.RegNr,
+                        VehicleTypeId = model.VehicleTypeId,
+                        Color = model.Color,
+                        NumberOfTyres = model.NumberOfTyres,
+                        Modell = model.VModel,
+                        Brand = model.Brand,
+                        ParkingStartTime = DateTime.Now,
+                    };
 
-                    model.ParkingStartTime = DateTime.Now;
-                    VehicleCreateViewModel m = new VehicleCreateViewModel();
-                    var vehicle = m.toEnity(model);
-                    //vehicle.ParkingStopTime = DateTime.Now;
                     db.Vehicles.Add(vehicle);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
-            
-                return View(model);
+
+            return View(model);
         }
 
         // GET: Vehicles/Edit/5
@@ -143,7 +165,14 @@ namespace Garage_2._0.Controllers
             {
                 return HttpNotFound();
             }
-            return View(vehicle);
+
+            var editViewModel = new VehicleEditViewModel
+            {
+                Vehicle = vehicle,
+                VehicleTypeList = new SelectList(db.VehicleTypes.ToList(), "Id", "Name"),
+            };
+
+            return View(editViewModel);
         }
 
         // POST: Vehicles/Edit/5
@@ -151,8 +180,9 @@ namespace Garage_2._0.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,RegNr,VehicleTypeName,Color,ParkingLotNo,ParkingStartTime,Model,Fabricate")] Vehicle vehicle)
+        public ActionResult Edit(/*[Bind(Include = "Id,RegNr,VehicleTypeId,Color,ParkingLotNumber,Model,Brand")]*/ VehicleEditViewModel editModel)
         {
+            var vehicle = editModel.Vehicle;
             if (ModelState.IsValid)
             {
                 db.Entry(vehicle).State = EntityState.Modified;
@@ -204,12 +234,7 @@ namespace Garage_2._0.Controllers
             model.ParkingInfo = ParkingHelper.GetParkingLots(allVehicles);
             model.NumberOfTyres = allVehicles.Sum(x => x.NumberOfTyres);
             model.TotalVehicle = allVehicles.Count();
-            //model.Kombi = allVehicles.Where(x => x.VehicleTypeName.ToString().ToLower() == "kombi").Count();
-            //model.MiniBus = allVehicles.Where(x => x.VehicleTypeName.ToString().ToLower() == "minibus").Count();
-            //model.MotorCycle = allVehicles.Where(x => x.VehicleTypeName.ToString().ToLower() == "motorcycle").Count();
-            //model.Pickup = allVehicles.Where(x => x.VehicleTypeName.ToString().ToLower() == "pickup").Count();
-            //model.Sedan = allVehicles.Where(x => x.VehicleTypeName.ToString().ToLower() == "sedan").Count();
-            //model.Vagon = allVehicles.Where(x => x.VehicleTypeName.ToString().ToLower() == "vagen").Count();
+
             foreach (var vehicle in allVehicles)
             {
                 model.CostToThisMoment = model.CostToThisMoment + ParkingHelper.GetCost(vehicle.ParkingStartTime);
@@ -232,6 +257,5 @@ namespace Garage_2._0.Controllers
             }
             base.Dispose(disposing);
         }
-        
     }
 }

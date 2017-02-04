@@ -20,13 +20,11 @@ namespace Garage_2._0.Controllers
         {
             count = ParkingHelper.GetFreeParkingLots(db.Vehicles.ToList()).Count();
 
-            if (count == 0 ) {
-
+            if (count == 0 )
                 ViewBag.parkingStatus = "Full";
-            } else
-            {
+            else
                 ViewBag.parkingStatus = count.ToString();
-            }
+
             return View();
         }
 

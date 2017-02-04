@@ -21,8 +21,7 @@ namespace Garage_2._0.DAL
         }
 
         public DbSet<Member> Members { get; set; }
-        public DbSet<Vehicle> Vehicles {get;set;}
+        public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<VehicleType> VehicleTypes { get; set; }
-
     }
 }
