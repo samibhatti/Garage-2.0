@@ -28,19 +28,17 @@ namespace Garage_2._0.Models.ViewModels
         {
             VehicleDeleteViewModel model = new VehicleDeleteViewModel
             {
-                id = vehicle.Id,
                 RegNr = vehicle.RegNr,
                 VehicleTypeName = VehicleTypeName,
                 Color = vehicle.Color,
-                ParkingLotNo = vehicle.ParkingLotNo,
-                VehicleLength = vehicle.VehicleLength,
+                ParkingLotNo = vehicle.ParkingLotNumber,
                 ParkingStartTime = vehicle.ParkingStartTime,
                 ParkingStopTime = DateTime.Now,
-                NoOfTyres = vehicle.NoOfTyres,
+                NoOfTyres = vehicle.NumberOfTyres,
                 Model = vehicle.Model,
-                Fabricate = vehicle.Fabricate,
-                Duration = parkingHelper.getDuration(vehicle.ParkingStartTime),
-                PaymentAmount = parkingHelper.getCost(vehicle.ParkingStartTime)
+                Fabricate = vehicle.Brand,
+                Duration = ParkingHelper.GetDuration(vehicle.ParkingStartTime),
+                PaymentAmount = ParkingHelper.GetCost(vehicle.ParkingStartTime)
             };
             return model;
         }

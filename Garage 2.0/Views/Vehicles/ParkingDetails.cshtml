@@ -1,11 +1,5 @@
 ﻿@model Garage_2._0.Models.Vehicle
 
-@{
-    ViewBag.Title = "Details";
-}
-
-<h2>Details</h2>
-
 <div>
     <h4>Vehicle</h4>
     <hr />
@@ -19,14 +13,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.VehicleType)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.VehicleType)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.Color)
         </dt>
 
@@ -35,11 +21,19 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ParkingLotNumber)
+            @Html.DisplayNameFor(model => model.ParkingLotNo)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ParkingLotNumber)
+            @Html.DisplayFor(model => model.ParkingLotNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleLength)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehicleLength)
         </dd>
 
         <dt>
@@ -51,11 +45,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.NumberOfTyres)
+            @Html.DisplayNameFor(model => model.NoOfTyres)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.NumberOfTyres)
+            @Html.DisplayFor(model => model.NoOfTyres)
         </dd>
 
         <dt>
@@ -67,16 +61,17 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Brand)
+            @Html.DisplayNameFor(model => model.Fabricate)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Brand)
+            @Html.DisplayFor(model => model.Fabricate)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.RegNr }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @*@Html.ActionLink("Back to List", "Index")*@
+    <a onclick="closeInformation()">Stäng</a>
 </p>

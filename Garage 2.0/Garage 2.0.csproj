@@ -134,23 +134,20 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\ValidateController.cs" />
-    <Compile Include="Models\Vehicle.cs">
-      <DependentUpon>GarageDBModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="DAL\GarageContextInitializer.cs" />
+    <Compile Include="DAL\Garage_2_5_Context.cs" />
+    <Compile Include="Models\Member.cs" />
+    <Compile Include="Models\Vehicle.cs" />
+    <Compile Include="Models\VehicleType.cs" />
     <Compile Include="Models\ViewModels\VehicleInformationViewModel.cs" />
     <Compile Include="Controllers\VehiclesController.cs" />
-    <Compile Include="DAL\Garage_2_0_Context.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\parkingHelper.cs" />
-    <Compile Include="Helpers\parkingsLots.cs" />
-    <Compile Include="Migrations\201702031007370_Initial.cs" />
-    <Compile Include="Migrations\201702031007370_Initial.Designer.cs">
-      <DependentUpon>201702031007370_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Helpers\ParkingHelper.cs" />
+    <Compile Include="Helpers\ParkingsLots.cs" />
     <Compile Include="Enum\VehicleTypeName.cs" />
     <Compile Include="Models\ViewModels\VehicleCreateViewModel.cs" />
     <Compile Include="Models\ViewModels\VehicleDeleteViewModel.cs" />
@@ -167,11 +164,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\GarageDBModel.tt">
-      <DependentUpon>GarageDBModel.edmx</DependentUpon>
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>GarageDBModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -227,6 +219,11 @@
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Views\Vehicles\Voucher.cshtml" />
     <Content Include="Views\Vehicles\Error.cshtml" />
+    <Content Include="Views\Members\Create.cshtml" />
+    <Content Include="Views\Members\Delete.cshtml" />
+    <Content Include="Views\Members\Details.cshtml" />
+    <Content Include="Views\Members\Edit.cshtml" />
+    <Content Include="Views\Members\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -237,18 +234,7 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201702031007370_Initial.resx">
-      <DependentUpon>201702031007370_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="Models\GarageDBModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>GarageDBModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

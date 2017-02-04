@@ -10,7 +10,7 @@ namespace Garage_2._0.Controllers
 {
     public class ValidateController : Controller
     {
-        private Garage_2_0_Context db = new Garage_2_0_Context();
+        private Garage_2_5_Context db = new Garage_2_5_Context();
 
 
         public JsonResult RegNr(string RegNr)
@@ -25,7 +25,7 @@ namespace Garage_2._0.Controllers
 
         public JsonResult checkParkingLotNr(string ParkingLotNo)
         {
-            var check = db.Vehicles.Where(x => x.ParkingLotNo == ParkingLotNo).FirstOrDefault();
+            var check = db.Vehicles.Where(x => x.ParkingLotNumber == ParkingLotNo).FirstOrDefault();
             if (check == null)
             {
                 return Json(true, JsonRequestBehavior.AllowGet);
@@ -35,7 +35,7 @@ namespace Garage_2._0.Controllers
 
         public JsonResult checkNumberOfTyres(int NoOfTyres)
         {
-            bool check = parkingHelper.accptedTyres.Contains(NoOfTyres);
+            bool check = ParkingHelper.accptedTyres.Contains(NoOfTyres);
             if (check)
             {
                 return Json(true, JsonRequestBehavior.AllowGet);
