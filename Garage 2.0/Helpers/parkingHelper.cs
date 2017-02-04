@@ -9,8 +9,8 @@ namespace Garage_2._0.Helpers
 {
     public static class ParkingHelper
     {
-        public static int numberOfLots = 30;
-        public static int pricePerHour = 60;
+        public static int NumberOfLots = 30;
+        public static int PricePerHour = 60;
         public static List<int> accptedTyres = new List<int>() { 2, 4 };
 
         public static string GetDuration(DateTime startTime)
@@ -27,13 +27,13 @@ namespace Garage_2._0.Helpers
             int days = (DateTime.Now - startTime).Days;
             int hours = (DateTime.Now - startTime).Hours;
             int minuts = (DateTime.Now - startTime).Minutes;
-            int priceDay = 24 * pricePerHour;
+            int priceDay = 24 * PricePerHour;
             int minutsCost = 0;
             if(minuts != 0)
             {
-                minutsCost = (pricePerHour / minuts);
+                minutsCost = (PricePerHour / minuts);
             }
-            int amount = ((24 * pricePerHour) * days) + (hours * pricePerHour) + minutsCost;
+            int amount = ((24 * PricePerHour) * days) + (hours * PricePerHour) + minutsCost;
             return amount;
         }
 
@@ -57,7 +57,7 @@ namespace Garage_2._0.Helpers
                 if (parkingStatus.Contains(vehicle.ParkingLotNumber))
                 {
                     int i = parkingStatus.FindIndex(a => a.Equals(vehicle.ParkingLotNumber));
-                    parkingStatus[i] =  parkingStatus[i] + "<div title=/Vehicles/ParkingDetails/" + vehicle.RegNr + "><span class='regNr'> " + vehicle.RegNr + "</span></div><span class='tooltiptext'>" + vehicle.Brand + " " + vehicle.Model + "</br> " + vehicle.ParkingStartTime  + "</span>";
+                    parkingStatus[i] =  parkingStatus[i] + "<div title=/Vehicles/ParkingDetails/" + vehicle.RegNr + "><span class='regNr'> " + vehicle.RegNr + "</span></div><span class='tooltiptext'>" + vehicle.Brand + " " + vehicle.Modell + "</br> " + vehicle.ParkingStartTime  + "</span>";
                 }
             }
             return parkingStatus;
