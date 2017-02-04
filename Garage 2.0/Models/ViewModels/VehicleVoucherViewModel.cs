@@ -19,10 +19,12 @@ namespace Garage_2._0.Models.ViewModels
         public DateTime ParkingStartTime { get; set; }
         public DateTime ParkingStopTime { get; set; }
         public int NoOfTyres { get; set; }
-        public string Model { get; set; }
-        public string Fabricate { get; set; }
+        public string Modell { get; set; }
+        public string Brand { get; set; }
         public int PaymentAmount { get; set; }
         public string Duration { get; set; }
+        public string MemberName { get; private set; }
+        public int MemberId { get; private set; }
 
         public int voucherId()
         {
@@ -31,20 +33,22 @@ namespace Garage_2._0.Models.ViewModels
             return voucherID;
         }
 
-        public VehicleVoucherViewModel toViewModel(Vehicle vehicle)
+        public VehicleVoucherViewModel toViewModel(Vehicle vehicle, Member member)
         {
             VehicleVoucherViewModel model = new VehicleVoucherViewModel
             {
                 VoucherID = voucherId(),
+                MemberId = member.MemberId,
+                MemberName = member.FullName,
                 RegNr = vehicle.RegNr,
-                VehicleTypeName =VehicleTypeName,
+                VehicleTypeName = VehicleTypeName,
                 Color = vehicle.Color,
                 ParkingLotNo = vehicle.ParkingLotNumber,
                 ParkingStartTime = vehicle.ParkingStartTime,
                 ParkingStopTime = DateTime.Now,
                 NoOfTyres = vehicle.NumberOfTyres,
-                Model = vehicle.Modell,
-                Fabricate = vehicle.Brand,
+                Modell = vehicle.Modell,
+                Brand = vehicle.Brand,
                 Duration = ParkingHelper.GetDuration(vehicle.ParkingStartTime),
                 PaymentAmount = ParkingHelper.GetCost(vehicle.ParkingStartTime)
             };
