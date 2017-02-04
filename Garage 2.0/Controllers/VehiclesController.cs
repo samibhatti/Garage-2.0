@@ -221,10 +221,13 @@ namespace Garage_2._0.Controllers
 
         public ActionResult Voucher(int id)
         {
-            VehicleVoucherViewModel vehicle = new VehicleVoucherViewModel();
-            vehicle = vehicle.toViewModel(db.Vehicles.Find(id));
+            VehicleVoucherViewModel voucherView = new VehicleVoucherViewModel();
+            //vehicle = vehicle.toViewModel(db.Vehicles.Find(id));
+            Vehicle vehicle = db.Vehicles.Find(id);
+            Member member = db.Members.Find(id);
+            voucherView = voucherView.toViewModel(vehicle, member);
 
-            return View(vehicle);
+            return View(voucherView);
         }
 
         public ActionResult Information()
