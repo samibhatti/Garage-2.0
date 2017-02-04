@@ -1,6 +1,7 @@
 ﻿@model Garage_2._0.Models.ViewModels.VehicleVoucherViewModel
 @{
     ViewBag.Title = "Voucher";
+    
 }
 
 <h2>Voucher @Html.DisplayFor(m => m.VoucherID)</h2>
@@ -8,6 +9,21 @@
 <div>
     <hr />
     <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MemberId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MemberId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MemberName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MemberName)
+        </dd>
         <dt>
             @Html.DisplayNameFor(model => model.RegNr)
         </dt>
@@ -24,19 +40,19 @@
             @Html.DisplayFor(model => model.VehicleTypeName)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Fabricate)
+            @Html.DisplayNameFor(model => model.Brand)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Fabricate)
+            @Html.DisplayFor(model => model.Brand)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Model)
+            @Html.DisplayNameFor(model => model.Modell)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Model)
+            @Html.DisplayFor(model => model.Modell)
         </dd>
 
         <dt>
