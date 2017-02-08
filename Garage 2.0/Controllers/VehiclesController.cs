@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using Garage_2._0.DAL;
 using Garage_2._0.Models;
+using System.ComponentModel;
+using Garage_2._0.Models.ViewModels;
 
 namespace Garage_2._0.Controllers
 {
@@ -18,7 +20,11 @@ namespace Garage_2._0.Controllers
         // GET: Vehicles
         public ActionResult Index()
         {
-            return View(db.Vehicles.ToList());
+            List<Vehicle> vehicle = db.Vehicles.ToList();
+            VehicleIndexViewModel model = new VehicleIndexViewModel();
+            model.Vehicles = model.toList(vehicle);
+
+            return View(model);
         }
 
         // GET: Vehicles/Details/5
@@ -114,6 +120,17 @@ namespace Garage_2._0.Controllers
             db.Vehicles.Remove(vehicle);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+
+        public enum Cars
+        {
+            [Description("Bil")]
+            Bil,
+            [Description("Buss")]
+            Buss,
+            [Description("Motorcykel")]
+            Motorcykel
         }
 
         protected override void Dispose(bool disposing)

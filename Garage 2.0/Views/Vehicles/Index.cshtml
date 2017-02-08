@@ -1,13 +1,13 @@
-﻿@model IEnumerable<Garage_2._0.Models.Vehicle>
+﻿@model Garage_2._0.Models.ViewModels.VehicleIndexViewModel
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Garage Index";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Parkera bil", "Create")
 </p>
 <table class="table">
     <tr>
@@ -15,19 +15,13 @@
             @Html.DisplayNameFor(model => model.RegNr)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.VehicleTypeName)
+            @Html.DisplayNameFor(model => model.Fabricate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Color)
+            @Html.DisplayNameFor(model => model.Model)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ParkingLotNo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VehicleLength)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumberOfSeats)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ParkingStartTime)
@@ -35,37 +29,25 @@
         <th>
             @Html.DisplayNameFor(model => model.ParingStopTime)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NoOfTyres)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Model)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Fabricate)
-        </th>
+ 
+
+
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach(var item in Model.Vehicles) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.RegNr)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.VehicleTypeName)
+            @Html.DisplayFor(modelItem => item.Fabricate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Color)
+            @Html.DisplayFor(modelItem => item.Model)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ParkingLotNo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.VehicleLength)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumberOfSeats)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ParkingStartTime)
@@ -73,19 +55,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.ParingStopTime)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NoOfTyres)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Model)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fabricate)
-        </td>
+
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Checka ut bil ", "Delete", new { id=item.Id })
         </td>
     </tr>
 }
