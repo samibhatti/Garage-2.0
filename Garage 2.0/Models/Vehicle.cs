@@ -15,7 +15,7 @@ namespace Garage_2._0.Models
         public  int VehicleLength { get; set; }
         public  int NumberOfSeats { get; set; }
         public DateTime ParkingStartTime { get; set; }
-        public DateTime ParingStopTime { get; set; }
+        public DateTime ParkingStopTime { get; set; }
         public int NoOfTyres { get; set; }
         public string Model { get; set; }
         public string Fabricate { get; set; }
