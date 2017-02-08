@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Garage_2._0.Models.Vehicle>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RegNr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Color)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ParkingLotNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleLength)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberOfSeats)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ParkingStartTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ParingStopTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoOfTyres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fabricate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RegNr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VehicleTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Color)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParkingLotNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VehicleLength)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberOfSeats)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParkingStartTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParingStopTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoOfTyres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Model)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fabricate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
