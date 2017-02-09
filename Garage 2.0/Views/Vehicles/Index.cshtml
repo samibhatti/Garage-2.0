@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Check-In Vehicle", "Create")
 </p>
 <table class="table">
     <tr>
@@ -23,17 +23,9 @@
         <th>
             @Html.DisplayNameFor(model => model.ParkingLotNo)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VehicleLength)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumberOfSeats)
-        </th>
+       
         <th>
             @Html.DisplayNameFor(model => model.ParkingStartTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ParkingStopTime)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.NoOfTyres)
@@ -61,17 +53,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.ParkingLotNo)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.VehicleLength)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumberOfSeats)
-        </td>
+       
         <td>
             @Html.DisplayFor(modelItem => item.ParkingStartTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ParkingStopTime)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.NoOfTyres)

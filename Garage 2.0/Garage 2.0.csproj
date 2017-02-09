@@ -142,8 +142,21 @@
     <Compile Include="Migrations\201702081528515_Initial1.Designer.cs">
       <DependentUpon>201702081528515_Initial1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702091348462_Init.cs" />
+    <Compile Include="Migrations\201702091348462_Init.Designer.cs">
+      <DependentUpon>201702091348462_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702091413264_Init1.cs" />
+    <Compile Include="Migrations\201702091413264_Init1.Designer.cs">
+      <DependentUpon>201702091413264_Init1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702091439250_Init2.cs" />
+    <Compile Include="Migrations\201702091439250_Init2.Designer.cs">
+      <DependentUpon>201702091439250_Init2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Vehicle.cs" />
+    <Compile Include="Enum\VehicleTypeName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -186,6 +199,7 @@
     <Content Include="Views\Vehicles\Details.cshtml" />
     <Content Include="Views\Vehicles\Edit.cshtml" />
     <Content Include="Views\Vehicles\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplate\Enum.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -204,6 +218,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702081528515_Initial1.resx">
       <DependentUpon>201702081528515_Initial1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702091348462_Init.resx">
+      <DependentUpon>201702091348462_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702091413264_Init1.resx">
+      <DependentUpon>201702091413264_Init1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702091439250_Init2.resx">
+      <DependentUpon>201702091439250_Init2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

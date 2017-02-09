@@ -15,6 +15,7 @@ namespace Garage_2._0.Controllers
     {
         private Garage_2_0_Context db = new Garage_2_0_Context();
 
+
         // GET: Vehicles
         public ActionResult Index()
         {
@@ -47,10 +48,13 @@ namespace Garage_2._0.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,RegNr,VehicleTypeName,Color,ParkingLotNo,VehicleLength,NumberOfSeats,ParkingStartTime,ParingStopTime,NoOfTyres,Model,Fabricate")] Vehicle vehicle)
+        public ActionResult Create([Bind(Include = "Id,RegNr,VehicleTypeName,Color,ParkingLotNo,VehicleLength,NumberOfSeats,NoOfTyres,Model,Fabricate")] Vehicle vehicle)
         {
             if (ModelState.IsValid)
             {
+                
+                vehicle.ParkingStartTime = DateTime.Now;
+                //vehicle.ParkingStopTime = DateTime.Now;
                 db.Vehicles.Add(vehicle);
                 db.SaveChanges();
                 return RedirectToAction("Index");
