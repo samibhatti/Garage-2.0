@@ -47,12 +47,8 @@ namespace Garage_2._0.Controllers
                         query = query.OrderBy(x => x.ParkingLotNo);
                         break;
 
-                    case "ParkingStartTime":
-                        query = query.OrderBy(x => x.ParkingStartTime);
-                        break;
-
                     default:
-                        query = query.OrderBy(x => x.ParkingStopTime);
+                        query = query.OrderBy(x => x.ParkingStartTime);
                         break;
                 }
             }

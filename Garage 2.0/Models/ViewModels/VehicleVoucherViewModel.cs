@@ -10,7 +10,7 @@ namespace Garage_2._0.Models.ViewModels
         public int id { get; set; }
         public int VoucherID { get; set;}
         public string RegNr { get; set; }
-        public string VehicleTypeName { get; set; }
+        public VehicleTypeName VehicleTypeName { get; set; }
         public string Color { get; set; }
         public string ParkingLotNo { get; set; }
         public int VehicleLength { get; set; }
@@ -50,7 +50,6 @@ namespace Garage_2._0.Models.ViewModels
                 Color = vehicle.Color,
                 ParkingLotNo = vehicle.ParkingLotNo,
                 VehicleLength = vehicle.VehicleLength,
-                NumberOfSeats = vehicle.NumberOfSeats,
                 ParkingStartTime = vehicle.ParkingStartTime,
                 ParkingStopTime = DateTime.Now,
                 NoOfTyres = vehicle.NoOfTyres,

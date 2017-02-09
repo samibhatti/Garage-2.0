@@ -9,7 +9,7 @@ namespace Garage_2._0.Models.ViewModels
     {
         public int Id { get; set; }
         public string RegNr { get; set; }
-        public string VehicleTypeName { get; set; }
+        public VehicleTypeName VehicleTypeName { get; set; }
         public string ParkingLotNo { get; set; }
         public DateTime ParkingStartTime { get; set; }
         public string Duration { get; set; }

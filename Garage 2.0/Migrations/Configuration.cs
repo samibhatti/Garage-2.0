@@ -38,7 +38,6 @@ namespace Garage_2._0.Migrations
                 new Vehicle { Id = 6, RegNr = "ZWK844", VehicleTypeName = VehicleTypeName.Pickup, Color = "Silver", ParkingLotNo = "A7", VehicleLength = 6743, ParkingStartTime = DateTime.Parse("2017-02-07"), NoOfTyres = 4, Model = "V6", Fabricate = "Scania" },
 
             });
-
         }
     }
 }

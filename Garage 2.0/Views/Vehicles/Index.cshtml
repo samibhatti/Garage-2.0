@@ -8,7 +8,7 @@
 
 @using (Html.BeginForm())
 {
-        <input type="search" class="form-control text-box single-line"  placeholder="Search for Regnr, Fabricate, Model or ParkingLot" name="searchTerm" />
+        <input type="search" class="form-control text-box single-line"  placeholder="Regnr, Fabricate, Model, ParkingLot" name="searchTerm" />
         <input type="submit" class="btn btn-default" value="Search" />
         <input type="button" class="btn btn-default" value="Cancel Search" onclick="location.href='@Url.Action("Index")'" />
 }
