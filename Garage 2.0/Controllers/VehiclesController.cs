@@ -18,9 +18,45 @@ namespace Garage_2._0.Controllers
         private Garage_2_0_Context db = new Garage_2_0_Context();
 
         // GET: Vehicles
-        public ActionResult Index()
+        public ActionResult Index(string orderBy, string searchTerm)
         {
-            return View(db.Vehicles.ToList());
+            IQueryable<Vehicle> query = db.Vehicles;
+            if(!string.IsNullOrEmpty(searchTerm))
+            {
+                ViewBag.SearchTerm = searchTerm;
+                query = query.Where(x => x.RegNr == searchTerm || x.Fabricate == searchTerm || x.Model == searchTerm || x.ParkingLotNo == searchTerm);
+            }
+            if(!string.IsNullOrEmpty(orderBy))
+            {
+                switch(orderBy.ToLower())
+                {
+                    case "regnr":
+                        query = query.OrderBy(x => x.RegNr);
+                        break;
+
+                    case "fabricate":
+                        query = query.OrderBy(x => x.Fabricate);
+                        break;
+
+                    case "model":
+                        query = query.OrderBy(x => x.Model);
+                        break;
+
+                    case "parkingLotNo":
+                        query = query.OrderBy(x => x.ParkingLotNo);
+                        break;
+
+                    case "ParkingStartTime":
+                        query = query.OrderBy(x => x.ParkingStartTime);
+                        break;
+
+                    default:
+                        query = query.OrderBy(x => x.ParkingStopTime);
+                        break;
+                }
+            }
+
+            return View(query.ToList());
         }
 
         // GET: Vehicles/Details/5

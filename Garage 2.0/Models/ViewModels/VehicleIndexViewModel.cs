@@ -26,7 +26,7 @@ namespace Garage_2._0.Models.ViewModels
                 VehicleTypeName = vehicle.VehicleTypeName,
                 ParkingLotNo = vehicle.ParkingLotNo,
                 ParkingStartTime = vehicle.ParkingStartTime,
-                ParingStopTime = vehicle.ParingStopTime,
+                ParingStopTime = vehicle.ParkingStopTime,
                 Model = vehicle.Model,
                 Fabricate = vehicle.Fabricate
             };
