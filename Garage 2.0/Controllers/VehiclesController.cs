@@ -51,9 +51,9 @@ namespace Garage_2._0.Controllers
                         query = query.OrderBy(x => x.ParkingStartTime);
                         break;
 
-                    default:
-                        query = query.OrderBy(x => x.ParkingStopTime);
-                        break;
+                    //default:
+                    //    query = query.OrderBy(x => x.ParkingStopTime);
+                    //    break;
                 }
             }
 

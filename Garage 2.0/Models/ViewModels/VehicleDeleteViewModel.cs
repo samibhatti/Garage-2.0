@@ -38,11 +38,10 @@ namespace Garage_2._0.Models.ViewModels
             {
                 id = vehicle.Id,
                 RegNr = vehicle.RegNr,
-                VehicleTypeName = vehicle.VehicleTypeName,
+                VehicleTypeName = VehicleTypeName,
                 Color = vehicle.Color,
                 ParkingLotNo = vehicle.ParkingLotNo,
                 VehicleLength = vehicle.VehicleLength,
-                NumberOfSeats = vehicle.NumberOfSeats,
                 ParkingStartTime = vehicle.ParkingStartTime,
                 ParkingStopTime = DateTime.Now,
                 NoOfTyres = vehicle.NoOfTyres,

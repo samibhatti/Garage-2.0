@@ -23,7 +23,7 @@ namespace Garage_2._0.Models.ViewModels
             {
                 Id = vehicle.Id,
                 RegNr = vehicle.RegNr,
-                VehicleTypeName = vehicle.VehicleTypeName,
+                VehicleTypeName = VehicleTypeName,
                 ParkingLotNo = vehicle.ParkingLotNo,
                 ParkingStartTime = vehicle.ParkingStartTime,
                 Duration = duration(vehicle.ParkingStartTime),
