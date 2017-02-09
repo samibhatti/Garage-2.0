@@ -5,9 +5,10 @@ using System.Web;
 
 namespace Garage_2._0.Models.ViewModels
 {
-    public class VehicleDeleteViewModel
+    public class VehicleVoucherViewModel
     {
         public int id { get; set; }
+        public int VoucherID { get; set;}
         public string RegNr { get; set; }
         public string VehicleTypeName { get; set; }
         public string Color { get; set; }
@@ -20,8 +21,14 @@ namespace Garage_2._0.Models.ViewModels
         public string Model { get; set; }
         public string Fabricate { get; set; }
         public int PaymentAmount { get; set; }
-
         public string Duration { get; set; }
+
+        public int voucherId()
+        {
+            var random = new Random();
+            int voucherID = random.Next(1000, 20000);
+            return voucherID;
+        }
 
         public string duration(DateTime startTime)
         {
@@ -32,11 +39,12 @@ namespace Garage_2._0.Models.ViewModels
             return duration;
         }
 
-        public VehicleDeleteViewModel toViewModel(Vehicle vehicle)
+        public VehicleVoucherViewModel toViewModel(Vehicle vehicle)
         {
-            VehicleDeleteViewModel model = new VehicleDeleteViewModel
+            VehicleVoucherViewModel model = new VehicleVoucherViewModel
             {
                 id = vehicle.Id,
+                VoucherID = voucherId(),
                 RegNr = vehicle.RegNr,
                 VehicleTypeName = vehicle.VehicleTypeName,
                 Color = vehicle.Color,
@@ -54,7 +62,7 @@ namespace Garage_2._0.Models.ViewModels
             return model;
         }
 
-        public int  paymentAmount(DateTime startTime)
+        public int paymentAmount(DateTime startTime)
         {
             int days = (DateTime.Now - startTime).Days;
             int hours = (DateTime.Now - startTime).Hours;

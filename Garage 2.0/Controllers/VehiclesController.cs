@@ -155,6 +155,14 @@ namespace Garage_2._0.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Voucher(int id)
+        {
+            VehicleVoucherViewModel vehicle = new VehicleVoucherViewModel();
+            vehicle = vehicle.toViewModel(db.Vehicles.Find(id));
+
+            return View(vehicle);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
