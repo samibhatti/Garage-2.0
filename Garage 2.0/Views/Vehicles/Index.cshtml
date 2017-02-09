@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Garage_2._0.Models.Vehicle>
+﻿@model Garage_2._0.Models.ViewModels.VehicleIndexViewModel
 
 @{
     ViewBag.Title = "Garage Index";
@@ -33,7 +33,7 @@
                     @Html.ActionLink(Html.DisplayNameFor(m => m.ParkingStartTime).ToString(), "Index", new { orderBy = Html.DisplayNameFor(m => m.ParkingStartTime).ToString(), searchTerm = ViewBag.SearchTerm })
                 </th>
                 <th>
-                    @Html.ActionLink(Html.DisplayNameFor(m => m.ParkingStopTime).ToString(), "Index", new { orderBy = Html.DisplayNameFor(m => m.ParkingStopTime).ToString(), searchTerm = ViewBag.SearchTerm })
+                    @Html.ActionLink(Html.DisplayNameFor(m => m.Duration).ToString(), "Index", new { orderBy = Html.DisplayNameFor(m => m.Duration).ToString(), searchTerm = ViewBag.SearchTerm })
                 </th>
 
 
@@ -41,7 +41,7 @@
                 <th></th>
             </tr>
 
-            @foreach (var item in Model)
+            @foreach (var item in Model.Vehicles)
             {
                 <tr>
                     <td>
@@ -60,7 +60,7 @@
                         @Html.DisplayFor(modelItem => item.ParkingStartTime)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.ParkingStopTime)
+                        @Html.DisplayFor(modelItem => item.Duration)
                     </td>
 
                     <td>

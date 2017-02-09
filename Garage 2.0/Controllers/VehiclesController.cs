@@ -56,7 +56,10 @@ namespace Garage_2._0.Controllers
                 }
             }
 
-            return View(query.ToList());
+            VehicleIndexViewModel model = new VehicleIndexViewModel();
+            model.Vehicles = model.toList(query.ToList());
+
+            return View(model);
         }
 
         // GET: Vehicles/Details/5

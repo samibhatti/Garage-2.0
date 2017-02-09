@@ -12,7 +12,7 @@ namespace Garage_2._0.Models.ViewModels
         public string VehicleTypeName { get; set; }
         public string ParkingLotNo { get; set; }
         public DateTime ParkingStartTime { get; set; }
-        public DateTime ParingStopTime { get; set; }
+        public string Duration { get; set; }
         public string Model { get; set; }
         public string Fabricate { get; set; }
         public IList<VehicleIndexViewModel> Vehicles { get; set; }
@@ -26,11 +26,20 @@ namespace Garage_2._0.Models.ViewModels
                 VehicleTypeName = vehicle.VehicleTypeName,
                 ParkingLotNo = vehicle.ParkingLotNo,
                 ParkingStartTime = vehicle.ParkingStartTime,
-                ParingStopTime = vehicle.ParkingStopTime,
+                Duration = duration(vehicle.ParkingStartTime),
                 Model = vehicle.Model,
                 Fabricate = vehicle.Fabricate
             };
             return model;
+        }
+
+        public string duration(DateTime startTime)
+        {
+            int days = (DateTime.Now - startTime).Days;
+            int hours = (DateTime.Now - startTime).Hours;
+            int minuts = (DateTime.Now - startTime).Minutes;
+            string duration = days + " Days " + hours + " Hours " + minuts + " Minuts";
+            return duration;
         }
 
         public List<VehicleIndexViewModel> toList(List<Vehicle> vehicles)
