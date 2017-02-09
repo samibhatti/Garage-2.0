@@ -1,77 +1,74 @@
-﻿@model IEnumerable<Garage_2._0.Models.Vehicle>
+﻿@model Garage_2._0.Models.ViewModels.VehicleIndexViewModel
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Garage Index";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
-<p>
-    @Html.ActionLink("Check-In Vehicle", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RegNr)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VehicleTypeName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Color)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ParkingLotNo)
-        </th>
-       
-        <th>
-            @Html.DisplayNameFor(model => model.ParkingStartTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NoOfTyres)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Model)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Fabricate)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RegNr)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.VehicleTypeName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Color)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ParkingLotNo)
-        </td>
-       
-        <td>
-            @Html.DisplayFor(modelItem => item.ParkingStartTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NoOfTyres)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Model)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fabricate)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
+@using (Html.BeginForm())
+{
+        <input type="search" class="form-control text-box single-line"  placeholder="Search for Regnr, Fabricate, Model or ParkingLot" name="searchTerm" />
+        <input type="submit" class="btn btn-default" value="Search" />
+        <input type="button" class="btn btn-default" value="Cancel Search" onclick="location.href='@Url.Action("Index")'" />
 }
+<br />
+        <input type="button" class="btn btn-default" value="Park Car" onclick="location.href='@Url.Action("Create")'" />
 
-</table>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.ActionLink(Html.DisplayNameFor(m => m.RegNr).ToString(), "Index", new { orderBy = Html.DisplayNameFor(m => m.RegNr).ToString(), searchTerm = ViewBag.SearchTerm })
+                </th>
+                <th>
+                    @Html.ActionLink(Html.DisplayNameFor(m => m.Fabricate).ToString(), "Index", new { orderBy = Html.DisplayNameFor(m => m.Fabricate).ToString(), searchTerm = ViewBag.SearchTerm })
+                </th>
+                <th>
+                    @Html.ActionLink(Html.DisplayNameFor(m => m.Model).ToString(), "Index", new { orderBy = Html.DisplayNameFor(m => m.Model).ToString(), searchTerm = ViewBag.SearchTerm })
+                </th>
+                <th>
+                    @Html.ActionLink(Html.DisplayNameFor(m => m.ParkingLotNo).ToString(), "Index", new { orderBy = Html.DisplayNameFor(m => m.ParkingLotNo).ToString(), searchTerm = ViewBag.SearchTerm })
+                </th>
+                <th>
+                    @Html.ActionLink(Html.DisplayNameFor(m => m.ParkingStartTime).ToString(), "Index", new { orderBy = Html.DisplayNameFor(m => m.ParkingStartTime).ToString(), searchTerm = ViewBag.SearchTerm })
+                </th>
+                <th>
+                    @Html.ActionLink(Html.DisplayNameFor(m => m.Duration).ToString(), "Index", new { orderBy = Html.DisplayNameFor(m => m.Duration).ToString(), searchTerm = ViewBag.SearchTerm })
+                </th>
+
+
+
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model.Vehicles)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RegNr)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fabricate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Model)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ParkingLotNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ParkingStartTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Duration)
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                        @Html.ActionLink("Unpark car", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+
+        </table>

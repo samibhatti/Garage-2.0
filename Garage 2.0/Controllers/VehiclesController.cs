@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using Garage_2._0.DAL;
 using Garage_2._0.Models;
+using System.ComponentModel;
+using Garage_2._0.Models.ViewModels;
 
 namespace Garage_2._0.Controllers
 {
@@ -17,9 +19,48 @@ namespace Garage_2._0.Controllers
 
 
         // GET: Vehicles
-        public ActionResult Index()
+        public ActionResult Index(string orderBy, string searchTerm)
         {
-            return View(db.Vehicles.ToList());
+            IQueryable<Vehicle> query = db.Vehicles;
+            if(!string.IsNullOrEmpty(searchTerm))
+            {
+                ViewBag.SearchTerm = searchTerm;
+                query = query.Where(x => x.RegNr == searchTerm || x.Fabricate == searchTerm || x.Model == searchTerm || x.ParkingLotNo == searchTerm);
+            }
+            if(!string.IsNullOrEmpty(orderBy))
+            {
+                switch(orderBy.ToLower())
+                {
+                    case "regnr":
+                        query = query.OrderBy(x => x.RegNr);
+                        break;
+
+                    case "fabricate":
+                        query = query.OrderBy(x => x.Fabricate);
+                        break;
+
+                    case "model":
+                        query = query.OrderBy(x => x.Model);
+                        break;
+
+                    case "parkingLotNo":
+                        query = query.OrderBy(x => x.ParkingLotNo);
+                        break;
+
+                    case "ParkingStartTime":
+                        query = query.OrderBy(x => x.ParkingStartTime);
+                        break;
+
+                    default:
+                        query = query.OrderBy(x => x.ParkingStopTime);
+                        break;
+                }
+            }
+
+            VehicleIndexViewModel model = new VehicleIndexViewModel();
+            model.Vehicles = model.toList(query.ToList());
+
+            return View(model);
         }
 
         // GET: Vehicles/Details/5
@@ -101,7 +142,8 @@ namespace Garage_2._0.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Vehicle vehicle = db.Vehicles.Find(id);
+            VehicleDeleteViewModel vehicle = new VehicleDeleteViewModel();
+            vehicle = vehicle.toViewModel(db.Vehicles.Find(id));
             if (vehicle == null)
             {
                 return HttpNotFound();
@@ -118,6 +160,14 @@ namespace Garage_2._0.Controllers
             db.Vehicles.Remove(vehicle);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Voucher(int id)
+        {
+            VehicleVoucherViewModel vehicle = new VehicleVoucherViewModel();
+            vehicle = vehicle.toViewModel(db.Vehicles.Find(id));
+
+            return View(vehicle);
         }
 
         protected override void Dispose(bool disposing)
