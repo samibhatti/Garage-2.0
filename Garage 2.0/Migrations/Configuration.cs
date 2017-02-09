@@ -11,7 +11,7 @@ namespace Garage_2._0.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(Garage_2._0.DAL.Garage_2_0_Context context)
