@@ -1,4 +1,4 @@
-﻿@model Garage_2._0.Models.Vehicle
+﻿@model Garage_2._0.Models.ViewModels.VehicleDeleteViewModel
 
 @{
     ViewBag.Title = "Delete";
@@ -98,7 +98,18 @@
         <dd>
             @Html.DisplayFor(model => model.Fabricate)
         </dd>
-
+        <dt>
+            @Html.DisplayNameFor(model => model.Duration)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Duration)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentAmount)
+        </dt>
+        <dd>
+            @string.Format("{0:C}", Model.PaymentAmount)
+        </dd>
     </dl>
 
     @using (Html.BeginForm()) {

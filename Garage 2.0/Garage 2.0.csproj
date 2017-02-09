@@ -143,6 +143,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Vehicle.cs" />
+    <Compile Include="Models\ViewModels\VehicleDeleteViewModel.cs" />
     <Compile Include="Models\ViewModels\VehicleIndexViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

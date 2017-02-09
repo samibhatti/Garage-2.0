@@ -135,7 +135,8 @@ namespace Garage_2._0.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Vehicle vehicle = db.Vehicles.Find(id);
+            VehicleDeleteViewModel vehicle = new VehicleDeleteViewModel();
+            vehicle = vehicle.toViewModel(db.Vehicles.Find(id));
             if (vehicle == null)
             {
                 return HttpNotFound();
@@ -152,17 +153,6 @@ namespace Garage_2._0.Controllers
             db.Vehicles.Remove(vehicle);
             db.SaveChanges();
             return RedirectToAction("Index");
-        }
-
-
-        public enum Cars
-        {
-            [Description("Bil")]
-            Bil,
-            [Description("Buss")]
-            Buss,
-            [Description("Motorcykel")]
-            Motorcykel
         }
 
         protected override void Dispose(bool disposing)
