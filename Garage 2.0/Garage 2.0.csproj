@@ -153,6 +153,10 @@
     <Compile Include="Migrations\201702091439250_Init2.Designer.cs">
       <DependentUpon>201702091439250_Init2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702091557201_Init3.cs" />
+    <Compile Include="Migrations\201702091557201_Init3.Designer.cs">
+      <DependentUpon>201702091557201_Init3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Vehicle.cs" />
     <Compile Include="Enum\VehicleTypeName.cs" />
@@ -245,6 +249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702091439250_Init2.resx">
       <DependentUpon>201702091439250_Init2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702091557201_Init3.resx">
+      <DependentUpon>201702091557201_Init3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
