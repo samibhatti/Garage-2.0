@@ -20,11 +20,7 @@ namespace Garage_2._0.Controllers
         // GET: Vehicles
         public ActionResult Index()
         {
-            List<Vehicle> vehicle = db.Vehicles.ToList();
-            VehicleIndexViewModel model = new VehicleIndexViewModel();
-            model.Vehicles = model.toList(vehicle);
-
-            return View(model);
+            return View(db.Vehicles.ToList());
         }
 
         // GET: Vehicles/Details/5

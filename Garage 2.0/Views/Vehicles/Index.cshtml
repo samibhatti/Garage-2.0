@@ -1,10 +1,11 @@
-﻿@model Garage_2._0.Models.ViewModels.VehicleIndexViewModel
+﻿@model IEnumerable<Garage_2._0.Models.Vehicle>
 
 @{
     ViewBag.Title = "Garage Index";
 }
 
 <h2>@ViewBag.Title</h2>
+
 
 <p>
     @Html.ActionLink("Parkera bil", "Create")
@@ -35,7 +36,7 @@
         <th></th>
     </tr>
 
-@foreach(var item in Model.Vehicles) {
+@foreach(var item in Model) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.RegNr)
