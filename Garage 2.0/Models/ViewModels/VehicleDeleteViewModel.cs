@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Garage_2._0.Helpers;
 
 namespace Garage_2._0.Models.ViewModels
 {
@@ -23,15 +24,6 @@ namespace Garage_2._0.Models.ViewModels
 
         public string Duration { get; set; }
 
-        public string duration(DateTime startTime)
-        {
-            int days = (DateTime.Now - startTime).Days;
-            int hours = (DateTime.Now - startTime).Hours;
-            int minuts = (DateTime.Now - startTime).Minutes;
-            string duration = days + " Days " + hours + " Hours " + minuts + " Minuts";
-            return duration;
-        }
-
         public VehicleDeleteViewModel toViewModel(Vehicle vehicle)
         {
             VehicleDeleteViewModel model = new VehicleDeleteViewModel
@@ -47,19 +39,10 @@ namespace Garage_2._0.Models.ViewModels
                 NoOfTyres = vehicle.NoOfTyres,
                 Model = vehicle.Model,
                 Fabricate = vehicle.Fabricate,
-                Duration = duration(vehicle.ParkingStartTime),
-                PaymentAmount = paymentAmount(vehicle.ParkingStartTime)
+                Duration = parkingHelper.getDuration(vehicle.ParkingStartTime),
+                PaymentAmount = parkingHelper.getCost(vehicle.ParkingStartTime)
             };
             return model;
-        }
-
-        public int  paymentAmount(DateTime startTime)
-        {
-            int days = (DateTime.Now - startTime).Days;
-            int hours = (DateTime.Now - startTime).Hours;
-            int minuts = (DateTime.Now - startTime).Minutes;
-            int amount = (days * 60) + (hours * 60) + (minuts * 1);
-            return amount;
         }
     }
 }

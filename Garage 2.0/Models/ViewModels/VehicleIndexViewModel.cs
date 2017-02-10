@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Garage_2._0.Helpers;
 
 namespace Garage_2._0.Models.ViewModels
 {
@@ -26,21 +27,13 @@ namespace Garage_2._0.Models.ViewModels
                 VehicleTypeName = vehicle.VehicleTypeName,
                 ParkingLotNo = vehicle.ParkingLotNo,
                 ParkingStartTime = vehicle.ParkingStartTime,
-                Duration = duration(vehicle.ParkingStartTime),
+                Duration = parkingHelper.getDuration(vehicle.ParkingStartTime),
                 Model = vehicle.Model,
                 Fabricate = vehicle.Fabricate
             };
             return model;
         }
 
-        public string duration(DateTime startTime)
-        {
-            int days = (DateTime.Now - startTime).Days;
-            int hours = (DateTime.Now - startTime).Hours;
-            int minuts = (DateTime.Now - startTime).Minutes;
-            string duration = days + " Days " + hours + " Hours " + minuts + " Minuts";
-            return duration;
-        }
 
         public List<VehicleIndexViewModel> toList(List<Vehicle> vehicles)
         {
