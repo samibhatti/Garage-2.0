@@ -9,6 +9,7 @@ namespace Garage_2._0.Helpers
     {
         public static int numberOfLots = 60;
         public static int pricePerHour = 60;
+        public static List<int> accptedTyres = new List<int>() { 2, 4 };
 
         public static string getDuration(DateTime startTime)
         {
