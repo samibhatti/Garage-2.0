@@ -66,7 +66,7 @@ namespace Garage_2._0.Models.ViewModels
             int days = (DateTime.Now - startTime).Days;
             int hours = (DateTime.Now - startTime).Hours;
             int minuts = (DateTime.Now - startTime).Minutes;
-            int amount = (days * 24 * 60) + (hours * 60) + (minuts * 1);
+            int amount = (days * 60) + (hours * 60) + (minuts * 1);
             return amount;
         }
     }
