@@ -1,0 +1,190 @@
+DEBUG 2017-02-10 10:38:36,306 12554ms HomeController         Index              - Debug message
+WARN  2017-02-10 10:38:36,331 12579ms HomeController         Index              - Warn message
+ERROR 2017-02-10 10:38:36,331 12579ms HomeController         Index              - Error message
+FATAL 2017-02-10 10:38:36,331 12579ms HomeController         Index              - Fatal message
+DEBUG 2017-02-10 10:49:42,028 678275ms HomeController         Index              - Debug message
+WARN  2017-02-10 10:49:42,028 678275ms HomeController         Index              - Warn message
+ERROR 2017-02-10 10:49:42,029 678276ms HomeController         Index              - Error message
+FATAL 2017-02-10 10:49:42,029 678276ms HomeController         Index              - Fatal message
+DEBUG 2017-02-10 10:50:19,194 715442ms HomeController         Index              - Debug message
+WARN  2017-02-10 10:50:19,194 715442ms HomeController         Index              - Warn message
+ERROR 2017-02-10 10:50:19,194 715442ms HomeController         Index              - Error message
+FATAL 2017-02-10 10:50:19,195 715443ms HomeController         Index              - Fatal message
+DEBUG 2017-02-10 10:50:55,169 751417ms HomeController         Index              - Debug message
+WARN  2017-02-10 10:50:55,170 751418ms HomeController         Index              - Warn message
+ERROR 2017-02-10 10:50:55,170 751418ms HomeController         Index              - Error message
+FATAL 2017-02-10 10:50:55,170 751418ms HomeController         Index              - Fatal message
+DEBUG 2017-02-10 10:51:10,226 766474ms HomeController         Index              - Debug message
+WARN  2017-02-10 10:51:10,226 766474ms HomeController         Index              - Warn message
+ERROR 2017-02-10 10:51:10,227 766475ms HomeController         Index              - Error message
+FATAL 2017-02-10 10:51:10,227 766475ms HomeController         Index              - Fatal message
+DEBUG 2017-02-10 10:51:11,002 767249ms HomeController         Index              - Debug message
+WARN  2017-02-10 10:51:11,002 767249ms HomeController         Index              - Warn message
+ERROR 2017-02-10 10:51:11,002 767249ms HomeController         Index              - Error message
+FATAL 2017-02-10 10:51:11,002 767249ms HomeController         Index              - Fatal message
+DEBUG 2017-02-10 10:51:11,698 767946ms HomeController         Index              - Debug message
+WARN  2017-02-10 10:51:11,698 767946ms HomeController         Index              - Warn message
+ERROR 2017-02-10 10:51:11,699 767947ms HomeController         Index              - Error message
+FATAL 2017-02-10 10:51:11,699 767947ms HomeController         Index              - Fatal message
+DEBUG 2017-02-10 10:51:12,219 768467ms HomeController         Index              - Debug message
+WARN  2017-02-10 10:51:12,220 768468ms HomeController         Index              - Warn message
+ERROR 2017-02-10 10:51:12,220 768468ms HomeController         Index              - Error message
+FATAL 2017-02-10 10:51:12,220 768468ms HomeController         Index              - Fatal message
+DEBUG 2017-02-10 10:51:12,778 769026ms HomeController         Index              - Debug message
+WARN  2017-02-10 10:51:12,779 769027ms HomeController         Index              - Warn message
+ERROR 2017-02-10 10:51:12,779 769027ms HomeController         Index              - Error message
+FATAL 2017-02-10 10:51:12,779 769027ms HomeController         Index              - Fatal message
+DEBUG 2017-02-10 10:51:13,570 769818ms HomeController         Index              - Debug message
+WARN  2017-02-10 10:51:13,571 769819ms HomeController         Index              - Warn message
+ERROR 2017-02-10 10:51:13,571 769819ms HomeController         Index              - Error message
+FATAL 2017-02-10 10:51:13,572 769820ms HomeController         Index              - Fatal message
+DEBUG 2017-02-10 10:51:15,178 771426ms HomeController         Index              - Debug message
+WARN  2017-02-10 10:51:15,178 771426ms HomeController         Index              - Warn message
+ERROR 2017-02-10 10:51:15,178 771426ms HomeController         Index              - Error message
+FATAL 2017-02-10 10:51:15,179 771427ms HomeController         Index              - Fatal message
+DEBUG 2017-02-10 10:51:16,201 772449ms HomeController         Index              - Debug message
+WARN  2017-02-10 10:51:16,202 772450ms HomeController         Index              - Warn message
+ERROR 2017-02-10 10:51:16,202 772450ms HomeController         Index              - Error message
+FATAL 2017-02-10 10:51:16,202 772450ms HomeController         Index              - Fatal message
+DEBUG 2017-02-10 10:51:17,634 773882ms HomeController         Index              - Debug message
+WARN  2017-02-10 10:51:17,634 773882ms HomeController         Index              - Warn message
+ERROR 2017-02-10 10:51:17,634 773882ms HomeController         Index              - Error message
+FATAL 2017-02-10 10:51:17,635 773883ms HomeController         Index              - Fatal message
+DEBUG 2017-02-10 10:51:18,267 774515ms HomeController         Index              - Debug message
+WARN  2017-02-10 10:51:18,268 774516ms HomeController         Index              - Warn message
+ERROR 2017-02-10 10:51:18,268 774516ms HomeController         Index              - Error message
+FATAL 2017-02-10 10:51:18,268 774516ms HomeController         Index              - Fatal message
+DEBUG 2017-02-10 10:53:54,635 930883ms HomeController         Index              - Debug message
+WARN  2017-02-10 10:53:54,636 930884ms HomeController         Index              - Warn message
+ERROR 2017-02-10 10:53:54,636 930884ms HomeController         Index              - Error message
+FATAL 2017-02-10 10:53:54,636 930884ms HomeController         Index              - Fatal message
+DEBUG 2017-02-10 10:57:29,209  4077ms VehiclesController     Index              - Debug message
+WARN  2017-02-10 10:57:29,232  4100ms VehiclesController     Index              - Warn message
+ERROR 2017-02-10 10:57:29,232  4100ms VehiclesController     Index              - Error message
+FATAL 2017-02-10 10:57:29,232  4100ms VehiclesController     Index              - Fatal message
+DEBUG 2017-02-10 11:06:53,348   188ms VehiclesController     Index              - Debug message
+WARN  2017-02-10 11:06:53,372   212ms VehiclesController     Index              - Warn message
+ERROR 2017-02-10 11:06:53,372   212ms VehiclesController     Index              - Error message
+FATAL 2017-02-10 11:06:53,372   212ms VehiclesController     Index              - Fatal message
+DEBUG 2017-02-10 11:25:25,803  3139ms VehiclesController     Index              - Debug message
+WARN  2017-02-10 11:25:25,818  3154ms VehiclesController     Index              - Warn message
+ERROR 2017-02-10 11:25:25,820  3156ms VehiclesController     Index              - SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[RegNr] AS [RegNr], 
+    [Extent1].[VehicleTypeName] AS [VehicleTypeName], 
+    [Extent1].[Color] AS [Color], 
+    [Extent1].[ParkingLotNo] AS [ParkingLotNo], 
+    [Extent1].[VehicleLength] AS [VehicleLength], 
+    [Extent1].[ParkingStartTime] AS [ParkingStartTime], 
+    [Extent1].[NoOfTyres] AS [NoOfTyres], 
+    [Extent1].[Model] AS [Model], 
+    [Extent1].[Fabricate] AS [Fabricate]
+    FROM [dbo].[Vehicles] AS [Extent1]Info message
+FATAL 2017-02-10 11:25:25,820  3156ms VehiclesController     Index              - Fatal message
+DEBUG 2017-02-10 11:25:35,104 12440ms VehiclesController     Index              - Debug message
+WARN  2017-02-10 11:25:35,104 12440ms VehiclesController     Index              - Warn message
+ERROR 2017-02-10 11:25:35,105 12441ms VehiclesController     Index              - SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[RegNr] AS [RegNr], 
+    [Extent1].[VehicleTypeName] AS [VehicleTypeName], 
+    [Extent1].[Color] AS [Color], 
+    [Extent1].[ParkingLotNo] AS [ParkingLotNo], 
+    [Extent1].[VehicleLength] AS [VehicleLength], 
+    [Extent1].[ParkingStartTime] AS [ParkingStartTime], 
+    [Extent1].[NoOfTyres] AS [NoOfTyres], 
+    [Extent1].[Model] AS [Model], 
+    [Extent1].[Fabricate] AS [Fabricate]
+    FROM [dbo].[Vehicles] AS [Extent1]
+    ORDER BY [Extent1].[RegNr] ASCInfo message
+FATAL 2017-02-10 11:25:35,105 12441ms VehiclesController     Index              - Fatal message
+DEBUG 2017-02-10 11:25:35,785 13121ms VehiclesController     Index              - Debug message
+WARN  2017-02-10 11:25:35,785 13121ms VehiclesController     Index              - Warn message
+ERROR 2017-02-10 11:25:35,785 13121ms VehiclesController     Index              - SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[RegNr] AS [RegNr], 
+    [Extent1].[VehicleTypeName] AS [VehicleTypeName], 
+    [Extent1].[Color] AS [Color], 
+    [Extent1].[ParkingLotNo] AS [ParkingLotNo], 
+    [Extent1].[VehicleLength] AS [VehicleLength], 
+    [Extent1].[ParkingStartTime] AS [ParkingStartTime], 
+    [Extent1].[NoOfTyres] AS [NoOfTyres], 
+    [Extent1].[Model] AS [Model], 
+    [Extent1].[Fabricate] AS [Fabricate]
+    FROM [dbo].[Vehicles] AS [Extent1]
+    ORDER BY [Extent1].[Fabricate] ASCInfo message
+FATAL 2017-02-10 11:25:35,786 13122ms VehiclesController     Index              - Fatal message
+DEBUG 2017-02-10 11:27:58,462 155799ms VehiclesController     Index              - Debug message
+WARN  2017-02-10 11:27:58,463 155800ms VehiclesController     Index              - Warn message
+ERROR 2017-02-10 11:27:58,463 155800ms VehiclesController     Index              - SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[RegNr] AS [RegNr], 
+    [Extent1].[VehicleTypeName] AS [VehicleTypeName], 
+    [Extent1].[Color] AS [Color], 
+    [Extent1].[ParkingLotNo] AS [ParkingLotNo], 
+    [Extent1].[VehicleLength] AS [VehicleLength], 
+    [Extent1].[ParkingStartTime] AS [ParkingStartTime], 
+    [Extent1].[NoOfTyres] AS [NoOfTyres], 
+    [Extent1].[Model] AS [Model], 
+    [Extent1].[Fabricate] AS [Fabricate]
+    FROM [dbo].[Vehicles] AS [Extent1]Info message
+FATAL 2017-02-10 11:27:58,463 155800ms VehiclesController     Index              - Fatal message
+ERROR 2017-02-10 11:40:29,076  5779ms VehiclesController     Index              - SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[RegNr] AS [RegNr], 
+    [Extent1].[VehicleTypeName] AS [VehicleTypeName], 
+    [Extent1].[Color] AS [Color], 
+    [Extent1].[ParkingLotNo] AS [ParkingLotNo], 
+    [Extent1].[VehicleLength] AS [VehicleLength], 
+    [Extent1].[ParkingStartTime] AS [ParkingStartTime], 
+    [Extent1].[NoOfTyres] AS [NoOfTyres], 
+    [Extent1].[Model] AS [Model], 
+    [Extent1].[Fabricate] AS [Fabricate]
+    FROM [dbo].[Vehicles] AS [Extent1]Info message
+ERROR 2017-02-10 11:40:37,146 13849ms VehiclesController     Index              - SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[RegNr] AS [RegNr], 
+    [Extent1].[VehicleTypeName] AS [VehicleTypeName], 
+    [Extent1].[Color] AS [Color], 
+    [Extent1].[ParkingLotNo] AS [ParkingLotNo], 
+    [Extent1].[VehicleLength] AS [VehicleLength], 
+    [Extent1].[ParkingStartTime] AS [ParkingStartTime], 
+    [Extent1].[NoOfTyres] AS [NoOfTyres], 
+    [Extent1].[Model] AS [Model], 
+    [Extent1].[Fabricate] AS [Fabricate]
+    FROM [dbo].[Vehicles] AS [Extent1]Info message
+ERROR 2017-02-10 11:40:44,452 21155ms VehiclesController     Index              - SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[RegNr] AS [RegNr], 
+    [Extent1].[VehicleTypeName] AS [VehicleTypeName], 
+    [Extent1].[Color] AS [Color], 
+    [Extent1].[ParkingLotNo] AS [ParkingLotNo], 
+    [Extent1].[VehicleLength] AS [VehicleLength], 
+    [Extent1].[ParkingStartTime] AS [ParkingStartTime], 
+    [Extent1].[NoOfTyres] AS [NoOfTyres], 
+    [Extent1].[Model] AS [Model], 
+    [Extent1].[Fabricate] AS [Fabricate]
+    FROM [dbo].[Vehicles] AS [Extent1]Info message
+ERROR 2017-02-10 11:40:55,301 32003ms VehiclesController     Index              - SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[RegNr] AS [RegNr], 
+    [Extent1].[VehicleTypeName] AS [VehicleTypeName], 
+    [Extent1].[Color] AS [Color], 
+    [Extent1].[ParkingLotNo] AS [ParkingLotNo], 
+    [Extent1].[VehicleLength] AS [VehicleLength], 
+    [Extent1].[ParkingStartTime] AS [ParkingStartTime], 
+    [Extent1].[NoOfTyres] AS [NoOfTyres], 
+    [Extent1].[Model] AS [Model], 
+    [Extent1].[Fabricate] AS [Fabricate]
+    FROM [dbo].[Vehicles] AS [Extent1]Info message
+ERROR 2017-02-10 11:41:07,750 44452ms VehiclesController     Index              - SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[RegNr] AS [RegNr], 
+    [Extent1].[VehicleTypeName] AS [VehicleTypeName], 
+    [Extent1].[Color] AS [Color], 
+    [Extent1].[ParkingLotNo] AS [ParkingLotNo], 
+    [Extent1].[VehicleLength] AS [VehicleLength], 
+    [Extent1].[ParkingStartTime] AS [ParkingStartTime], 
+    [Extent1].[NoOfTyres] AS [NoOfTyres], 
+    [Extent1].[Model] AS [Model], 
+    [Extent1].[Fabricate] AS [Fabricate]
+    FROM [dbo].[Vehicles] AS [Extent1]Info message
