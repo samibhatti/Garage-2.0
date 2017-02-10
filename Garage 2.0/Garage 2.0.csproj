@@ -128,6 +128,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ValidateController.cs" />
     <Compile Include="Controllers\VehiclesController.cs" />
     <Compile Include="DAL\Garage_2_0_Context.cs" />
     <Compile Include="Global.asax.cs">
@@ -169,6 +170,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Vehicle.cs" />
     <Compile Include="Enum\VehicleTypeName.cs" />
+    <Compile Include="Models\ViewModels\VehicleCreateViewModel.cs" />
     <Compile Include="Models\ViewModels\VehicleDeleteViewModel.cs" />
     <Compile Include="Models\ViewModels\VehicleIndexViewModel.cs" />
     <Compile Include="Models\ViewModels\VehicleVoucherViewModel.cs" />
@@ -238,6 +240,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Validate\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

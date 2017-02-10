@@ -85,19 +85,21 @@ namespace Garage_2._0.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,RegNr,VehicleTypeName,Color,ParkingLotNo,VehicleLength,NumberOfSeats,NoOfTyres,Model,Fabricate")] Vehicle vehicle)
+        public ActionResult Create([Bind(Include = "RegNr,VehicleTypeName,Color,NoOfTyres,Model,Fabricate")]VehicleCreateViewModel model)
         {
+            model.ParkingLotNo = "TEST123";
             if (ModelState.IsValid)
             {
-                
-                vehicle.ParkingStartTime = DateTime.Now;
+                model.ParkingStartTime = DateTime.Now;
+                VehicleCreateViewModel m = new VehicleCreateViewModel();
+                var vehicle = m.toEnity(model);
                 //vehicle.ParkingStopTime = DateTime.Now;
                 db.Vehicles.Add(vehicle);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(vehicle);
+            return View(model);
         }
 
         // GET: Vehicles/Edit/5
