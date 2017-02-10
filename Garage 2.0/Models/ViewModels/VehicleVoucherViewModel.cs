@@ -38,7 +38,7 @@ namespace Garage_2._0.Models.ViewModels
                 id = vehicle.Id,
                 VoucherID = voucherId(),
                 RegNr = vehicle.RegNr,
-                VehicleTypeName = vehicle.VehicleTypeName,
+                VehicleTypeName =VehicleTypeName,
                 Color = vehicle.Color,
                 ParkingLotNo = vehicle.ParkingLotNo,
                 VehicleLength = vehicle.VehicleLength,
