@@ -47,13 +47,9 @@ namespace Garage_2._0.Controllers
                         query = query.OrderBy(x => x.ParkingLotNo);
                         break;
 
-                    case "ParkingStartTime":
+                    default:
                         query = query.OrderBy(x => x.ParkingStartTime);
                         break;
-
-                    //default:
-                    //    query = query.OrderBy(x => x.ParkingStopTime);
-                    //    break;
                 }
             }
 
@@ -124,7 +120,7 @@ namespace Garage_2._0.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,RegNr,VehicleTypeName,Color,ParkingLotNo,VehicleLength,NumberOfSeats,ParkingStartTime,ParingStopTime,NoOfTyres,Model,Fabricate")] Vehicle vehicle)
+        public ActionResult Edit([Bind(Include = "Id,RegNr,VehicleTypeName,Color,ParkingLotNo,ParkingStartTime,Model,Fabricate")] Vehicle vehicle)
         {
             if (ModelState.IsValid)
             {
