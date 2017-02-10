@@ -128,3 +128,63 @@ ERROR 2017-02-10 11:27:58,463 155800ms VehiclesController     Index             
     [Extent1].[Fabricate] AS [Fabricate]
     FROM [dbo].[Vehicles] AS [Extent1]Info message
 FATAL 2017-02-10 11:27:58,463 155800ms VehiclesController     Index              - Fatal message
+ERROR 2017-02-10 11:40:29,076  5779ms VehiclesController     Index              - SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[RegNr] AS [RegNr], 
+    [Extent1].[VehicleTypeName] AS [VehicleTypeName], 
+    [Extent1].[Color] AS [Color], 
+    [Extent1].[ParkingLotNo] AS [ParkingLotNo], 
+    [Extent1].[VehicleLength] AS [VehicleLength], 
+    [Extent1].[ParkingStartTime] AS [ParkingStartTime], 
+    [Extent1].[NoOfTyres] AS [NoOfTyres], 
+    [Extent1].[Model] AS [Model], 
+    [Extent1].[Fabricate] AS [Fabricate]
+    FROM [dbo].[Vehicles] AS [Extent1]Info message
+ERROR 2017-02-10 11:40:37,146 13849ms VehiclesController     Index              - SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[RegNr] AS [RegNr], 
+    [Extent1].[VehicleTypeName] AS [VehicleTypeName], 
+    [Extent1].[Color] AS [Color], 
+    [Extent1].[ParkingLotNo] AS [ParkingLotNo], 
+    [Extent1].[VehicleLength] AS [VehicleLength], 
+    [Extent1].[ParkingStartTime] AS [ParkingStartTime], 
+    [Extent1].[NoOfTyres] AS [NoOfTyres], 
+    [Extent1].[Model] AS [Model], 
+    [Extent1].[Fabricate] AS [Fabricate]
+    FROM [dbo].[Vehicles] AS [Extent1]Info message
+ERROR 2017-02-10 11:40:44,452 21155ms VehiclesController     Index              - SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[RegNr] AS [RegNr], 
+    [Extent1].[VehicleTypeName] AS [VehicleTypeName], 
+    [Extent1].[Color] AS [Color], 
+    [Extent1].[ParkingLotNo] AS [ParkingLotNo], 
+    [Extent1].[VehicleLength] AS [VehicleLength], 
+    [Extent1].[ParkingStartTime] AS [ParkingStartTime], 
+    [Extent1].[NoOfTyres] AS [NoOfTyres], 
+    [Extent1].[Model] AS [Model], 
+    [Extent1].[Fabricate] AS [Fabricate]
+    FROM [dbo].[Vehicles] AS [Extent1]Info message
+ERROR 2017-02-10 11:40:55,301 32003ms VehiclesController     Index              - SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[RegNr] AS [RegNr], 
+    [Extent1].[VehicleTypeName] AS [VehicleTypeName], 
+    [Extent1].[Color] AS [Color], 
+    [Extent1].[ParkingLotNo] AS [ParkingLotNo], 
+    [Extent1].[VehicleLength] AS [VehicleLength], 
+    [Extent1].[ParkingStartTime] AS [ParkingStartTime], 
+    [Extent1].[NoOfTyres] AS [NoOfTyres], 
+    [Extent1].[Model] AS [Model], 
+    [Extent1].[Fabricate] AS [Fabricate]
+    FROM [dbo].[Vehicles] AS [Extent1]Info message
+ERROR 2017-02-10 11:41:07,750 44452ms VehiclesController     Index              - SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[RegNr] AS [RegNr], 
+    [Extent1].[VehicleTypeName] AS [VehicleTypeName], 
+    [Extent1].[Color] AS [Color], 
+    [Extent1].[ParkingLotNo] AS [ParkingLotNo], 
+    [Extent1].[VehicleLength] AS [VehicleLength], 
+    [Extent1].[ParkingStartTime] AS [ParkingStartTime], 
+    [Extent1].[NoOfTyres] AS [NoOfTyres], 
+    [Extent1].[Model] AS [Model], 
+    [Extent1].[Fabricate] AS [Fabricate]
+    FROM [dbo].[Vehicles] AS [Extent1]Info message

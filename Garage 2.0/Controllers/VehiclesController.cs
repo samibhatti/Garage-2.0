@@ -32,7 +32,7 @@ namespace Garage_2._0.Controllers
             if(!string.IsNullOrEmpty(searchTerm))
             {
                 ViewBag.SearchTerm = searchTerm;
-                query = query.Where(x => x.RegNr == searchTerm || x.Fabricate == searchTerm || x.Model == searchTerm || x.ParkingLotNo == searchTerm);
+                query = query.Where(x => x.RegNr.Contains(searchTerm) || x.Fabricate.Contains(searchTerm) || x.Model.Contains(searchTerm) || x.ParkingLotNo.Contains(searchTerm));
             }
             if(!string.IsNullOrEmpty(orderBy))
             {
