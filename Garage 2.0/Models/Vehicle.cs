@@ -11,7 +11,7 @@ namespace Garage_2._0.Models
         public int Id { get; set; }
 
         [Required]
-        [RegularExpression("^[A-Z]{3} [0-9]{3}$", ErrorMessage = "Need to be in format AAA 123")]
+        //[RegularExpression("^[A-Z]{3} [0-9]{3}$", ErrorMessage = "Need to be in format AAA 123")]
         //[RegularExpression("^[A-Z]{3}\\d{3}$", ErrorMessage = "Requires 3 letter follow by 3 numbers")]
         [Display(Name = "Registration Number")]
         public string RegNr { get; set; }
