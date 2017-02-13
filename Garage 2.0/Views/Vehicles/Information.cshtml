@@ -1,0 +1,86 @@
+﻿@model Garage_2._0.Models.ViewModels.VehicleInformationViewModel
+
+@{ 
+    ViewBag.Title = "Statistics";
+}
+<div>
+    <h4>@ViewBag.Title</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalVehicle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalVehicle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Sedan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sedan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kombi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kombi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vagon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vagon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MiniBus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MiniBus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MotorCycle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MotorCycle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pickup)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pickup)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberOfTyres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfTyres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CostToThisMoment)
+        </dt>
+
+        <dd>
+            @string.Format("{0:C}", Model.CostToThisMoment)
+        </dd>
+
+    </dl>
+</div>
+@*<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>*@
