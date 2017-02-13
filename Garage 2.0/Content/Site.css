@@ -22,3 +22,31 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.freeParking{
+    width: 150px;
+    padding-left: 10px;
+}
+
+.notFreeParking {
+    border: 1px dotted #ffffff;
+    width: 120px;
+    background-color: #000000;
+    color: #ffffff;
+    padding-left: 10px;
+}
+
+.regNr {
+    margin-left: 10px;
+    font-size: 12px;
+}
+.regNr a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.regNr a:hover{
+    color: #8a8686;
+    font-size: 14px;
+    border: 1px solid black;
+}

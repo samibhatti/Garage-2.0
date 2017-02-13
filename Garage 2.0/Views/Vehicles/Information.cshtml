@@ -80,6 +80,31 @@
 
     </dl>
 </div>
+<div>
+    <dl class="dl-horizontal">
+    @{
+        <dt>
+            @Html.DisplayNameFor(m => m.ParkingInfo)
+        </dt>
+        foreach (var parking in Model.ParkingInfo)
+        {
+            if (parking.Length <= 3)
+            {
+
+            <dd class="freeParking">
+                @Html.Raw(parking)
+            </dd>
+            }
+            else
+            {
+                <dd class="notFreeParking">
+                    @Html.Raw(parking)
+                </dd>
+            }
+        }
+    }
+    </dl>
+</div>
 @*<p>
     @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     @Html.ActionLink("Back to List", "Index")

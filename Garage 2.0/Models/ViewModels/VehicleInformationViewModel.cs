@@ -27,5 +27,7 @@ namespace Garage_2._0.Models.ViewModels
         [Display(Name = "Incoming payments")]
         public int CostToThisMoment { get; set; }
 
+        public List<string> ParkingInfo { get; set; }
+
     }
 }

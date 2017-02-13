@@ -184,15 +184,8 @@ namespace Garage_2._0.Controllers
         {
             VehicleInformationViewModel model = new VehicleInformationViewModel();
             var allVehicles = db.Vehicles.ToList();
-            //model.Kombi = 0;
-            //model.MiniBus = 0;
-            //model.MotorCycle = 0;
-            //model.Pickup = 0;
-            //model.Sedan = 0;
-            //model.Vagon = 0;
-            //model.NumberOfTyres = 0;
-            //model.CostToThisMoment = 0;
-            foreach(var vehicle in allVehicles)
+            model.ParkingInfo = parkingHelper.getParkingInformation(allVehicles);
+            foreach (var vehicle in allVehicles)
             {
                 model.NumberOfTyres = model.NumberOfTyres + vehicle.NoOfTyres;
                 model.CostToThisMoment = model.CostToThisMoment + parkingHelper.getCost(vehicle.ParkingStartTime);

@@ -54,5 +54,19 @@ namespace Garage_2._0.Helpers
             return freeParkings;
         }
 
+        public static List<string> getParkingInformation(List<Vehicle> vehicles)
+        {
+            List<string> parkingStatus = parkingLots;
+            foreach (var vehicle in vehicles)
+            {
+                if (parkingStatus.Contains(vehicle.ParkingLotNo))
+                {
+                    int i = parkingStatus.FindIndex(a => a.Equals(vehicle.ParkingLotNo));
+                    parkingStatus[i] = parkingStatus[i] + "<span class='regNr'><a href=/Vehicles/Details/" + vehicle.Id + "> (" + vehicle.RegNr + ")</a> </span>";
+                }
+            }
+            return parkingStatus;
+        }
+
     }
 }
