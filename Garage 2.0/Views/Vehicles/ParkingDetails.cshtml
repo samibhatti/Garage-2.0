@@ -1,0 +1,77 @@
+﻿@model Garage_2._0.Models.Vehicle
+
+<div>
+    <h4>Vehicle</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RegNr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegNr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Color)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Color)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ParkingLotNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParkingLotNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleLength)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehicleLength)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ParkingStartTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParkingStartTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoOfTyres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoOfTyres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fabricate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fabricate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @*@Html.ActionLink("Back to List", "Index")*@
+    <a onclick="closeInformation()">Stäng</a>
+</p>

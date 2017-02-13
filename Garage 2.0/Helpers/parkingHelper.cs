@@ -36,16 +36,12 @@ namespace Garage_2._0.Helpers
             return amount;
         }
 
-        public static List<string> parkingLots = new List<string>()
-        {
-            "A1","A2","A3","A4","A5","A6","A7","A8","A9","A10",
-            "B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8", "B9", "B10",
-            "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9", "C10"
-        };
+
 
         public static List<string> getFreeParkingLots(List<Vehicle> vehicles)
         {
-            List<string> freeParkings = parkingLots;
+            parkingSlots parkingLots = new parkingSlots();
+            List<string> freeParkings = parkingLots.parkingLots;
             foreach(var vehicle in vehicles)
             {
                 if (freeParkings.Contains(vehicle.ParkingLotNo))
@@ -54,15 +50,16 @@ namespace Garage_2._0.Helpers
             return freeParkings;
         }
 
-        public static List<string> getParkingInformation(List<Vehicle> vehicles)
+        public static List<string> getParkingSlots(List<Vehicle> vehicles)
         {
-            List<string> parkingStatus = parkingLots;
+            parkingSlots parkingLots = new parkingSlots();
+            List<string> parkingStatus =  parkingLots.parkingLots;
             foreach (var vehicle in vehicles)
             {
                 if (parkingStatus.Contains(vehicle.ParkingLotNo))
                 {
                     int i = parkingStatus.FindIndex(a => a.Equals(vehicle.ParkingLotNo));
-                    parkingStatus[i] = parkingStatus[i] + "<span class='regNr'><a href=/Vehicles/Details/" + vehicle.Id + "> (" + vehicle.RegNr + ")</a> </span>";
+                    parkingStatus[i] =  parkingStatus[i] + "<div title=/Vehicles/ParkingDetails/" + vehicle.Id + "><span class='regNr'> " + vehicle.RegNr + "</span></div><span class='tooltiptext'>" + vehicle.Fabricate + " " + vehicle.Model + "</br> " + vehicle.ParkingStartTime  + "</span>";
                 }
             }
             return parkingStatus;

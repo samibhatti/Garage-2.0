@@ -3,7 +3,9 @@
 @{ 
     ViewBag.Title = "Statistics";
 }
-<div>
+
+<div id="vehicleInformation"></div>
+<div class="col-md-8">
     <h4>@ViewBag.Title</h4>
     <hr />
     <dl class="dl-horizontal">
@@ -80,32 +82,67 @@
 
     </dl>
 </div>
-<div>
-    <dl class="dl-horizontal">
+<div class="col-md-4">
+    <h4>
+        @Html.DisplayNameFor(m => m.ParkingInfo)
+    </h4>
+    <hr />
     @{
-        <dt>
-            @Html.DisplayNameFor(m => m.ParkingInfo)
-        </dt>
+
         foreach (var parking in Model.ParkingInfo)
         {
-            if (parking.Length <= 3)
+            if (parking.Contains("regNr"))
             {
-
-            <dd class="freeParking">
-                @Html.Raw(parking)
-            </dd>
+                <div class="parkingLot notFreeParking" onclick="getVehicle()">
+                    @Html.Raw(parking)
+                </div>
             }
             else
             {
-                <dd class="notFreeParking">
+                <div class="parkingLot freeParking">
                     @Html.Raw(parking)
-                </dd>
+                </div>
             }
         }
     }
-    </dl>
+
 </div>
 @*<p>
     @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     @Html.ActionLink("Back to List", "Index")
 </p>*@
+
+<script type="text/javascript">
+    function getVehicle(e) {
+        event.preventDefault();
+        var div = $(event.target);
+        var children = div.children();
+        var link = $(children).attr('title');
+        console.log(link);
+        if (link === "" || link == 'undefined' || link == null)
+        {
+            console.log(event.target);
+            return false;
+        }
+        $('#vehicleInformation').hide();
+        $.ajax({
+            url: link,
+            success: function (data) {
+                
+                $('#vehicleInformation').html(data);
+                $('#vehicleInformation').animate({ right: '50px' }, "slow", 'linear');
+                $('#vehicleInformation').show();
+            }
+        });
+    }
+
+    function closeInformation() {
+        $('#vehicleInformation').hide();
+    }
+
+    //function getVehicle() {
+    //    var div = $(".notFreeParking a") {
+    //        alert($(this).attr("href"));
+    //    };
+    //};
+</script>

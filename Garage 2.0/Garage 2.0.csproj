@@ -139,6 +139,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\parkingHelper.cs" />
+    <Compile Include="Helpers\parkingSlots.cs" />
     <Compile Include="Migrations\201702030527314_Initial2.cs" />
     <Compile Include="Migrations\201702030527314_Initial2.Designer.cs">
       <DependentUpon>201702030527314_Initial2.cs</DependentUpon>
@@ -249,6 +250,7 @@
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Views\Vehicles\Voucher.cshtml" />
     <Content Include="Views\Vehicles\Information.cshtml" />
+    <Content Include="Views\Vehicles\ParkingDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -84,6 +84,12 @@ namespace Garage_2._0.Controllers
             return View(vehicle);
         }
 
+        public ActionResult ParkingDetails(int id)
+        {
+            Vehicle vehicle = db.Vehicles.Find(id);
+            return PartialView(vehicle);
+        }
+
         // GET: Vehicles/Create
         public ActionResult Create()
         {
@@ -184,12 +190,12 @@ namespace Garage_2._0.Controllers
         {
             VehicleInformationViewModel model = new VehicleInformationViewModel();
             var allVehicles = db.Vehicles.ToList();
-            model.ParkingInfo = parkingHelper.getParkingInformation(allVehicles);
+            model.ParkingInfo = parkingHelper.getParkingSlots(allVehicles);
+            model.NumberOfTyres = allVehicles.Sum(x => x.NoOfTyres);
+            model.TotalVehicle = allVehicles.Count();
             foreach (var vehicle in allVehicles)
             {
-                model.NumberOfTyres = model.NumberOfTyres + vehicle.NoOfTyres;
                 model.CostToThisMoment = model.CostToThisMoment + parkingHelper.getCost(vehicle.ParkingStartTime);
-                model.TotalVehicle = model.TotalVehicle + 1;
                 switch (vehicle.VehicleTypeName.ToString().ToLower())
                 {
                     case "kombi":
