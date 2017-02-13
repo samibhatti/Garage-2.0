@@ -180,6 +180,53 @@ namespace Garage_2._0.Controllers
             return View(vehicle);
         }
 
+        public ActionResult Information()
+        {
+            VehicleInformationViewModel model = new VehicleInformationViewModel();
+            var allVehicles = db.Vehicles.ToList();
+            //model.Kombi = 0;
+            //model.MiniBus = 0;
+            //model.MotorCycle = 0;
+            //model.Pickup = 0;
+            //model.Sedan = 0;
+            //model.Vagon = 0;
+            //model.NumberOfTyres = 0;
+            //model.CostToThisMoment = 0;
+            foreach(var vehicle in allVehicles)
+            {
+                model.NumberOfTyres = model.NumberOfTyres + vehicle.NoOfTyres;
+                model.CostToThisMoment = model.CostToThisMoment + parkingHelper.getCost(vehicle.ParkingStartTime);
+                model.TotalVehicle = model.TotalVehicle + 1;
+                switch (vehicle.VehicleTypeName.ToString().ToLower())
+                {
+                    case "kombi":
+                        model.Kombi = model.Kombi + 1;
+                        break;
+
+                    case "minibus":
+                        model.MiniBus = model.MiniBus + 1;
+                        break;
+
+                    case "motorcycle":
+                        model.MotorCycle = model.MotorCycle + 1;
+                        break;
+
+                    case "pickup":
+                        model.Pickup = model.Pickup + 1;
+                        break;
+
+                    case "sedan":
+                        model.Sedan = model.Sedan + 1;
+                        break;
+
+                    case "vagen":
+                        model.Vagon = model.Vagon + 1;
+                        break;
+                }
+            }
+            return View(model);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
