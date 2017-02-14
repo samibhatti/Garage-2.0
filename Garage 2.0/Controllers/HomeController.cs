@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Garage_2._0.Helpers;
+using Garage_2._0.DAL;
 
 namespace Garage_2._0.Controllers
 {
@@ -11,8 +13,20 @@ namespace Garage_2._0.Controllers
     {
         private static log4net.ILog Log { get; set; }
         ILog log = log4net.LogManager.GetLogger(typeof(HomeController));
+        private Garage_2_0_Context db = new Garage_2_0_Context();
+
         public ActionResult Index()
         {
+            int count = parkingHelper.getFreeParkingLots(db.Vehicles.ToList()).Count();
+            int lots = parkingHelper.numberOfLots;
+
+            if (count == lots ) {
+
+                ViewBag.parkingStatus = "Full";
+            } else
+            {
+                ViewBag.parkingStatus = count.ToString();
+            }
             return View();
         }
 
@@ -29,5 +43,7 @@ namespace Garage_2._0.Controllers
 
             return View();
         }
+
+        
     }
 }

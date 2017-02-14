@@ -12,17 +12,15 @@ namespace Garage_2._0.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        RegNr = c.String(),
-                        VehicleTypeName = c.String(),
-                        Color = c.String(),
-                        ParkingLotNo = c.String(),
+                        RegNr = c.String(nullable: false),
+                        VehicleTypeName = c.Int(nullable: false),
+                        Color = c.String(maxLength: 20),
+                        ParkingLotNo = c.String(nullable: false),
                         VehicleLength = c.Int(nullable: false),
-                        NumberOfSeats = c.Int(nullable: false),
                         ParkingStartTime = c.DateTime(nullable: false),
-                        ParingStopTime = c.DateTime(nullable: false),
                         NoOfTyres = c.Int(nullable: false),
-                        Model = c.String(),
-                        Fabricate = c.String(),
+                        Model = c.String(maxLength: 50),
+                        Fabricate = c.String(nullable: false, maxLength: 50),
                     })
                 .PrimaryKey(t => t.Id);
             
