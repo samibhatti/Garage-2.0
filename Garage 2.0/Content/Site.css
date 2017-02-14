@@ -22,3 +22,20 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.fullStatus {
+    font-size: 36px;
+    width: 110px;
+    padding: 3px;
+    border:2px solid;
+    background-color: red;
+}
+
+.status {
+    text-align: center;
+    font-size: 36px;
+    width: 110px;
+    padding: 3px;
+    border:2px solid;
+    background-color: lawngreen; 
+}
