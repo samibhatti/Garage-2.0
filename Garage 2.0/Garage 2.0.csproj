@@ -149,6 +149,7 @@
     <Compile Include="Models\ViewModels\VehicleCreateViewModel.cs" />
     <Compile Include="Models\ViewModels\VehicleDeleteViewModel.cs" />
     <Compile Include="Models\ViewModels\VehicleIndexViewModel.cs" />
+    <Compile Include="Models\ViewModels\VehicleInformationViewModel.cs" />
     <Compile Include="Models\ViewModels\VehicleVoucherViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -215,6 +216,7 @@
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Views\Vehicles\Voucher.cshtml" />
+    <Content Include="Views\Vehicles\Information.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
