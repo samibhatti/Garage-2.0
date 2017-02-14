@@ -14,13 +14,13 @@ namespace Garage_2._0.Controllers
         private static log4net.ILog Log { get; set; }
         ILog log = log4net.LogManager.GetLogger(typeof(HomeController));
         private Garage_2_0_Context db = new Garage_2_0_Context();
+        private int count;
 
         public ActionResult Index()
         {
-            int count = parkingHelper.getFreeParkingLots(db.Vehicles.ToList()).Count();
-            int lots = parkingHelper.numberOfLots;
+            count = parkingHelper.getFreeParkingLots(db.Vehicles.ToList()).Count();
 
-            if (count == lots ) {
+            if (count == 0 ) {
 
                 ViewBag.parkingStatus = "Full";
             } else
