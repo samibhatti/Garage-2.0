@@ -118,12 +118,15 @@
         var div = $(event.target);
         var children = div.children();
         var link = $(children).attr('title');
-        console.log(link);
         if (link === "" || link == 'undefined' || link == null)
         {
             var childrenDiv = $(event.target);
             var parentDiv = childrenDiv.parent();
             link = parentDiv.attr('title');
+        }
+        if (link === "" || link == 'undefined' || link == null) {
+            var childrenDiv = $(event.target);
+            link = childrenDiv.attr('title');
         }
         $.ajax({
             url: link,  
