@@ -121,16 +121,13 @@
         console.log(link);
         if (link === "" || link == 'undefined' || link == null)
         {
-            console.log(event.target);
             return false;
         }
-        $('#vehicleInformation').hide();
         $.ajax({
-            url: link,
+            url: link,  
             success: function (data) {
-                
                 $('#vehicleInformation').html(data);
-                $('#vehicleInformation').animate({ right: '50px' }, "slow", 'linear');
+                $('#vehicleInformation').animate({ right: '50px' }, 1000);
                 $('#vehicleInformation').show();
             }
         });

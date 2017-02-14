@@ -52,6 +52,10 @@ textarea {
 }
 
 .parkingLot{
+    -moz-box-shadow: 0 0 10px gray;
+    -webkit-box-shadow: 0 0 10px gray;
+    box-shadow: 0 0 10px gray;
+    border-radius: 2px;
     text-align: center;
     display: inline-block;
     border: 1px solid black;    
@@ -94,6 +98,10 @@ textarea {
 }
 
 #vehicleInformation{
+    -moz-box-shadow: 20px, 20px, 20px, black;
+    -webkit-box-shadow: 0 0 40px gray;
+    box-shadow:20px, 20px, 20px, black;
+    background-color: #ffffff;
     padding: 10px;
     top: 120px;
     display: none;
