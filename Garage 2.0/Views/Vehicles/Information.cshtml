@@ -121,7 +121,9 @@
         console.log(link);
         if (link === "" || link == 'undefined' || link == null)
         {
-            return false;
+            var childrenDiv = $(event.target);
+            var parentDiv = childrenDiv.parent();
+            link = parentDiv.attr('title');
         }
         $.ajax({
             url: link,  
