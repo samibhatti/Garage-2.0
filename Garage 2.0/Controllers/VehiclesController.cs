@@ -88,6 +88,14 @@ namespace Garage_2._0.Controllers
         public ActionResult Create()
         {
             var vehicles = db.Vehicles.ToList();
+
+            int count = parkingHelper.getFreeParkingLots(vehicles).Count();
+
+            if (count == 0)
+            {
+                return RedirectToAction("Error");
+            }
+
             VehicleCreateViewModel model = new VehicleCreateViewModel();
             model.Freeparking = parkingHelper.getFreeParkingLots(vehicles);
             return View(model);
@@ -100,13 +108,9 @@ namespace Garage_2._0.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "RegNr,VehicleTypeName,ParkingLotNo,Color,NoOfTyres,FabricateModel,Fabricate")]VehicleCreateViewModel model)
         {
-            var vehicles = db.Vehicles.ToList();
-            int count = parkingHelper.getFreeParkingLots(vehicles).Count();
+            
 
-            if (count != 0)
-            {
-
-                if (ModelState.IsValid)
+            if (ModelState.IsValid)
                 {
 
                     model.ParkingStartTime = DateTime.Now;
@@ -117,10 +121,7 @@ namespace Garage_2._0.Controllers
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
-            } else
-                {
-                    return RedirectToAction("Index");
-                }
+            
                 return View(model);
         }
 
@@ -235,6 +236,13 @@ namespace Garage_2._0.Controllers
                 }
             }
             return View(model);
+        }
+
+        public ActionResult Error()
+        {
+            ViewBag.Message = "Important Message!!!";
+
+            return View();
         }
 
         protected override void Dispose(bool disposing)
