@@ -1,4 +1,5 @@
-﻿using Garage_2._0.Models;
+﻿using Garage_2._0.Helpers;
+using Garage_2._0.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Web;
 
 namespace Garage_2._0.Helpers
 {
-    public static class parkingHelper
+    public static class ParkingHelper
     {
         public static int numberOfLots = 30;
         public static int pricePerHour = 60;
@@ -38,15 +39,31 @@ namespace Garage_2._0.Helpers
 
  
 
+
         public static List<string> getFreeParkingLots(List<Vehicle> vehicles)
         {
-            List<string> freeParkings = new parkingsLots().parkingLots;
+            List<string> freeParkings = new ParkingsLots().parkingLots;
             foreach(var vehicle in vehicles)
             {
                 if (freeParkings.Contains(vehicle.ParkingLotNo))
                     freeParkings.Remove(vehicle.ParkingLotNo);
             }
             return freeParkings;
+        }
+
+        public static List<string> getParkingSlots(List<Vehicle> vehicles)
+        {
+            ParkingsLots parkingLots = new ParkingsLots();
+            List<string> parkingStatus =  parkingLots.parkingLots;
+            foreach (var vehicle in vehicles)
+            {
+                if (parkingStatus.Contains(vehicle.ParkingLotNo))
+                {
+                    int i = parkingStatus.FindIndex(a => a.Equals(vehicle.ParkingLotNo));
+                    parkingStatus[i] =  parkingStatus[i] + "<div title=/Vehicles/ParkingDetails/" + vehicle.Id + "><span class='regNr'> " + vehicle.RegNr + "</span></div><span class='tooltiptext'>" + vehicle.Fabricate + " " + vehicle.Model + "</br> " + vehicle.ParkingStartTime  + "</span>";
+                }
+            }
+            return parkingStatus;
         }
 
     }

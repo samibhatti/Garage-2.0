@@ -3,7 +3,9 @@
 @{ 
     ViewBag.Title = "Statistics";
 }
-<div>
+
+<div id="vehicleInformation"></div>
+<div class="col-md-8">
     <h4>@ViewBag.Title</h4>
     <hr />
     <dl class="dl-horizontal">
@@ -80,7 +82,69 @@
 
     </dl>
 </div>
+<div class="col-md-4">
+    <h4>
+        @Html.DisplayNameFor(m => m.ParkingInfo)
+    </h4>
+    <hr />
+    @{
+
+        foreach (var parking in Model.ParkingInfo)
+        {
+            if (parking.Contains("regNr"))
+            {
+                <div class="parkingLot notFreeParking" onclick="getVehicle()">
+                    @Html.Raw(parking)
+                </div>
+            }
+            else
+            {
+                <div class="parkingLot freeParking">
+                    @Html.Raw(parking)
+                </div>
+            }
+        }
+    }
+
+</div>
 @*<p>
     @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     @Html.ActionLink("Back to List", "Index")
 </p>*@
+
+<script type="text/javascript">
+    function getVehicle(e) {
+        event.preventDefault();
+        var div = $(event.target);
+        var children = div.children();
+        var link = $(children).attr('title');
+        if (link === "" || link == 'undefined' || link == null)
+        {
+            var childrenDiv = $(event.target);
+            var parentDiv = childrenDiv.parent();
+            link = parentDiv.attr('title');
+        }
+        if (link === "" || link == 'undefined' || link == null) {
+            var childrenDiv = $(event.target);
+            link = childrenDiv.attr('title');
+        }
+        $.ajax({
+            url: link,  
+            success: function (data) {
+                $('#vehicleInformation').html(data);
+                $('#vehicleInformation').animate({ right: '50px' }, 1000);
+                $('#vehicleInformation').show();
+            }
+        });
+    }
+
+    function closeInformation() {
+        $('#vehicleInformation').hide();
+    }
+
+    //function getVehicle() {
+    //    var div = $(".notFreeParking a") {
+    //        alert($(this).attr("href"));
+    //    };
+    //};
+</script>

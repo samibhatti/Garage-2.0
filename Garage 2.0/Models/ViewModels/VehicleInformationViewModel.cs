@@ -26,6 +26,8 @@ namespace Garage_2._0.Models.ViewModels
         public int NumberOfTyres { get; set; }
         [Display(Name = "Incoming payments")]
         public int CostToThisMoment { get; set; }
+        [Display(Name = "Parking slots information")]
+        public List<string> ParkingInfo { get; set; }
 
     }
 }

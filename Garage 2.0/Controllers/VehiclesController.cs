@@ -84,12 +84,18 @@ namespace Garage_2._0.Controllers
             return View(vehicle);
         }
 
+        public ActionResult ParkingDetails(int id)
+        {
+            Vehicle vehicle = db.Vehicles.Find(id);
+            return PartialView(vehicle);
+        }
+
         // GET: Vehicles/Create
         public ActionResult Create()
         {
             var vehicles = db.Vehicles.ToList();
 
-            int count = parkingHelper.getFreeParkingLots(vehicles).Count();
+            int count = ParkingHelper.getFreeParkingLots(vehicles).Count();
 
             if (count == 0)
             {
@@ -97,7 +103,7 @@ namespace Garage_2._0.Controllers
             }
 
             VehicleCreateViewModel model = new VehicleCreateViewModel();
-            model.Freeparking = parkingHelper.getFreeParkingLots(vehicles);
+            model.Freeparking = ParkingHelper.getFreeParkingLots(vehicles);
             return View(model);
         }
 
@@ -195,45 +201,18 @@ namespace Garage_2._0.Controllers
         {
             VehicleInformationViewModel model = new VehicleInformationViewModel();
             var allVehicles = db.Vehicles.ToList();
-            //model.Kombi = 0;
-            //model.MiniBus = 0;
-            //model.MotorCycle = 0;
-            //model.Pickup = 0;
-            //model.Sedan = 0;
-            //model.Vagon = 0;
-            //model.NumberOfTyres = 0;
-            //model.CostToThisMoment = 0;
-            foreach(var vehicle in allVehicles)
+            model.ParkingInfo = ParkingHelper.getParkingSlots(allVehicles);
+            model.NumberOfTyres = allVehicles.Sum(x => x.NoOfTyres);
+            model.TotalVehicle = allVehicles.Count();
+            model.Kombi = allVehicles.Where(x => x.VehicleTypeName.ToString().ToLower() == "kombi").Count();
+            model.MiniBus = allVehicles.Where(x => x.VehicleTypeName.ToString().ToLower() == "minibus").Count();
+            model.MotorCycle = allVehicles.Where(x => x.VehicleTypeName.ToString().ToLower() == "motorcycle").Count();
+            model.Pickup = allVehicles.Where(x => x.VehicleTypeName.ToString().ToLower() == "pickup").Count();
+            model.Sedan = allVehicles.Where(x => x.VehicleTypeName.ToString().ToLower() == "sedan").Count();
+            model.Vagon = allVehicles.Where(x => x.VehicleTypeName.ToString().ToLower() == "vagen").Count();
+            foreach (var vehicle in allVehicles)
             {
-                model.NumberOfTyres = model.NumberOfTyres + vehicle.NoOfTyres;
-                model.CostToThisMoment = model.CostToThisMoment + parkingHelper.getCost(vehicle.ParkingStartTime);
-                model.TotalVehicle = model.TotalVehicle + 1;
-                switch (vehicle.VehicleTypeName.ToString().ToLower())
-                {
-                    case "kombi":
-                        model.Kombi = model.Kombi + 1;
-                        break;
-
-                    case "minibus":
-                        model.MiniBus = model.MiniBus + 1;
-                        break;
-
-                    case "motorcycle":
-                        model.MotorCycle = model.MotorCycle + 1;
-                        break;
-
-                    case "pickup":
-                        model.Pickup = model.Pickup + 1;
-                        break;
-
-                    case "sedan":
-                        model.Sedan = model.Sedan + 1;
-                        break;
-
-                    case "vagen":
-                        model.Vagon = model.Vagon + 1;
-                        break;
-                }
+                model.CostToThisMoment = model.CostToThisMoment + ParkingHelper.getCost(vehicle.ParkingStartTime);
             }
             return View(model);
         }
