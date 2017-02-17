@@ -18,7 +18,7 @@ namespace Garage_2._0.Controllers
 
         public ActionResult Index()
         {
-            count = parkingHelper.getFreeParkingLots(db.Vehicles.ToList()).Count();
+            count = ParkingHelper.getFreeParkingLots(db.Vehicles.ToList()).Count();
 
             if (count == 0 ) {
 

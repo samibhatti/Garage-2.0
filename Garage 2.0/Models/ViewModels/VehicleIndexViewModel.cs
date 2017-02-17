@@ -31,7 +31,7 @@ namespace Garage_2._0.Models.ViewModels
                 VehicleTypeName = VehicleTypeName,
                 ParkingLotNo = vehicle.ParkingLotNo,
                 ParkingStartTime = vehicle.ParkingStartTime,
-                Duration = parkingHelper.getDuration(vehicle.ParkingStartTime),
+                Duration = ParkingHelper.getDuration(vehicle.ParkingStartTime),
                 Model = vehicle.Model,
                 Fabricate = vehicle.Fabricate
             };

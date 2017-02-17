@@ -141,8 +141,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\parkingHelper.cs" />
-    <Compile Include="Helpers\parkingsLots.cs" />
+    <Compile Include="Helpers\ParkingHelper.cs" />
+    <Compile Include="Helpers\ParkingsLots.cs" />
     <Compile Include="Migrations\201702031007370_Initial.cs" />
     <Compile Include="Migrations\201702031007370_Initial.Designer.cs">
       <DependentUpon>201702031007370_Initial.cs</DependentUpon>
