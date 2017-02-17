@@ -134,6 +134,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\ValidateController.cs" />
     <Compile Include="DAL\GarageContextInitializer.cs" />
     <Compile Include="DAL\Garage_2_5_Context.cs" />
@@ -218,6 +219,11 @@
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Views\Vehicles\Voucher.cshtml" />
     <Content Include="Views\Vehicles\Error.cshtml" />
+    <Content Include="Views\Members\Create.cshtml" />
+    <Content Include="Views\Members\Delete.cshtml" />
+    <Content Include="Views\Members\Details.cshtml" />
+    <Content Include="Views\Members\Edit.cshtml" />
+    <Content Include="Views\Members\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -10,11 +10,11 @@ namespace Garage_2._0.DAL
         {
             var members = new Member[]
             {
-                new Member {FirstName = "Adam", LastName = "Andersson"},
-                new Member {FirstName = "Bertil", LastName = "Larsson"},
-                new Member {FirstName = "Cecilia", LastName = "Eriksson"},
-                new Member {FirstName = "Diana", LastName = "Svensson"},
-                new Member {FirstName = "Erik", LastName = "Bergqvist"},
+                new Member {FirstName = "Adam", LastName = "Andersson", PhoneNumber = "0700000000"},
+                new Member {FirstName = "Bertil", LastName = "Larsson", PhoneNumber = "0700000000"},
+                new Member {FirstName = "Cecilia", LastName = "Eriksson", PhoneNumber = "0700000000"},
+                new Member {FirstName = "Diana", LastName = "Svensson", PhoneNumber = "0700000000"},
+                new Member {FirstName = "Erik", LastName = "Bergqvist", PhoneNumber = "0700000000"},
 
             };
 
