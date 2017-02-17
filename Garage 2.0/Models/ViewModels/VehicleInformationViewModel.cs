@@ -18,7 +18,7 @@ namespace Garage_2._0.Models.ViewModels
         public int Vagon { get; set; }
         [Display(Name = "Total MiniBus")]
         public int MiniBus { get; set; }
-        [Display(Name ="Total Motorcycle")]
+        [Display(Name = "Total Motorcycle")]
         public int MotorCycle { get; set; }
         [Display(Name = "Total Pickup")]
         public int Pickup { get; set; }

@@ -36,12 +36,12 @@ namespace Garage_2._0.Helpers
             return amount;
         }
 
+ 
 
 
         public static List<string> getFreeParkingLots(List<Vehicle> vehicles)
         {
-            parkingSlots parkingLots = new parkingSlots();
-            List<string> freeParkings = parkingLots.parkingLots;
+            List<string> freeParkings = new parkingsLots().parkingLots;
             foreach(var vehicle in vehicles)
             {
                 if (freeParkings.Contains(vehicle.ParkingLotNo))

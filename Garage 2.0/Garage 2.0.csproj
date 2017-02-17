@@ -72,6 +72,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -133,55 +135,44 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValidateController.cs" />
+    <Compile Include="Models\ViewModels\VehicleInformationViewModel.cs" />
     <Compile Include="Controllers\VehiclesController.cs" />
     <Compile Include="DAL\Garage_2_0_Context.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\parkingHelper.cs" />
-    <Compile Include="Helpers\parkingSlots.cs" />
-    <Compile Include="Migrations\201702030527314_Initial2.cs" />
-    <Compile Include="Migrations\201702030527314_Initial2.Designer.cs">
-      <DependentUpon>201702030527314_Initial2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702081455084_Initial.cs" />
-    <Compile Include="Migrations\201702081455084_Initial.Designer.cs">
-      <DependentUpon>201702081455084_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702081528515_Initial1.cs" />
-    <Compile Include="Migrations\201702081528515_Initial1.Designer.cs">
-      <DependentUpon>201702081528515_Initial1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702091348462_Init.cs" />
-    <Compile Include="Migrations\201702091348462_Init.Designer.cs">
-      <DependentUpon>201702091348462_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702091413264_Init1.cs" />
-    <Compile Include="Migrations\201702091413264_Init1.Designer.cs">
-      <DependentUpon>201702091413264_Init1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702091439250_Init2.cs" />
-    <Compile Include="Migrations\201702091439250_Init2.Designer.cs">
-      <DependentUpon>201702091439250_Init2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702091557201_Init3.cs" />
-    <Compile Include="Migrations\201702091557201_Init3.Designer.cs">
-      <DependentUpon>201702091557201_Init3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702100811196_Init4.cs" />
-    <Compile Include="Migrations\201702100811196_Init4.Designer.cs">
-      <DependentUpon>201702100811196_Init4.cs</DependentUpon>
-    <Compile Include="Migrations\201702130800278_Init.cs" />
-    <Compile Include="Migrations\201702130800278_Init.Designer.cs">
-      <DependentUpon>201702130800278_Init.cs</DependentUpon>
+    <Compile Include="Helpers\parkingsLots.cs" />
+    <Compile Include="Migrations\201702031007370_Initial.cs" />
+    <Compile Include="Migrations\201702031007370_Initial.Designer.cs">
+      <DependentUpon>201702031007370_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Vehicle.cs" />
+    <Compile Include="Models\C__MigrationHistory.cs">
+      <DependentUpon>GarageDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GarageDBModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GarageDBModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GarageDBModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GarageDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GarageDBModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GarageDBModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Vehicle.cs">
+      <DependentUpon>GarageDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Enum\VehicleTypeName.cs" />
     <Compile Include="Models\ViewModels\VehicleCreateViewModel.cs" />
     <Compile Include="Models\ViewModels\VehicleDeleteViewModel.cs" />
     <Compile Include="Models\ViewModels\VehicleIndexViewModel.cs" />
-    <Compile Include="Models\ViewModels\VehicleInformationViewModel.cs" />
     <Compile Include="Models\ViewModels\VehicleVoucherViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -194,6 +185,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\GarageDBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GarageDBModel.edmx</DependentUpon>
+      <LastGenOutput>GarageDBModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\GarageDBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GarageDBModel.edmx</DependentUpon>
+      <LastGenOutput>GarageDBModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -204,6 +205,13 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <EntityDeploy Include="Models\GarageDBModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GarageDBModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\GarageDBModel.edmx.diagram">
+      <DependentUpon>GarageDBModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-3.1.1-vsdoc.js" />
     <Content Include="Scripts\garage.js" />
@@ -248,8 +256,7 @@
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Views\Vehicles\Voucher.cshtml" />
-    <Content Include="Views\Vehicles\Information.cshtml" />
-    <Content Include="Views\Vehicles\ParkingDetails.cshtml" />
+    <Content Include="Views\Vehicles\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -260,9 +267,12 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201702130800278_Init.resx">
-      <DependentUpon>201702130800278_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201702031007370_Initial.resx">
+      <DependentUpon>201702031007370_Initial.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Garage_2._0.Helpers
 {
-    public class parkingSlots
+    public class parkingsLots
     {
         public List<string> parkingLots = new List<string>()
         {
