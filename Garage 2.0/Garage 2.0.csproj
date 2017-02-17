@@ -135,6 +135,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValidateController.cs" />
+    <Compile Include="Models\Vehicle.cs" />
     <Compile Include="Models\ViewModels\VehicleInformationViewModel.cs" />
     <Compile Include="Controllers\VehiclesController.cs" />
     <Compile Include="DAL\Garage_2_0_Context.cs" />
