@@ -13,12 +13,12 @@ namespace Garage_2._0.Controllers
     {
         private static log4net.ILog Log { get; set; }
         ILog log = log4net.LogManager.GetLogger(typeof(HomeController));
-        private Garage_2_0_Context db = new Garage_2_0_Context();
+        private Garage_2_5_Context db = new Garage_2_5_Context();
         private int count;
 
         public ActionResult Index()
         {
-            count = ParkingHelper.getFreeParkingLots(db.Vehicles.ToList()).Count();
+            /*count = ParkingHelper.getFreeParkingLots(db.Vehicles.ToList()).Count();
 
             if (count == 0 ) {
 
@@ -27,6 +27,7 @@ namespace Garage_2._0.Controllers
             {
                 ViewBag.parkingStatus = count.ToString();
             }
+            */
             return View();
         }
 

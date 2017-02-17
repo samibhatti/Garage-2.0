@@ -142,17 +142,11 @@
     <Compile Include="Models\VehicleType.cs" />
     <Compile Include="Models\ViewModels\VehicleInformationViewModel.cs" />
     <Compile Include="Controllers\VehiclesController.cs" />
-    <Compile Include="DAL\Garage_2_0_Context.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ParkingHelper.cs" />
     <Compile Include="Helpers\ParkingsLots.cs" />
-    <Compile Include="Migrations\201702031007370_Initial.cs" />
-    <Compile Include="Migrations\201702031007370_Initial.Designer.cs">
-      <DependentUpon>201702031007370_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Enum\VehicleTypeName.cs" />
     <Compile Include="Models\ViewModels\VehicleCreateViewModel.cs" />
     <Compile Include="Models\ViewModels\VehicleDeleteViewModel.cs" />
@@ -232,11 +226,6 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201702031007370_Initial.resx">
-      <DependentUpon>201702031007370_Initial.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

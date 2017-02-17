@@ -26,18 +26,16 @@ namespace Garage_2._0.Models.ViewModels
         {
             VehicleIndexViewModel model = new VehicleIndexViewModel
             {
-                Id = vehicle.Id,
                 RegNr = vehicle.RegNr,
                 VehicleTypeName = VehicleTypeName,
-                ParkingLotNo = vehicle.ParkingLotNo,
+                ParkingLotNo = vehicle.ParkingLotNumber,
                 ParkingStartTime = vehicle.ParkingStartTime,
                 Duration = ParkingHelper.getDuration(vehicle.ParkingStartTime),
                 Model = vehicle.Model,
-                Fabricate = vehicle.Fabricate
+                Fabricate = vehicle.Brand
             };
             return model;
         }
-
 
         public List<VehicleIndexViewModel> toList(List<Vehicle> vehicles)
         {
