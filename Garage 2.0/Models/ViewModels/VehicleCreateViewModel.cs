@@ -19,7 +19,7 @@ namespace Garage_2._0.Models.ViewModels
         [Display(Name = "Registration Number")]
         public string RegNr { get; set; }
         [Required]
-        public VehicleTypeName VehicleTypeName { get; set; }
+        public VehicleType VehicleType { get; set; }
 
         [StringLength(20)]
         [Display(Name = "Color")]
@@ -28,62 +28,34 @@ namespace Garage_2._0.Models.ViewModels
         //[Required]
         [Display(Name = "Parking lot number")]
         [Remote("checkParkingLotNr", "Validate", ErrorMessage = "Parkinglot taken")]
-        public string ParkingLotNo { get; set; }
-
-        public int VehicleLength { get; set; }
+        public string ParkingLotNumber { get; set; }
 
         [Required]
         public DateTime ParkingStartTime { get; set; }
 
-
         [Range(0, 4, ErrorMessage = "Tyres must be 2 or 4")]
         [Display(Name = "Number of tyres")]
         [Remote("checkNumberOfTyres", "Validate", ErrorMessage = "Invalid number of tyres")]
-        public int NoOfTyres { get; set; }
+        public int NumberOfTyres { get; set; }
 
-        [Display(Name = "Fabricate model")]
-        public string FabricateModel { get; set; }
+        public string Model { get; set; }
 
         [Required]
         [StringLength(50)]
-        [Display(Name = "Fabricate")]
-        public string Fabricate { get; set; }
+        public string Brand { get; set; }
 
         public List<string> Freeparking { get; set; }
 
-
-        public Vehicle toEnity(VehicleCreateViewModel model)
+        public VehicleCreateViewModel(string regNr, string color, string brand, string model,
+            int numberOfTyres, string parkingLotNumber, DateTime parkingStartTime )
         {
-            Vehicle vehicle = new Vehicle
-            {
-                Color = model.Color,
-                Brand = model.Fabricate,
-                Model = model.FabricateModel,
-                NumberOfTyres = model.NoOfTyres,
-                ParkingLotNumber = model.ParkingLotNo,
-                ParkingStartTime = model.ParkingStartTime,
-                RegNr = model.RegNr,
-                //VehicleTypeName = model.VehicleTypeName
-            };
-            return vehicle;
-            
-        }
-
-        public VehicleCreateViewModel toViewModel(Vehicle model)
-        {
-            VehicleCreateViewModel vehicle = new VehicleCreateViewModel
-            {
-                RegNr = model.RegNr,
-                Color = model.Color,
-                Fabricate = model.Brand,
-                FabricateModel = model.Model,
-                NoOfTyres = model.NumberOfTyres,
-                ParkingLotNo = model.ParkingLotNumber,
-                ParkingStartTime = model.ParkingStartTime,
-            };
-            return vehicle;
-
+            RegNr = regNr;
+            Color = color;
+            Brand = brand;
+            Model = model;
+            NumberOfTyres = numberOfTyres;
+            ParkingLotNumber = parkingLotNumber;
+            ParkingStartTime = parkingStartTime;
         }
     }
-
 }

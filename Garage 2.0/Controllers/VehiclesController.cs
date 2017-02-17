@@ -24,20 +24,15 @@ namespace Garage_2._0.Controllers
         // GET: Vehicles
         public ActionResult Index(string orderBy, string searchTerm)
         {
-            //log.Debug("Debug message");
-            //log.Warn("Warn message");
-            //log.Error("Error message");
-            //log.Fatal("Fatal message");
-
             IQueryable<Vehicle> query = db.Vehicles;
-            if(!string.IsNullOrEmpty(searchTerm))
+            if (!string.IsNullOrEmpty(searchTerm))
             {
                 ViewBag.SearchTerm = searchTerm;
-                query = query.Where(x => x.RegNr.Contains(searchTerm) || x.Brand.Contains(searchTerm) || x.Model.Contains(searchTerm) || x.ParkingLotNumber.Contains(searchTerm));
+                query = query.Where(x => x.VehicleType.Name.Contains(searchTerm) || x.RegNr.Contains(searchTerm) || x.Brand.Contains(searchTerm) || x.Model.Contains(searchTerm) || x.ParkingLotNumber.Contains(searchTerm));
             }
-            if(!string.IsNullOrEmpty(orderBy))
+            if (!string.IsNullOrEmpty(orderBy))
             {
-                switch(orderBy.ToLower())
+                switch (orderBy.ToLower())
                 {
                     case "regnr":
                         query = query.OrderBy(x => x.RegNr);
@@ -59,14 +54,18 @@ namespace Garage_2._0.Controllers
                         query = query.OrderBy(x => x.ParkingStartTime);
                         break;
                 }
-               
             }
-            
 
-            VehicleIndexViewModel model = new VehicleIndexViewModel();
-            model.Vehicles = model.toList(query.ToList());
+            List<VehicleIndexViewModel> indexViewModel = new List<VehicleIndexViewModel>();
+            foreach (var item in query)
+            {
+                VehicleIndexViewModel elem = new VehicleIndexViewModel(item.RegNr, item.VehicleType.Id, item.ParkingLotNumber,
+                    item.ParkingStartTime, item.Model, item.Brand);
+                indexViewModel.Add(elem);
+            }
+
             log.Error(query + "Info message");
-            return View(model);
+            return View(indexViewModel);
         }
 
         // GET: Vehicles/Details/5
@@ -102,9 +101,8 @@ namespace Garage_2._0.Controllers
                 return RedirectToAction("Error");
             }
 
-            VehicleCreateViewModel model = new VehicleCreateViewModel();
-            model.Freeparking = ParkingHelper.GetFreeParkingLots(vehicles);
-            return View(model);
+            var freeParking = ParkingHelper.GetFreeParkingLots(vehicles);
+            return View(freeParking);
         }
 
         // POST: Vehicles/Create
@@ -112,23 +110,20 @@ namespace Garage_2._0.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RegNr,VehicleTypeName,ParkingLotNo,Color,NoOfTyres,FabricateModel,Fabricate")]VehicleCreateViewModel model)
+        public ActionResult Create([Bind(Include = "RegNr,VehicleTypeName,ParkingLotNo,Color,NoOfTyres,FabricateModel,Fabricate")] VehicleCreateViewModel model)
         {
-            
-
             if (ModelState.IsValid)
-                {
+            {
+                model.ParkingStartTime = DateTime.Now;
+                var vehicle = new Vehicle(model.RegNr, model.Color, model.ParkingLotNumber,
+                    model.NumberOfTyres, model.Model, model.Brand, model.VehicleType.Id);
 
-                    model.ParkingStartTime = DateTime.Now;
-                    VehicleCreateViewModel m = new VehicleCreateViewModel();
-                    var vehicle = m.toEnity(model);
-                    //vehicle.ParkingStopTime = DateTime.Now;
-                    db.Vehicles.Add(vehicle);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
-            
-                return View(model);
+                db.Vehicles.Add(vehicle);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(model);
         }
 
         // GET: Vehicles/Edit/5
@@ -232,6 +227,6 @@ namespace Garage_2._0.Controllers
             }
             base.Dispose(disposing);
         }
-        
+
     }
 }

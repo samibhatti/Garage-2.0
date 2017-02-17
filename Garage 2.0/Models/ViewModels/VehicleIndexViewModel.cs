@@ -12,39 +12,25 @@ namespace Garage_2._0.Models.ViewModels
         public int Id { get; set; }
         [Display(Name ="Reg Nr")]
         public string RegNr { get; set; }
-        public VehicleTypeName VehicleTypeName { get; set; }
+        public int VehicleTypeId { get; set; }
         [Display(Name = "Lot Nr")]
-        public string ParkingLotNo { get; set; }
+        public string ParkingLotNumber { get; set; }
         [Display(Name = "Start Parking Time")]
         public DateTime ParkingStartTime { get; set; }
         public string Duration { get; set; }
         public string Model { get; set; }
-        public string Fabricate { get; set; }
-        public IList<VehicleIndexViewModel> Vehicles { get; set; }
+        public string Brand { get; set; }
 
-        public VehicleIndexViewModel toViewModel(Vehicle vehicle)
+        public VehicleIndexViewModel(string regNr, int vehicleTypeId, string parkingLotNumber,
+            DateTime parkingStartTime, string model, string brand)
         {
-            VehicleIndexViewModel model = new VehicleIndexViewModel
-            {
-                RegNr = vehicle.RegNr,
-                VehicleTypeName = VehicleTypeName,
-                ParkingLotNo = vehicle.ParkingLotNumber,
-                ParkingStartTime = vehicle.ParkingStartTime,
-                Duration = ParkingHelper.GetDuration(vehicle.ParkingStartTime),
-                Model = vehicle.Model,
-                Fabricate = vehicle.Brand
-            };
-            return model;
-        }
-
-        public List<VehicleIndexViewModel> toList(List<Vehicle> vehicles)
-        {
-            List<VehicleIndexViewModel> model = new List<VehicleIndexViewModel>();
-            foreach(var vehicle in vehicles)
-            {
-                model.Add(toViewModel(vehicle));
-            }
-            return model;
+            RegNr = regNr;
+            VehicleTypeId = vehicleTypeId;
+            ParkingLotNumber = parkingLotNumber;
+            ParkingStartTime = parkingStartTime;
+            Duration = ParkingHelper.GetDuration(parkingStartTime);
+            Model = model;
+            Brand = brand;
         }
     }
 }

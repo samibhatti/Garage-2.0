@@ -30,7 +30,6 @@ namespace Garage_2._0.Models
         public int NumberOfTyres { get; set; }
 
         [StringLength(50)]
-        [Display(Name = "Fabricate model")]
         public string Model { get; set; }
 
         [Required]
@@ -38,13 +37,27 @@ namespace Garage_2._0.Models
         public string Brand { get; set; }
 
         // Navigation Properties
+        [ForeignKey("VehicleType")]
+        public int VehicleTypeId { get; set; }
         public virtual VehicleType VehicleType { get; set; }
 
         //Maybe unnecessary due to already being set by default [ForeignKey("Member")]
         [ForeignKey("Member")]
         public int MemberId { get; set; }
         public virtual Member Member { get; set; }
-        
 
+        public Vehicle(string regNr, string color, string parkingLotNumber,
+            int numberOfTyres, string model, string brand, int vehicleTypeId, int memberId)
+        {
+            RegNr = regNr;
+            Color = color;
+            ParkingLotNumber = parkingLotNumber;
+            ParkingStartTime = DateTime.Now;
+            NumberOfTyres = numberOfTyres;
+            Model = model;
+            Brand = brand;
+            VehicleTypeId = vehicleTypeId;
+            MemberId = memberId;
+        }
     }
 }
