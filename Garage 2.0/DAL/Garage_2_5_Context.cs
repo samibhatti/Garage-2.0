@@ -9,7 +9,7 @@ namespace Garage_2._0.DAL
 {
     public class Garage_2_5_Context : DbContext
     {
-        public Garage_2_5_Context() : base("UniversityContext")
+        public Garage_2_5_Context() : base("Garage2_5_Context")
         {
 
         }
