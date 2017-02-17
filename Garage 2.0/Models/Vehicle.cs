@@ -31,7 +31,7 @@ namespace Garage_2._0.Models
         [Required]
         public DateTime ParkingStartTime { get; set; }
 
-        
+
         [Display(Name = "Number of tyres")]
         public int NoOfTyres { get; set; }
 
