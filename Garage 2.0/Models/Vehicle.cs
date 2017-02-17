@@ -41,7 +41,8 @@ namespace Garage_2._0.Models
         public virtual VehicleType VehicleType { get; set; }
 
         //Maybe unnecessary due to already being set by default [ForeignKey("Member")]
-        public string MemberId { get; set; }
+        [ForeignKey("Member")]
+        public int MemberId { get; set; }
         public virtual Member Member { get; set; }
         
 

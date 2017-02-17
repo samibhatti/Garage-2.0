@@ -19,11 +19,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.VehicleTypeName)
+            @Html.DisplayNameFor(model => model.VehicleType)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.VehicleTypeName)
+            @Html.DisplayFor(model => model.VehicleType)
         </dd>
 
         <dt>
@@ -35,11 +35,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ParkingLotNo)
+            @Html.DisplayNameFor(model => model.ParkingLotNumber)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ParkingLotNo)
+            @Html.DisplayFor(model => model.ParkingLotNumber)
         </dd>
 
         <dt>
@@ -51,11 +51,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.NoOfTyres)
+            @Html.DisplayNameFor(model => model.NumberOfTyres)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.NoOfTyres)
+            @Html.DisplayFor(model => model.NumberOfTyres)
         </dd>
 
         <dt>
@@ -67,16 +67,16 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Fabricate)
+            @Html.DisplayNameFor(model => model.Brand)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Fabricate)
+            @Html.DisplayFor(model => model.Brand)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RegNr }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

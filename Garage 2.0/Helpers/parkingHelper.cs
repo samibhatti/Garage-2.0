@@ -13,7 +13,7 @@ namespace Garage_2._0.Helpers
         public static int pricePerHour = 60;
         public static List<int> accptedTyres = new List<int>() { 2, 4 };
 
-        public static string getDuration(DateTime startTime)
+        public static string GetDuration(DateTime startTime)
         {
             int days = (DateTime.Now - startTime).Days;
             int hours = (DateTime.Now - startTime).Hours;
@@ -22,7 +22,7 @@ namespace Garage_2._0.Helpers
             return duration;
         }
 
-        public static int getCost(DateTime startTime)
+        public static int GetCost(DateTime startTime)
         {
             int days = (DateTime.Now - startTime).Days;
             int hours = (DateTime.Now - startTime).Hours;
@@ -37,10 +37,7 @@ namespace Garage_2._0.Helpers
             return amount;
         }
 
- 
-
-
-        public static List<string> getFreeParkingLots(List<Vehicle> vehicles)
+        public static List<string> GetFreeParkingLots(List<Vehicle> vehicles)
         {
             List<string> freeParkings = new ParkingsLots().parkingLots;
             foreach(var vehicle in vehicles)
@@ -51,7 +48,7 @@ namespace Garage_2._0.Helpers
             return freeParkings;
         }
 
-        public static List<string> getParkingSlots(List<Vehicle> vehicles)
+        public static List<string> GetParkingLots(List<Vehicle> vehicles)
         {
             ParkingsLots parkingLots = new ParkingsLots();
             List<string> parkingStatus =  parkingLots.parkingLots;
@@ -60,11 +57,10 @@ namespace Garage_2._0.Helpers
                 if (parkingStatus.Contains(vehicle.ParkingLotNumber))
                 {
                     int i = parkingStatus.FindIndex(a => a.Equals(vehicle.ParkingLotNumber));
-                    parkingStatus[i] =  parkingStatus[i] + "<div title=/Vehicles/ParkingDetails/" +"><span class='regNr'> " + vehicle.RegNr + "</span></div><span class='tooltiptext'>" + vehicle.Brand + " " + vehicle.Model + "</br> " + vehicle.ParkingStartTime  + "</span>";
+                    parkingStatus[i] =  parkingStatus[i] + "<div title=/Vehicles/ParkingDetails/" + vehicle.RegNr + "><span class='regNr'> " + vehicle.RegNr + "</span></div><span class='tooltiptext'>" + vehicle.Brand + " " + vehicle.Model + "</br> " + vehicle.ParkingStartTime  + "</span>";
                 }
             }
             return parkingStatus;
         }
-
     }
 }

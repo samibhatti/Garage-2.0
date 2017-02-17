@@ -10,7 +10,7 @@ namespace Garage_2._0.Controllers
 {
     public class ValidateController : Controller
     {
-        private Garage_2_0_Context db = new Garage_2_0_Context();
+        private Garage_2_5_Context db = new Garage_2_5_Context();
 
 
         public JsonResult RegNr(string RegNr)

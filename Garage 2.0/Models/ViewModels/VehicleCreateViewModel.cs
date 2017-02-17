@@ -57,13 +57,12 @@ namespace Garage_2._0.Models.ViewModels
             Vehicle vehicle = new Vehicle
             {
                 Color = model.Color,
-                //Fabricate = model.Fabricate,
+                Brand = model.Fabricate,
                 Model = model.FabricateModel,
-                //NoOfTyres = model.NoOfTyres,
-                //ParkingLotNo = model.ParkingLotNo,
+                NumberOfTyres = model.NoOfTyres,
+                ParkingLotNumber = model.ParkingLotNo,
                 ParkingStartTime = model.ParkingStartTime,
                 RegNr = model.RegNr,
-                //VehicleLength = model.VehicleLength,
                 //VehicleTypeName = model.VehicleTypeName
             };
             return vehicle;
@@ -74,14 +73,13 @@ namespace Garage_2._0.Models.ViewModels
         {
             VehicleCreateViewModel vehicle = new VehicleCreateViewModel
             {
+                RegNr = model.RegNr,
                 Color = model.Color,
                 Fabricate = model.Brand,
                 FabricateModel = model.Model,
                 NoOfTyres = model.NumberOfTyres,
                 ParkingLotNo = model.ParkingLotNumber,
                 ParkingStartTime = model.ParkingStartTime,
-                RegNr = model.RegNr,
-//                VehicleTypeName = model.VehicleType
             };
             return vehicle;
 

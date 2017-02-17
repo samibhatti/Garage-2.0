@@ -30,13 +30,12 @@ namespace Garage_2._0.Models.ViewModels
                 VehicleTypeName = VehicleTypeName,
                 ParkingLotNo = vehicle.ParkingLotNumber,
                 ParkingStartTime = vehicle.ParkingStartTime,
-                Duration = ParkingHelper.getDuration(vehicle.ParkingStartTime),
+                Duration = ParkingHelper.GetDuration(vehicle.ParkingStartTime),
                 Model = vehicle.Model,
                 Fabricate = vehicle.Brand
             };
             return model;
         }
-
 
         public List<VehicleIndexViewModel> toList(List<Vehicle> vehicles)
         {
