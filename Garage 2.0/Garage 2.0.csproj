@@ -148,11 +148,6 @@
     </Compile>
     <Compile Include="Helpers\ParkingHelper.cs" />
     <Compile Include="Helpers\ParkingsLots.cs" />
-    <Compile Include="Migrations\201702031007370_Initial.cs" />
-    <Compile Include="Migrations\201702031007370_Initial.Designer.cs">
-      <DependentUpon>201702031007370_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Enum\VehicleTypeName.cs" />
     <Compile Include="Models\ViewModels\VehicleCreateViewModel.cs" />
     <Compile Include="Models\ViewModels\VehicleDeleteViewModel.cs" />
@@ -224,19 +219,20 @@
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Views\Vehicles\Voucher.cshtml" />
     <Content Include="Views\Vehicles\Error.cshtml" />
+    <Content Include="Views\Vehicles1\Create.cshtml" />
+    <Content Include="Views\Vehicles1\Delete.cshtml" />
+    <Content Include="Views\Vehicles1\Details.cshtml" />
+    <Content Include="Views\Vehicles1\Edit.cshtml" />
+    <Content Include="Views\Vehicles1\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Migrations\" />
     <Folder Include="Views\Validate\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201702031007370_Initial.resx">
-      <DependentUpon>201702031007370_Initial.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -25,7 +25,7 @@ namespace Garage_2._0.Controllers
 
         public JsonResult checkParkingLotNr(string ParkingLotNo)
         {
-            var check = db.Vehicles.Where(x => x.ParkingLotNo == ParkingLotNo).FirstOrDefault();
+            var check = db.Vehicles.Where(x => x.ParkingLotNumber == ParkingLotNo).FirstOrDefault();
             if (check == null)
             {
                 return Json(true, JsonRequestBehavior.AllowGet);

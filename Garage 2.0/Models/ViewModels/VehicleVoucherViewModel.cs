@@ -35,18 +35,16 @@ namespace Garage_2._0.Models.ViewModels
         {
             VehicleVoucherViewModel model = new VehicleVoucherViewModel
             {
-                id = vehicle.Id,
                 VoucherID = voucherId(),
                 RegNr = vehicle.RegNr,
                 VehicleTypeName =VehicleTypeName,
                 Color = vehicle.Color,
-                ParkingLotNo = vehicle.ParkingLotNo,
-                VehicleLength = vehicle.VehicleLength,
+                ParkingLotNo = vehicle.ParkingLotNumber,
                 ParkingStartTime = vehicle.ParkingStartTime,
                 ParkingStopTime = DateTime.Now,
-                NoOfTyres = vehicle.NoOfTyres,
+                NoOfTyres = vehicle.NumberOfTyres,
                 Model = vehicle.Model,
-                Fabricate = vehicle.Fabricate,
+                Fabricate = vehicle.Brand,
                 Duration = ParkingHelper.getDuration(vehicle.ParkingStartTime),
                 PaymentAmount = ParkingHelper.getCost(vehicle.ParkingStartTime)
             };

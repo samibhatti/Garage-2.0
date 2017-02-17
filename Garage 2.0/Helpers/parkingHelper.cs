@@ -45,8 +45,8 @@ namespace Garage_2._0.Helpers
             List<string> freeParkings = new ParkingsLots().parkingLots;
             foreach(var vehicle in vehicles)
             {
-                if (freeParkings.Contains(vehicle.ParkingLotNo))
-                    freeParkings.Remove(vehicle.ParkingLotNo);
+                if (freeParkings.Contains(vehicle.ParkingLotNumber))
+                    freeParkings.Remove(vehicle.ParkingLotNumber);
             }
             return freeParkings;
         }
@@ -57,10 +57,10 @@ namespace Garage_2._0.Helpers
             List<string> parkingStatus =  parkingLots.parkingLots;
             foreach (var vehicle in vehicles)
             {
-                if (parkingStatus.Contains(vehicle.ParkingLotNo))
+                if (parkingStatus.Contains(vehicle.ParkingLotNumber))
                 {
-                    int i = parkingStatus.FindIndex(a => a.Equals(vehicle.ParkingLotNo));
-                    parkingStatus[i] =  parkingStatus[i] + "<div title=/Vehicles/ParkingDetails/" + vehicle.Id + "><span class='regNr'> " + vehicle.RegNr + "</span></div><span class='tooltiptext'>" + vehicle.Fabricate + " " + vehicle.Model + "</br> " + vehicle.ParkingStartTime  + "</span>";
+                    int i = parkingStatus.FindIndex(a => a.Equals(vehicle.ParkingLotNumber));
+                    parkingStatus[i] =  parkingStatus[i] + "<div title=/Vehicles/ParkingDetails/" +"><span class='regNr'> " + vehicle.RegNr + "</span></div><span class='tooltiptext'>" + vehicle.Brand + " " + vehicle.Model + "</br> " + vehicle.ParkingStartTime  + "</span>";
                 }
             }
             return parkingStatus;
