@@ -19,7 +19,7 @@ namespace Garage_2._0.Models.ViewModels
         [Display(Name = "Registration Number")]
         public string RegNr { get; set; }
         [Required]
-        public VehicleType VehicleType { get; set; }
+        public VehicleType VehicleType;
 
         [StringLength(20)]
         [Display(Name = "Color")]
@@ -44,18 +44,12 @@ namespace Garage_2._0.Models.ViewModels
         [StringLength(50)]
         public string Brand { get; set; }
 
-        public List<string> Freeparking { get; set; }
+        [Required]
+        public int MemberId { get; set; }
 
-        public VehicleCreateViewModel(string regNr, string color, string brand, string model,
-            int numberOfTyres, string parkingLotNumber, DateTime parkingStartTime )
-        {
-            RegNr = regNr;
-            Color = color;
-            Brand = brand;
-            Model = model;
-            NumberOfTyres = numberOfTyres;
-            ParkingLotNumber = parkingLotNumber;
-            ParkingStartTime = parkingStartTime;
-        }
+        public List<string> FreeParking { get; set; }
+        public List<VehicleType> VehicleTypeList { get; set; }
+
+       
     }
 }

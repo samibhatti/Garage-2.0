@@ -9,10 +9,11 @@ namespace Garage_2._0.Models
 {
     public class Vehicle
     {
+        [Key]
+        public int Id { get; set; }
 
         //[RegularExpression("^[A-Z]{3} [0-9]{3}$", ErrorMessage = "Need to be in format AAA 123")]
         //[RegularExpression("^[A-Z]{3}\\d{3}$", ErrorMessage = "Requires 3 letter follow by 3 numbers")]
-        [Key]
         [Display(Name = "Registration Number")]
         public string RegNr { get; set; }
 
@@ -45,19 +46,5 @@ namespace Garage_2._0.Models
         [ForeignKey("Member")]
         public int MemberId { get; set; }
         public virtual Member Member { get; set; }
-
-        public Vehicle(string regNr, string color, string parkingLotNumber,
-            int numberOfTyres, string model, string brand, int vehicleTypeId, int memberId)
-        {
-            RegNr = regNr;
-            Color = color;
-            ParkingLotNumber = parkingLotNumber;
-            ParkingStartTime = DateTime.Now;
-            NumberOfTyres = numberOfTyres;
-            Model = model;
-            Brand = brand;
-            VehicleTypeId = vehicleTypeId;
-            MemberId = memberId;
-        }
     }
 }

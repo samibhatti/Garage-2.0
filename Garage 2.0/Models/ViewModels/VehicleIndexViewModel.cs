@@ -21,9 +21,10 @@ namespace Garage_2._0.Models.ViewModels
         public string Model { get; set; }
         public string Brand { get; set; }
 
-        public VehicleIndexViewModel(string regNr, int vehicleTypeId, string parkingLotNumber,
+        public VehicleIndexViewModel(int id,string regNr, int vehicleTypeId, string parkingLotNumber,
             DateTime parkingStartTime, string model, string brand)
         {
+            Id = id;
             RegNr = regNr;
             VehicleTypeId = vehicleTypeId;
             ParkingLotNumber = parkingLotNumber;

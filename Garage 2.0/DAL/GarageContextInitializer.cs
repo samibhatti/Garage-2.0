@@ -38,7 +38,7 @@ namespace Garage_2._0.DAL
 
             var vehicles = new Vehicle[]
             {
-                new Vehicle("PPA 434","Black","A1",MemberId = members[1].MemberId  ,ParkingStartTime = DateTime.Now, NumberOfTyres = 4, Model = "V6",  Brand  = "Volvo", VehicleTypeId = vehicleTypes[0].Id },
+                new Vehicle { RegNr = "PPA 434", Color = "Black",ParkingLotNumber = "A1",  MemberId = members[1].MemberId, ParkingStartTime = DateTime.Now, NumberOfTyres = 4, Model = "V6",  Brand  = "Volvo", VehicleTypeId = vehicleTypes[0].Id },
                 new Vehicle { RegNr = "QGK 444", Color = "Blue", ParkingLotNumber = "A2",  MemberId = members[0].MemberId, ParkingStartTime = DateTime.Now, NumberOfTyres = 2, Model = "V7",  Brand = "Honda", VehicleTypeId = vehicleTypes[1].Id }, 
                 new Vehicle { RegNr = "RPG 454", Color = "Pink", ParkingLotNumber = "A3",  MemberId = members[2].MemberId, ParkingStartTime = DateTime.Now, NumberOfTyres = 4, Model = "V9",  Brand = "Mazda", VehicleTypeId = vehicleTypes[2].Id },
                 new Vehicle { RegNr = "TFK 466", Color = "Red", ParkingLotNumber = "A4",   MemberId = members[0].MemberId, ParkingStartTime = DateTime.Now,  NumberOfTyres = 4, Model = "V2", Brand = "Nissan", VehicleTypeId = vehicleTypes[3].Id },
