@@ -9,10 +9,11 @@ namespace Garage_2._0.Models
 {
     public class Vehicle
     {
+        [Key]
+        public int Id { get; set; }
 
         //[RegularExpression("^[A-Z]{3} [0-9]{3}$", ErrorMessage = "Need to be in format AAA 123")]
         //[RegularExpression("^[A-Z]{3}\\d{3}$", ErrorMessage = "Requires 3 letter follow by 3 numbers")]
-        [Key]
         [Display(Name = "Registration Number")]
         public string RegNr { get; set; }
 
@@ -30,7 +31,6 @@ namespace Garage_2._0.Models
         public int NumberOfTyres { get; set; }
 
         [StringLength(50)]
-        [Display(Name = "Fabricate model")]
         public string Model { get; set; }
 
         [Required]
@@ -38,13 +38,13 @@ namespace Garage_2._0.Models
         public string Brand { get; set; }
 
         // Navigation Properties
-        public virtual VehicleType VehicleType { get; set; }
+        //[ForeignKey("VehicleType")]
+        public int VehicleTypeId { get; set; }
+        public virtual VehicleType vehicleType { get; set; }
 
         //Maybe unnecessary due to already being set by default [ForeignKey("Member")]
-        [ForeignKey("Member")]
+        //[ForeignKey("Member")]
         public int MemberId { get; set; }
-        public virtual Member Member { get; set; }
-        
-
+        public virtual ICollection<Member> member { get; set; }
     }
 }

@@ -13,77 +13,36 @@ namespace Garage_2._0.Models.ViewModels
         public int Id { get; set; }
 
         [Required]
-        [RegularExpression("^[A-Z]{3} [0-9]{3}$", ErrorMessage = "Need to be in format AAA 123")]
-        [Remote("RegNr", "Validate", ErrorMessage = "Registration Number is alreay parked")]
-        //[RegularExpression("^[A-Z]{3}\\d{3}$", ErrorMessage = "Requires 3 letter follow by 3 numbers")]
+        public int MemberId { get; set; }
+
+        [Display(Name = "Parking lot number")]
+        public string ParkingLotNumber { get; set; }
+
+        [Required]
         [Display(Name = "Registration Number")]
         public string RegNr { get; set; }
-        [Required]
-        public VehicleTypeName VehicleTypeName { get; set; }
 
-        [StringLength(20)]
+        [Display(Name = "Vehicle Type")]
+        [Required]
+        public int VehicleTypeId { get; set; }
+
         [Display(Name = "Color")]
         public string Color { get; set; }
 
-        //[Required]
-        [Display(Name = "Parking lot number")]
-        [Remote("checkParkingLotNr", "Validate", ErrorMessage = "Parkinglot taken")]
-        public string ParkingLotNo { get; set; }
-
-        public int VehicleLength { get; set; }
+        [Display(Name = "Number of tyres")]
+        public int NumberOfTyres { get; set; }
 
         [Required]
+        public string VModel { get; set; }
+
+        [Required]
+        public string Brand { get; set; }
+
         public DateTime ParkingStartTime { get; set; }
 
+        public SelectList FreeParking { get; set; }
+        public SelectList VehicleTypeList { get; set; }
+        public SelectList MemberList { get; set; }
 
-        [Range(0, 4, ErrorMessage = "Tyres must be 2 or 4")]
-        [Display(Name = "Number of tyres")]
-        [Remote("checkNumberOfTyres", "Validate", ErrorMessage = "Invalid number of tyres")]
-        public int NoOfTyres { get; set; }
-
-        [Display(Name = "Fabricate model")]
-        public string FabricateModel { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        [Display(Name = "Fabricate")]
-        public string Fabricate { get; set; }
-
-        public List<string> Freeparking { get; set; }
-
-
-        public Vehicle toEnity(VehicleCreateViewModel model)
-        {
-            Vehicle vehicle = new Vehicle
-            {
-                Color = model.Color,
-                Brand = model.Fabricate,
-                Model = model.FabricateModel,
-                NumberOfTyres = model.NoOfTyres,
-                ParkingLotNumber = model.ParkingLotNo,
-                ParkingStartTime = model.ParkingStartTime,
-                RegNr = model.RegNr,
-                //VehicleTypeName = model.VehicleTypeName
-            };
-            return vehicle;
-            
-        }
-
-        public VehicleCreateViewModel toViewModel(Vehicle model)
-        {
-            VehicleCreateViewModel vehicle = new VehicleCreateViewModel
-            {
-                RegNr = model.RegNr,
-                Color = model.Color,
-                Fabricate = model.Brand,
-                FabricateModel = model.Model,
-                NoOfTyres = model.NumberOfTyres,
-                ParkingLotNo = model.ParkingLotNumber,
-                ParkingStartTime = model.ParkingStartTime,
-            };
-            return vehicle;
-
-        }
     }
-
 }
