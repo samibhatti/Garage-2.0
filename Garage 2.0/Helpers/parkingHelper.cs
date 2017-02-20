@@ -57,7 +57,7 @@ namespace Garage_2._0.Helpers
                 if (parkingStatus.Contains(vehicle.ParkingLotNumber))
                 {
                     int i = parkingStatus.FindIndex(a => a.Equals(vehicle.ParkingLotNumber));
-                    parkingStatus[i] =  parkingStatus[i] + "<div title=/Vehicles/ParkingDetails/" + vehicle.RegNr + "><span class='regNr'> " + vehicle.RegNr + "</span></div><span class='tooltiptext'>" + vehicle.Brand + " " + vehicle.Model + "</br> " + vehicle.ParkingStartTime  + "</span>";
+                    parkingStatus[i] =  parkingStatus[i] + "<div title=/Vehicles/ParkingDetails/" + vehicle.RegNr + "><span class='regNr'> " + vehicle.RegNr + "</span></div><span class='tooltiptext'>" + vehicle.Brand + " " + vehicle.Modell + "</br> " + vehicle.ParkingStartTime  + "</span>";
                 }
             }
             return parkingStatus;

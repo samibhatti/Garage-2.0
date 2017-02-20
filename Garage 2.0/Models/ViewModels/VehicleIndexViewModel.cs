@@ -12,6 +12,7 @@ namespace Garage_2._0.Models.ViewModels
         public int Id { get; set; }
         [Display(Name ="Reg Nr")]
         public string RegNr { get; set; }
+        public int MemberId { get; set; }
         public int VehicleTypeId { get; set; }
         [Display(Name = "Lot Nr")]
         public string ParkingLotNumber { get; set; }
@@ -22,7 +23,7 @@ namespace Garage_2._0.Models.ViewModels
         public string Brand { get; set; }
 
         public VehicleIndexViewModel(int id,string regNr, int vehicleTypeId, string parkingLotNumber,
-            DateTime parkingStartTime, string model, string brand)
+            DateTime parkingStartTime, string model, string brand, int memberId)
         {
             Id = id;
             RegNr = regNr;
@@ -32,6 +33,7 @@ namespace Garage_2._0.Models.ViewModels
             Duration = ParkingHelper.GetDuration(parkingStartTime);
             Model = model;
             Brand = brand;
+            MemberId = memberId;
         }
     }
 }

@@ -141,6 +141,7 @@
     <Compile Include="Models\Member.cs" />
     <Compile Include="Models\Vehicle.cs" />
     <Compile Include="Models\VehicleType.cs" />
+    <Compile Include="Models\ViewModels\VehicleEditViewModel.cs" />
     <Compile Include="Models\ViewModels\VehicleInformationViewModel.cs" />
     <Compile Include="Controllers\VehiclesController.cs" />
     <Compile Include="Global.asax.cs">

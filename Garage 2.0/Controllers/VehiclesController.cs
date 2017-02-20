@@ -28,12 +28,15 @@ namespace Garage_2._0.Controllers
             if (!string.IsNullOrEmpty(searchTerm))
             {
                 ViewBag.SearchTerm = searchTerm;
-                query = query.Where(x => x.vehicleType.Name.Contains(searchTerm) || x.RegNr.Contains(searchTerm) || x.Brand.Contains(searchTerm) || x.Model.Contains(searchTerm) || x.ParkingLotNumber.Contains(searchTerm));
+                query = query.Where(x => x.vehicleType.Name.Contains(searchTerm) || x.RegNr.Contains(searchTerm) || x.Brand.Contains(searchTerm) || x.Modell.Contains(searchTerm) || x.ParkingLotNumber.Contains(searchTerm));
             }
             if (!string.IsNullOrEmpty(orderBy))
             {
                 switch (orderBy.ToLower())
                 {
+                    case "memberid":
+                        query = query.OrderBy(x => x.MemberId);
+                        break;
                     case "regnr":
                         query = query.OrderBy(x => x.RegNr);
                         break;
@@ -41,7 +44,7 @@ namespace Garage_2._0.Controllers
                         query = query.OrderBy(x => x.Brand);
                         break;
                     case "model":
-                        query = query.OrderBy(x => x.Model);
+                        query = query.OrderBy(x => x.Modell);
                         break;
                     case "parkinglotnumber":
                         query = query.OrderBy(x => x.ParkingLotNumber);
@@ -59,7 +62,7 @@ namespace Garage_2._0.Controllers
             foreach (var item in query)
             {
                 VehicleIndexViewModel elem = new VehicleIndexViewModel(item.Id, item.RegNr, item.vehicleType.Id, item.ParkingLotNumber,
-                    item.ParkingStartTime, item.Model, item.Brand);
+                    item.ParkingStartTime, item.Modell, item.Brand, item.MemberId);
                 indexViewModel.Add(elem);
             }
 
@@ -129,7 +132,7 @@ namespace Garage_2._0.Controllers
                         VehicleTypeId = model.VehicleTypeId,
                         Color = model.Color,
                         NumberOfTyres = model.NumberOfTyres,
-                        Model = model.VModel,
+                        Modell = model.VModel,
                         Brand = model.Brand,
                         ParkingStartTime = DateTime.Now,
                     };
@@ -154,7 +157,14 @@ namespace Garage_2._0.Controllers
             {
                 return HttpNotFound();
             }
-            return View(vehicle);
+
+            var editViewModel = new VehicleEditViewModel
+            {
+                Vehicle = vehicle,
+                VehicleTypeList = new SelectList(db.VehicleTypes.ToList(), "Id", "Name"),
+            };
+
+            return View(editViewModel);
         }
 
         // POST: Vehicles/Edit/5
@@ -162,8 +172,9 @@ namespace Garage_2._0.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,RegNr,VehicleTypeName,Color,ParkingLotNo,ParkingStartTime,Model,Fabricate")] Vehicle vehicle)
+        public ActionResult Edit(/*[Bind(Include = "Id,RegNr,VehicleTypeId,Color,ParkingLotNumber,Model,Brand")]*/ VehicleEditViewModel editModel)
         {
+            var vehicle = editModel.Vehicle;
             if (ModelState.IsValid)
             {
                 db.Entry(vehicle).State = EntityState.Modified;
