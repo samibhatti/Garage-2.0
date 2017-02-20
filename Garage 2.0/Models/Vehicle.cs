@@ -47,5 +47,10 @@ namespace Garage_2._0.Models
         //[ForeignKey("Member")]
         public int MemberId { get; set; }
         public virtual ICollection<Member> member { get; set; }
+
+        [Display(Name = "Member Full Name")]
+
+        public string FullName { get; set; }
+
     }
 }

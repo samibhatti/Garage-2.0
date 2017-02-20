@@ -15,6 +15,8 @@ namespace Garage_2._0.Models.ViewModels
         [Required]
         public int MemberId { get; set; }
 
+        public string FullName { get; set; }
+
         [Display(Name = "Parking lot number")]
         public string ParkingLotNumber { get; set; }
 
