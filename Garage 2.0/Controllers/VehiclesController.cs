@@ -83,7 +83,15 @@ namespace Garage_2._0.Controllers
             {
                 return HttpNotFound();
             }
-            return View(vehicle);
+
+            var member = db.Members.Find(vehicle.MemberId);
+            var detailViewModel = new VehicleDetailViewModel
+            {
+                Vehicle = vehicle,
+                Member = member,
+            };
+
+            return View(detailViewModel);
         }
 
         public ActionResult ParkingDetails(int id)
@@ -119,7 +127,7 @@ namespace Garage_2._0.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         // "MemberId,ParkingLotNumber,RegNr,VehicleTypeId,Color,NumberOfTyres,Model,Brand"
-        public ActionResult Create([Bind(Include = "MemberId,ParkingLotNumber,RegNr,VehicleTypeId,Color,NumberOfTyres,VModel,Brand")] VehicleCreateViewModel model)
+        public ActionResult Create([Bind(Include = "MemberId, ParkingLotNumber,RegNr,VehicleTypeId,Color,NumberOfTyres,VModel,Brand")] VehicleCreateViewModel model)
         {
                 if (ModelState.IsValid)
                 {
