@@ -25,16 +25,17 @@ namespace Garage_2._0.Controllers
         public ActionResult Index(string orderBy, string searchTerm)
         {
             IQueryable<Vehicle> query = db.Vehicles;
+
             if (!string.IsNullOrEmpty(searchTerm))
             {
                 ViewBag.SearchTerm = searchTerm;
-                query = query.Where(x => x.vehicleType.Name.Contains(searchTerm) || x.RegNr.Contains(searchTerm) || x.Brand.Contains(searchTerm) || x.Modell.Contains(searchTerm) || x.ParkingLotNumber.Contains(searchTerm));
+                query = query.Where(x => x.MemberId.ToString().Contains(searchTerm) || x.vehicleType.Name.Contains(searchTerm) || x.RegNr.Contains(searchTerm) || x.ParkingLotNumber.Contains(searchTerm));
             }
             if (!string.IsNullOrEmpty(orderBy))
             {
                 switch (orderBy.ToLower())
                 {
-                    case "memberid":
+                    case "member id":
                         query = query.OrderBy(x => x.MemberId);
                         break;
                     case "regnr":
@@ -61,8 +62,19 @@ namespace Garage_2._0.Controllers
             List<VehicleIndexViewModel> indexViewModel = new List<VehicleIndexViewModel>();
             foreach (var item in query)
             {
-                VehicleIndexViewModel elem = new VehicleIndexViewModel(item.Id, item.RegNr, item.vehicleType.Id, item.ParkingLotNumber,
-                    item.ParkingStartTime, item.Modell, item.Brand, item.MemberId);
+                var member = db.Members.Find(item.MemberId);
+                VehicleIndexViewModel elem = new VehicleIndexViewModel
+                {
+                    Id = item.Id,
+                    RegNr = item.RegNr,
+                    VehicleTypeId = item.vehicleType.Id,
+                    ParkingLotNumber = item.ParkingLotNumber,
+                    ParkingStartTime = item.ParkingStartTime,
+                    Modell = item.Modell,
+                    Brand = item.Brand,
+                    MemberId = item.MemberId,
+                    MemberFullName = member.FullName,
+                };
                 indexViewModel.Add(elem);
             }
 
