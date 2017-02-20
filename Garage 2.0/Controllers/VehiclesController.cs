@@ -62,20 +62,23 @@ namespace Garage_2._0.Controllers
             List<VehicleIndexViewModel> indexViewModel = new List<VehicleIndexViewModel>();
             foreach (var item in query)
             {
-                var member = db.Members.Find(item.MemberId);
-                VehicleIndexViewModel elem = new VehicleIndexViewModel
+                Member member = db.Members.Find(item.MemberId);
+                if(member != null)
                 {
-                    Id = item.Id,
-                    RegNr = item.RegNr,
-                    VehicleTypeId = item.vehicleType.Id,
-                    ParkingLotNumber = item.ParkingLotNumber,
-                    ParkingStartTime = item.ParkingStartTime,
-                    Modell = item.Modell,
-                    Brand = item.Brand,
-                    MemberId = item.MemberId,
-                    MemberFullName = member.FullName,
-                };
-                indexViewModel.Add(elem);
+                    VehicleIndexViewModel elem = new VehicleIndexViewModel
+                    {
+                        Id = item.Id,
+                        RegNr = item.RegNr,
+                        VehicleTypeId = item.vehicleType.Id,
+                        ParkingLotNumber = item.ParkingLotNumber,
+                        ParkingStartTime = item.ParkingStartTime,
+                        Modell = item.Modell,
+                        Brand = item.Brand,
+                        MemberId = item.MemberId,
+                        MemberFullName = member.FullName,
+                    };
+                    indexViewModel.Add(elem);
+                }
             }
 
             log.Error(query + "Info message");
