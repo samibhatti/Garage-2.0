@@ -43,7 +43,7 @@ namespace Garage_2._0.Models.ViewModels
                 ParkingStartTime = vehicle.ParkingStartTime,
                 ParkingStopTime = DateTime.Now,
                 NoOfTyres = vehicle.NumberOfTyres,
-                Model = vehicle.Model,
+                Model = vehicle.Modell,
                 Fabricate = vehicle.Brand,
                 Duration = ParkingHelper.GetDuration(vehicle.ParkingStartTime),
                 PaymentAmount = ParkingHelper.GetCost(vehicle.ParkingStartTime)

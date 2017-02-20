@@ -18,8 +18,13 @@
         <table class="table">
             <tr>
                 <th>
+                    @Html.ActionLink(Html.DisplayNameFor(m => m.MemberId).ToString(), "Index", new { orderBy = Html.DisplayNameFor(m => m.MemberId).ToString(), searchTerm = ViewBag.SearchTerm })
+                </th>
+                
+                <th>
                     @Html.ActionLink(Html.DisplayNameFor(m => m.RegNr).ToString(), "Index", new { orderBy = Html.DisplayNameFor(m => m.RegNr).ToString(), searchTerm = ViewBag.SearchTerm })
                 </th>
+                
                 <th>
                     @Html.ActionLink(Html.DisplayNameFor(m => m.Brand).ToString(), "Index", new { orderBy = Html.DisplayNameFor(m => m.Brand).ToString(), searchTerm = ViewBag.SearchTerm })
                 </th>
@@ -45,6 +50,7 @@
             @foreach (var item in Model)
             {
                 <tr>
+                    <td>@Html.DisplayFor(modelItem => item.MemberId)</td>
                     <td>
                         @Html.DisplayFor(modelItem => item.RegNr)
                     </td>

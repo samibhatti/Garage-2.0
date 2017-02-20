@@ -31,7 +31,7 @@ namespace Garage_2._0.Models
         public int NumberOfTyres { get; set; }
 
         [StringLength(50)]
-        public string Model { get; set; }
+        public string Modell { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -39,6 +39,7 @@ namespace Garage_2._0.Models
 
         // Navigation Properties
         //[ForeignKey("VehicleType")]
+        [Display(Name = "Vehicle Type")]
         public int VehicleTypeId { get; set; }
         public virtual VehicleType vehicleType { get; set; }
 
