@@ -46,7 +46,7 @@ namespace Garage_2._0.Controllers
                     case "parkinglotnumber":
                         query = query.OrderBy(x => x.ParkingLotNumber);
                         break;
-                    case "VehicleTypeId":
+                    case "vehicletypeid":
                         query = query.OrderBy(x => x.VehicleTypeId);
                         break;
                     default:
