@@ -1,4 +1,4 @@
-﻿@model Garage_2._0.Models.Vehicle
+﻿@model Garage_2._0.Models.ViewModels.VehicleDetailViewModel
 
 @{
     ViewBag.Title = "Details";
@@ -10,36 +10,42 @@
     <h4>Vehicle</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>@Html.DisplayNameFor(model => model.MemberId)</dt>
-        <dd>@Html.DisplayFor(model => model.MemberId)</dd>
+        <dt>@Html.DisplayNameFor(model => model.Member.MemberId)</dt>
+        <dd>@Html.DisplayFor(model => model.Member.MemberId)</dd>
 
-        <dt>@Html.DisplayNameFor(model => model.RegNr)</dt>
-        <dd>@Html.DisplayFor(model => model.RegNr)</dd>
+        <dt>@Html.DisplayNameFor(model => model.Member.FullName)</dt>
+        <dd>@Html.DisplayFor(model => model.Member.FullName)</dd>
 
-        <dt>@Html.DisplayNameFor(model => model.VehicleTypeId)</dt>
-        <dd>@Html.DisplayFor(model => model.VehicleTypeId)</dd>
+        <dt>@Html.DisplayNameFor(model => model.Vehicle.RegNr)</dt>
+        <dd>@Html.DisplayFor(model => model.Vehicle.RegNr)</dd>
 
-        <dt>@Html.DisplayNameFor(model => model.Color)</dt>
-        <dd>@Html.DisplayFor(model => model.Color)</dd>
+        <dt>@Html.DisplayNameFor(model => model.Vehicle.VehicleTypeId)</dt>
+        <dd>@Html.DisplayFor(model => model.Vehicle.VehicleTypeId)</dd>
 
-        <dt>@Html.DisplayNameFor(model => model.ParkingLotNumber)</dt>
-        <dd>@Html.DisplayFor(model => model.ParkingLotNumber)</dd>
+        <dt>@Html.DisplayNameFor(model => model.Vehicle.vehicleType.Name)</dt>
+        <dd>@Html.DisplayFor(model => model.Vehicle.vehicleType.Name)</dd>
 
-        <dt>@Html.DisplayNameFor(model => model.ParkingStartTime)</dt>
-        <dd>@Html.DisplayFor(model => model.ParkingStartTime)</dd>
+        <dt>@Html.DisplayNameFor(model => model.Vehicle.Color)</dt>
+        <dd>@Html.DisplayFor(model => model.Vehicle.Color)</dd>
 
-        <dt>@Html.DisplayNameFor(model => model.NumberOfTyres)</dt>
-        <dd>@Html.DisplayFor(model => model.NumberOfTyres)</dd>
+        <dt>@Html.DisplayNameFor(model => model.Vehicle.ParkingLotNumber)</dt>
+        <dd>@Html.DisplayFor(model => model.Vehicle.ParkingLotNumber)</dd>
 
-        <dt>@Html.DisplayNameFor(model => model.Model)</dt>
-        <dd>@Html.DisplayFor(model => model.Model)</dd>
+        <dt>@Html.DisplayNameFor(model => model.Vehicle.ParkingStartTime)</dt>
+        <dd>@Html.DisplayFor(model => model.Vehicle.ParkingStartTime)</dd>
 
-        <dt>@Html.DisplayNameFor(model => model.Brand)</dt>
-        <dd>@Html.DisplayFor(model => model.Brand)</dd>
+        <dt>@Html.DisplayNameFor(model => model.Vehicle.NumberOfTyres)</dt>
+        <dd>@Html.DisplayFor(model => model.Vehicle.NumberOfTyres)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Vehicle.Model)</dt>
+        <dd>@Html.DisplayFor(model => model.Vehicle.Model)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Vehicle.Brand)</dt>
+        <dd>@Html.DisplayFor(model => model.Vehicle.Brand)</dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.RegNr }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Vehicle.RegNr }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
