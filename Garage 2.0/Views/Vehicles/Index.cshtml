@@ -1,4 +1,4 @@
-﻿@model Garage_2._0.Models.ViewModels.VehicleIndexViewModel
+﻿@model IEnumerable<Garage_2._0.Models.ViewModels.VehicleIndexViewModel>
 
 @{
     ViewBag.Title = "Garage Index";
@@ -21,13 +21,16 @@
                     @Html.ActionLink(Html.DisplayNameFor(m => m.RegNr).ToString(), "Index", new { orderBy = Html.DisplayNameFor(m => m.RegNr).ToString(), searchTerm = ViewBag.SearchTerm })
                 </th>
                 <th>
-                    @Html.ActionLink(Html.DisplayNameFor(m => m.Fabricate).ToString(), "Index", new { orderBy = Html.DisplayNameFor(m => m.Fabricate).ToString(), searchTerm = ViewBag.SearchTerm })
+                    @Html.ActionLink(Html.DisplayNameFor(m => m.Brand).ToString(), "Index", new { orderBy = Html.DisplayNameFor(m => m.Brand).ToString(), searchTerm = ViewBag.SearchTerm })
                 </th>
                 <th>
                     @Html.ActionLink(Html.DisplayNameFor(m => m.Model).ToString(), "Index", new { orderBy = Html.DisplayNameFor(m => m.Model).ToString(), searchTerm = ViewBag.SearchTerm })
                 </th>
                 <th>
-                    @Html.ActionLink(Html.DisplayNameFor(m => m.ParkingLotNo).ToString(), "Index", new { orderBy = Html.DisplayNameFor(m => m.ParkingLotNo).ToString(), searchTerm = ViewBag.SearchTerm })
+                    @Html.ActionLink(Html.DisplayNameFor(m => m.VehicleTypeId).ToString(), "Index", new { orderBy = Html.DisplayNameFor(m => m.VehicleTypeId).ToString(), searchTerm = ViewBag.SearchTerm })
+                </th>
+                <th>
+                    @Html.ActionLink(Html.DisplayNameFor(m => m.ParkingLotNumber).ToString(), "Index", new { orderBy = Html.DisplayNameFor(m => m.ParkingLotNumber).ToString(), searchTerm = ViewBag.SearchTerm })
                 </th>
                 <th>
                     @Html.ActionLink(Html.DisplayNameFor(m => m.ParkingStartTime).ToString(), "Index", new { orderBy = Html.DisplayNameFor(m => m.ParkingStartTime).ToString(), searchTerm = ViewBag.SearchTerm })
@@ -36,25 +39,26 @@
                     @Html.ActionLink(Html.DisplayNameFor(m => m.Duration).ToString(), "Index", new { orderBy = Html.DisplayNameFor(m => m.Duration).ToString(), searchTerm = ViewBag.SearchTerm })
                 </th>
 
-
-
                 <th></th>
             </tr>
 
-            @foreach (var item in Model.Vehicles)
+            @foreach (var item in Model)
             {
                 <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.RegNr)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Fabricate)
+                        @Html.DisplayFor(modelItem => item.Brand)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Model)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.ParkingLotNo)
+                        @Html.DisplayFor(modelItem => item.VehicleTypeId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ParkingLotNumber)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.ParkingStartTime)
