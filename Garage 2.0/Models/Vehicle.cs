@@ -38,13 +38,13 @@ namespace Garage_2._0.Models
         public string Brand { get; set; }
 
         // Navigation Properties
-        [ForeignKey("VehicleType")]
+        //[ForeignKey("VehicleType")]
         public int VehicleTypeId { get; set; }
-        public virtual VehicleType VehicleType { get; set; }
+        public virtual VehicleType vehicleType { get; set; }
 
         //Maybe unnecessary due to already being set by default [ForeignKey("Member")]
-        [ForeignKey("Member")]
+        //[ForeignKey("Member")]
         public int MemberId { get; set; }
-        public virtual Member Member { get; set; }
+        public virtual ICollection<Member> member { get; set; }
     }
 }

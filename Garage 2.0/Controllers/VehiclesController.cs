@@ -28,7 +28,7 @@ namespace Garage_2._0.Controllers
             if (!string.IsNullOrEmpty(searchTerm))
             {
                 ViewBag.SearchTerm = searchTerm;
-                query = query.Where(x => x.VehicleType.Name.Contains(searchTerm) || x.RegNr.Contains(searchTerm) || x.Brand.Contains(searchTerm) || x.Model.Contains(searchTerm) || x.ParkingLotNumber.Contains(searchTerm));
+                query = query.Where(x => x.vehicleType.Name.Contains(searchTerm) || x.RegNr.Contains(searchTerm) || x.Brand.Contains(searchTerm) || x.Model.Contains(searchTerm) || x.ParkingLotNumber.Contains(searchTerm));
             }
             if (!string.IsNullOrEmpty(orderBy))
             {
@@ -58,7 +58,7 @@ namespace Garage_2._0.Controllers
             List<VehicleIndexViewModel> indexViewModel = new List<VehicleIndexViewModel>();
             foreach (var item in query)
             {
-                VehicleIndexViewModel elem = new VehicleIndexViewModel(item.Id, item.RegNr, item.VehicleType.Id, item.ParkingLotNumber,
+                VehicleIndexViewModel elem = new VehicleIndexViewModel(item.Id, item.RegNr, item.vehicleType.Id, item.ParkingLotNumber,
                     item.ParkingStartTime, item.Model, item.Brand);
                 indexViewModel.Add(elem);
             }
@@ -93,7 +93,6 @@ namespace Garage_2._0.Controllers
         public ActionResult Create()
         {
             var vehicles = db.Vehicles.ToList();
-
             int count = ParkingHelper.GetFreeParkingLots(vehicles).Count();
 
             if (count == 0)
@@ -103,8 +102,9 @@ namespace Garage_2._0.Controllers
 
             var createViewModel = new VehicleCreateViewModel
             {
-                FreeParking = ParkingHelper.GetFreeParkingLots(vehicles),
-                VehicleTypeList = db.VehicleTypes.ToList(),
+                FreeParking = new SelectList(ParkingHelper.GetFreeParkingLots(vehicles)),
+                VehicleTypeList = new SelectList(db.VehicleTypes.ToList(), "Id", "Name"),
+                MemberList = new SelectList(db.Members.ToList(), "MemberId","FullName"), //We dont really want to do this, but this is an experiment
             };
 
             return View(createViewModel);
@@ -115,28 +115,29 @@ namespace Garage_2._0.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MemberId,ParkingLotNumber,RegNr,VehicleTypeId,Color,NumberOfTyres,Model,Brand")] VehicleCreateViewModel model)
+        // "MemberId,ParkingLotNumber,RegNr,VehicleTypeId,Color,NumberOfTyres,Model,Brand"
+        public ActionResult Create([Bind(Include = "MemberId,ParkingLotNumber,RegNr,VehicleTypeId,Color,NumberOfTyres,VModel,Brand")] VehicleCreateViewModel model)
         {
-            if (ModelState.IsValid)
-            {
-                model.ParkingStartTime = DateTime.Now;
-                var vehicle = new Vehicle
+                if (ModelState.IsValid)
                 {
-                    Id = model.Id,
-                    MemberId = model.MemberId,
-                    ParkingLotNumber = model.ParkingLotNumber,
-                    RegNr = model.RegNr,
-                    VehicleTypeId = model.VehicleType.Id,
-                    Color = model.Color,
-                    NumberOfTyres = model.NumberOfTyres,
-                    Model = model.Model,
-                    Brand = model.Brand,
-                };
+                    var vehicle = new Vehicle
+                    {
+                        Id = model.Id,
+                        MemberId = model.MemberId,
+                        ParkingLotNumber = model.ParkingLotNumber,
+                        RegNr = model.RegNr,
+                        VehicleTypeId = model.VehicleTypeId,
+                        Color = model.Color,
+                        NumberOfTyres = model.NumberOfTyres,
+                        Model = model.VModel,
+                        Brand = model.Brand,
+                        ParkingStartTime = DateTime.Now,
+                    };
 
-                db.Vehicles.Add(vehicle);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                    db.Vehicles.Add(vehicle);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
 
             return View(model);
         }

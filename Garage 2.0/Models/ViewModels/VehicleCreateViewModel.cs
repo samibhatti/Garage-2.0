@@ -13,43 +13,36 @@ namespace Garage_2._0.Models.ViewModels
         public int Id { get; set; }
 
         [Required]
-        [RegularExpression("^[A-Z]{3} [0-9]{3}$", ErrorMessage = "Need to be in format AAA 123")]
-        [Remote("RegNr", "Validate", ErrorMessage = "Registration Number is alreay parked")]
-        //[RegularExpression("^[A-Z]{3}\\d{3}$", ErrorMessage = "Requires 3 letter follow by 3 numbers")]
-        [Display(Name = "Registration Number")]
-        public string RegNr { get; set; }
-        [Required]
-        public VehicleType VehicleType;
+        public int MemberId { get; set; }
 
-        [StringLength(20)]
-        [Display(Name = "Color")]
-        public string Color { get; set; }
-
-        //[Required]
         [Display(Name = "Parking lot number")]
-        [Remote("checkParkingLotNr", "Validate", ErrorMessage = "Parkinglot taken")]
         public string ParkingLotNumber { get; set; }
 
         [Required]
-        public DateTime ParkingStartTime { get; set; }
+        [Display(Name = "Registration Number")]
+        public string RegNr { get; set; }
 
-        [Range(0, 4, ErrorMessage = "Tyres must be 2 or 4")]
+        [Display(Name = "Vehicle Type")]
+        [Required]
+        public int VehicleTypeId { get; set; }
+
+        [Display(Name = "Color")]
+        public string Color { get; set; }
+
         [Display(Name = "Number of tyres")]
-        [Remote("checkNumberOfTyres", "Validate", ErrorMessage = "Invalid number of tyres")]
         public int NumberOfTyres { get; set; }
 
-        public string Model { get; set; }
+        [Required]
+        public string VModel { get; set; }
 
         [Required]
-        [StringLength(50)]
         public string Brand { get; set; }
 
-        [Required]
-        public int MemberId { get; set; }
+        public DateTime ParkingStartTime { get; set; }
 
-        public List<string> FreeParking { get; set; }
-        public List<VehicleType> VehicleTypeList { get; set; }
+        public SelectList FreeParking { get; set; }
+        public SelectList VehicleTypeList { get; set; }
+        public SelectList MemberList { get; set; }
 
-       
     }
 }

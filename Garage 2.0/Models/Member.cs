@@ -12,5 +12,8 @@ namespace Garage_2._0.Models
         public string LastName { get; set; }
         public string FullName { get { return (FirstName + " " + LastName); } }
         public string PhoneNumber { get; set; }
+
+        public virtual ICollection<Vehicle> Vehicles { get; set; }
+        public virtual ICollection<VehicleType> VehicleTypes { get; set; }
     }
 }
