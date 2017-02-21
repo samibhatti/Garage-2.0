@@ -254,15 +254,15 @@ namespace Garage_2._0.Controllers
             model.NumberOfTyres = allVehicles.Sum(x => x.NumberOfTyres);
 
             IQueryable<Vehicle> query = db.Vehicles;
-            model.Car = query.Where(x => x.vehicleType.Name.Equals("Car")).Count();
-            model.Train = query.Where(x => x.vehicleType.Name.Equals("Train")).Count();
-            model.Airplane = query.Where(x => x.vehicleType.Name.Equals("Airplane")).Count();
-            model.MiniBus = query.Where(x => x.vehicleType.Name.Equals("MiniBus")).Count();
-            model.Bus = query.Where(x => x.vehicleType.Name.Equals("Bus")).Count();
-            model.Motorbike = query.Where(x => x.vehicleType.Name.Equals("Motorbike")).Count();
-            model.Boat = query.Where(x => x.vehicleType.Name.Equals("Boat")).Count();
-            model.Sedan = query.Where(x => x.vehicleType.Name.Equals("Sedan")).Count();
-            model.MiniBus = query.Where(x => x.vehicleType.Name.Equals("MiniBus")).Count();
+            model.Car = query.Where(x => x.VehicleType.Name.Equals("Car")).Count();
+            model.Train = query.Where(x => x.VehicleType.Name.Equals("Train")).Count();
+            model.Airplane = query.Where(x => x.VehicleType.Name.Equals("Airplane")).Count();
+            model.MiniBus = query.Where(x => x.VehicleType.Name.Equals("MiniBus")).Count();
+            model.Bus = query.Where(x => x.VehicleType.Name.Equals("Bus")).Count();
+            model.Motorbike = query.Where(x => x.VehicleType.Name.Equals("Motorbike")).Count();
+            model.Boat = query.Where(x => x.VehicleType.Name.Equals("Boat")).Count();
+            model.Sedan = query.Where(x => x.VehicleType.Name.Equals("Sedan")).Count();
+            model.MiniBus = query.Where(x => x.VehicleType.Name.Equals("MiniBus")).Count();
 
             model.TotalVehicle = allVehicles.Count();
             foreach (var vehicle in allVehicles)
