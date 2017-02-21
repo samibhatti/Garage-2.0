@@ -8,7 +8,7 @@ namespace Garage_2._0.Models.ViewModels
 {
     public class VehicleDeleteViewModel
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         public string RegNr { get; set; }
         public VehicleTypeName VehicleTypeName { get; set; }
         public string Color { get; set; }
@@ -28,6 +28,7 @@ namespace Garage_2._0.Models.ViewModels
         {
             VehicleDeleteViewModel model = new VehicleDeleteViewModel
             {
+                Id = vehicle.Id,
                 RegNr = vehicle.RegNr,
                 VehicleTypeName = VehicleTypeName,
                 Color = vehicle.Color,

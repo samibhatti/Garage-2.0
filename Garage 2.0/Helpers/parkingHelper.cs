@@ -11,7 +11,7 @@ namespace Garage_2._0.Helpers
     {
         public static int NumberOfLots = 30;
         public static int PricePerHour = 60;
-        public static List<int> accptedTyres = new List<int>() { 2, 4 };
+        public static List<int> acceptedTyres = new List<int>() { 2, 4 };
 
         public static string GetDuration(DateTime startTime)
         {
@@ -62,5 +62,6 @@ namespace Garage_2._0.Helpers
             }
             return parkingStatus;
         }
+
     }
 }

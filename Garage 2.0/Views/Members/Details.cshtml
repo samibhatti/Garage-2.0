@@ -22,6 +22,21 @@
         <dt>@Html.DisplayNameFor(model => model.PhoneNumber)</dt>
         <dd>@Html.DisplayFor(model => model.PhoneNumber)</dd>
 
+
+        <dt>@Html.DisplayNameFor(model => model.Vehicles) </dt>
+        @foreach (var vehicles in Model.Vehicles)
+        {
+            var regNr = Html.DisplayFor(x => vehicles.RegNr).ToString();
+            if (!string.IsNullOrEmpty(regNr)) { continue; }
+
+            var type = Model.VehicleTypes.Where(x => x.Id == vehicles.VehicleTypeId).First();
+            var location = Html.DisplayFor(x => vehicles.ParkingLotNumber).ToString();
+            var brand = Html.DisplayFor(x => vehicles.Brand).ToString();
+            var theModel = Html.DisplayFor(x => vehicles.Modell).ToString();
+            string showVehicle = location + " - " + regNr + ", " + type.Name + ", " + brand + ", " + theModel;
+
+            <dd>@showVehicle</dd>
+        }
     </dl>
 </div>
 <p>

@@ -12,28 +12,21 @@ namespace Garage_2._0.Models.ViewModels
         public int Id { get; set; }
         [Display(Name ="Reg Nr")]
         public string RegNr { get; set; }
+        [Display(Name = "Member Id")]
         public int MemberId { get; set; }
+        [Display(Name = "Vehicle Type")]
         public int VehicleTypeId { get; set; }
+        [Display(Name = "Vehicle Type")]
+        public string VehicleTypeName { get; set; }
         [Display(Name = "Lot Nr")]
         public string ParkingLotNumber { get; set; }
         [Display(Name = "Start Parking Time")]
         public DateTime ParkingStartTime { get; set; }
         public string Duration { get; set; }
-        public string Model { get; set; }
+        public string Modell { get; set; }
         public string Brand { get; set; }
 
-        public VehicleIndexViewModel(int id,string regNr, int vehicleTypeId, string parkingLotNumber,
-            DateTime parkingStartTime, string model, string brand, int memberId)
-        {
-            Id = id;
-            RegNr = regNr;
-            VehicleTypeId = vehicleTypeId;
-            ParkingLotNumber = parkingLotNumber;
-            ParkingStartTime = parkingStartTime;
-            Duration = ParkingHelper.GetDuration(parkingStartTime);
-            Model = model;
-            Brand = brand;
-            MemberId = memberId;
-        }
+        [Display(Name = "Owner")]
+        public string MemberFullName { get; set; }
     }
 }

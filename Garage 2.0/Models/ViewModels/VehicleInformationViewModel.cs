@@ -10,22 +10,37 @@ namespace Garage_2._0.Models.ViewModels
     {
         [Display(Name = "Total Vehicle")]
         public int TotalVehicle { get; set; }
+
         [Display(Name = "Total Sedan")]
         public int Sedan { get; set; }
-        [Display(Name = "Total Kombi")]
-        public int Kombi { get; set; }
-        [Display(Name = "Total Vagon")]
-        public int Vagon { get; set; }
+
+        [Display(Name = "Total Airplane")]
+        public int Airplane { get; set; }
+
+        [Display(Name = "Total Car")]
+        public int Car { get; set; }
+
         [Display(Name = "Total MiniBus")]
         public int MiniBus { get; set; }
-        [Display(Name = "Total Motorcycle")]
-        public int MotorCycle { get; set; }
-        [Display(Name = "Total Pickup")]
-        public int Pickup { get; set; }
-        [Display(Name = "Number of tyres")]
+
+        [Display(Name = "Total Motorbike")]
+        public int Motorbike { get; set; }
+
+        [Display(Name = "Total Train")]
+        public int Train { get; set; }
+
+        [Display(Name = "Number of Bus")]
+        public int Bus { get; set; }
+
+        [Display(Name = "Number of Boat")]
+        public int Boat { get; set; }
+
+        [Display(Name = "Number of Tyres")]
         public int NumberOfTyres { get; set; }
+
         [Display(Name = "Incoming payments")]
         public int CostToThisMoment { get; set; }
+
         [Display(Name = "Parking slots information")]
         public List<string> ParkingInfo { get; set; }
 

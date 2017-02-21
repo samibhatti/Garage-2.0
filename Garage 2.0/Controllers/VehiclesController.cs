@@ -25,16 +25,17 @@ namespace Garage_2._0.Controllers
         public ActionResult Index(string orderBy, string searchTerm)
         {
             IQueryable<Vehicle> query = db.Vehicles;
+
             if (!string.IsNullOrEmpty(searchTerm))
             {
                 ViewBag.SearchTerm = searchTerm;
-                query = query.Where(x => x.vehicleType.Name.Contains(searchTerm) || x.RegNr.Contains(searchTerm) || x.Brand.Contains(searchTerm) || x.Modell.Contains(searchTerm) || x.ParkingLotNumber.Contains(searchTerm));
+                query = query.Where(x => x.MemberId.ToString().Contains(searchTerm) || x.VehicleType.Name.Contains(searchTerm) || x.RegNr.Contains(searchTerm) || x.ParkingLotNumber.Contains(searchTerm));
             }
             if (!string.IsNullOrEmpty(orderBy))
             {
                 switch (orderBy.ToLower())
                 {
-                    case "memberid":
+                    case "member id":
                         query = query.OrderBy(x => x.MemberId);
                         break;
                     case "regnr":
@@ -61,9 +62,24 @@ namespace Garage_2._0.Controllers
             List<VehicleIndexViewModel> indexViewModel = new List<VehicleIndexViewModel>();
             foreach (var item in query)
             {
-                VehicleIndexViewModel elem = new VehicleIndexViewModel(item.Id, item.RegNr, item.vehicleType.Id, item.ParkingLotNumber,
-                    item.ParkingStartTime, item.Modell, item.Brand, item.MemberId);
-                indexViewModel.Add(elem);
+                Member member = db.Members.Find(item.MemberId);
+                if(member != null)
+                {
+                    VehicleIndexViewModel elem = new VehicleIndexViewModel
+                    {
+                        Id = item.Id,
+                        RegNr = item.RegNr,
+                        VehicleTypeId = item.VehicleType.Id,
+                        VehicleTypeName = item.VehicleType.Name,
+                        ParkingLotNumber = item.ParkingLotNumber,
+                        ParkingStartTime = item.ParkingStartTime,
+                        Modell = item.Modell,
+                        Brand = item.Brand,
+                        MemberId = item.MemberId,
+                        MemberFullName = member.FullName,
+                    };
+                    indexViewModel.Add(elem);
+                }
             }
 
             log.Error(query + "Info message");
@@ -221,10 +237,13 @@ namespace Garage_2._0.Controllers
 
         public ActionResult Voucher(int id)
         {
-            VehicleVoucherViewModel vehicle = new VehicleVoucherViewModel();
-            vehicle = vehicle.toViewModel(db.Vehicles.Find(id));
+            VehicleVoucherViewModel voucherView = new VehicleVoucherViewModel();
+            //vehicle = vehicle.toViewModel(db.Vehicles.Find(id));
+            Vehicle vehicle = db.Vehicles.Find(id);
+            Member member = db.Members.Find(id);
+            voucherView = voucherView.toViewModel(vehicle, member);
 
-            return View(vehicle);
+            return View(voucherView);
         }
 
         public ActionResult Information()
@@ -233,12 +252,25 @@ namespace Garage_2._0.Controllers
             var allVehicles = db.Vehicles.ToList();
             model.ParkingInfo = ParkingHelper.GetParkingLots(allVehicles);
             model.NumberOfTyres = allVehicles.Sum(x => x.NumberOfTyres);
-            model.TotalVehicle = allVehicles.Count();
 
+            IQueryable<Vehicle> query = db.Vehicles;
+            model.Car = query.Where(x => x.VehicleType.Name.Equals("Car")).Count();
+            model.Train = query.Where(x => x.VehicleType.Name.Equals("Train")).Count();
+            model.Airplane = query.Where(x => x.VehicleType.Name.Equals("Airplane")).Count();
+            model.MiniBus = query.Where(x => x.VehicleType.Name.Equals("MiniBus")).Count();
+            model.Bus = query.Where(x => x.VehicleType.Name.Equals("Bus")).Count();
+            model.Motorbike = query.Where(x => x.VehicleType.Name.Equals("Motorbike")).Count();
+            model.Boat = query.Where(x => x.VehicleType.Name.Equals("Boat")).Count();
+            model.Sedan = query.Where(x => x.VehicleType.Name.Equals("Sedan")).Count();
+            model.MiniBus = query.Where(x => x.VehicleType.Name.Equals("MiniBus")).Count();
+
+            model.TotalVehicle = allVehicles.Count();
             foreach (var vehicle in allVehicles)
             {
                 model.CostToThisMoment = model.CostToThisMoment + ParkingHelper.GetCost(vehicle.ParkingStartTime);
+
             }
+
             return View(model);
         }
 

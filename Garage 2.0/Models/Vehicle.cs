@@ -41,12 +41,12 @@ namespace Garage_2._0.Models
         //[ForeignKey("VehicleType")]
         [Display(Name = "Vehicle Type")]
         public int VehicleTypeId { get; set; }
-        public virtual VehicleType vehicleType { get; set; }
+        public virtual VehicleType VehicleType { get; set; }
 
         //Maybe unnecessary due to already being set by default [ForeignKey("Member")]
         //[ForeignKey("Member")]
         public int MemberId { get; set; }
-        public virtual ICollection<Member> member { get; set; }
+        public virtual ICollection<Member> Member { get; set; }
 
         [Display(Name = "Member Full Name")]
 

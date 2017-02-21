@@ -35,7 +35,7 @@ namespace Garage_2._0.Controllers
 
         public JsonResult checkNumberOfTyres(int NoOfTyres)
         {
-            bool check = ParkingHelper.accptedTyres.Contains(NoOfTyres);
+            bool check = ParkingHelper.acceptedTyres.Contains(NoOfTyres);
             if (check)
             {
                 return Json(true, JsonRequestBehavior.AllowGet);
