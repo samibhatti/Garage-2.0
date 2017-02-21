@@ -47,7 +47,11 @@ namespace Garage_2._0.DAL
                 new Vehicle { RegNr = "PTA 434", Color = "Black", ParkingLotNumber = "A7", MemberId = members[4].MemberId, ParkingStartTime = DateTime.Now, NumberOfTyres = 4, Modell = "V6",  Brand = "Volvo", VehicleTypeId = vehicleTypes[2].Id },
                 new Vehicle { RegNr = "QGK 443", Color = "Blue", ParkingLotNumber = "A8",  MemberId = members[2].MemberId, ParkingStartTime = DateTime.Now, NumberOfTyres = 2, Modell = "V4",  Brand = "Honda", VehicleTypeId = vehicleTypes[0].Id },
                 new Vehicle { RegNr = "RPG 455", Color = "Pink", ParkingLotNumber = "A9",  MemberId = members[1].MemberId, ParkingStartTime = DateTime.Now,  NumberOfTyres = 4, Modell = "V3", Brand = "Mazda", VehicleTypeId = vehicleTypes[2].Id },
-                new Vehicle { RegNr = "TFK 467", Color = "Red", ParkingLotNumber = "A10",  MemberId = members[0].MemberId, ParkingStartTime = DateTime.Now,  NumberOfTyres = 4, Modell = "V7", Brand = "Nissan", VehicleTypeId = vehicleTypes[1].Id }
+                new Vehicle { RegNr = "TFK 467", Color = "Red", ParkingLotNumber = "A10",  MemberId = members[0].MemberId, ParkingStartTime = DateTime.Now,  NumberOfTyres = 4, Modell = "V7", Brand = "Nissan", VehicleTypeId = vehicleTypes[1].Id },
+                new Vehicle { RegNr = "TFK 167", Color = "Green", ParkingLotNumber = "B10",  MemberId = members[1].MemberId, ParkingStartTime = DateTime.Now,  NumberOfTyres = 4, Modell = "V7", Brand = "Nissan", VehicleTypeId = vehicleTypes[7].Id },
+                new Vehicle { RegNr = "TFK 267", Color = "Blue", ParkingLotNumber = "C10",  MemberId = members[2].MemberId, ParkingStartTime = DateTime.Now,  NumberOfTyres = 4, Modell = "V7", Brand = "Nissan", VehicleTypeId = vehicleTypes[6].Id },
+                new Vehicle { RegNr = "TFK 367", Color = "White", ParkingLotNumber = "B1",  MemberId = members[3].MemberId, ParkingStartTime = DateTime.Now,  NumberOfTyres = 4, Modell = "V7", Brand = "Nissan", VehicleTypeId = vehicleTypes[5].Id },
+                new Vehicle { RegNr = "TFK 467", Color = "Yello", ParkingLotNumber = "C1",  MemberId = members[4].MemberId, ParkingStartTime = DateTime.Now,  NumberOfTyres = 4, Modell = "V7", Brand = "Nissan", VehicleTypeId = vehicleTypes[4].Id }
             };
 
             context.Vehicles.AddRange(vehicles);
