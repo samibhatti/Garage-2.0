@@ -28,7 +28,7 @@
                     @Html.ActionLink(Html.DisplayNameFor(m => m.RegNr).ToString(), "Index", new { orderBy = Html.DisplayNameFor(m => m.RegNr).ToString(), searchTerm = ViewBag.SearchTerm })
                 </th>
                 <th>
-                    @Html.ActionLink(Html.DisplayNameFor(m => m.VehicleTypeId).ToString(), "Index", new { orderBy = Html.DisplayNameFor(m => m.VehicleTypeId).ToString(), searchTerm = ViewBag.SearchTerm })
+                    @Html.ActionLink(Html.DisplayNameFor(m => m.VehicleTypeName).ToString(), "Index", new { orderBy = Html.DisplayNameFor(m => m.VehicleTypeName).ToString(), searchTerm = ViewBag.SearchTerm })
                 </th>
                 <th>
                     @Html.ActionLink(Html.DisplayNameFor(m => m.ParkingLotNumber).ToString(), "Index", new { orderBy = Html.DisplayNameFor(m => m.ParkingLotNumber).ToString(), searchTerm = ViewBag.SearchTerm })
@@ -43,7 +43,7 @@
                     <td>@Html.DisplayFor(modelItem => item.MemberId)</td>
                     <td>@Html.DisplayFor(modelItem => item.MemberFullName)</td>
                     <td>@Html.DisplayFor(modelItem => item.RegNr)</td>
-                    <td>@Html.DisplayFor(modelItem => item.VehicleTypeId)</td>
+                    <td>@Html.DisplayFor(modelItem => item.VehicleTypeName)</td>
                     <td>@Html.DisplayFor(modelItem => item.ParkingLotNumber)</td>
 
                     <td>

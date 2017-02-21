@@ -29,7 +29,7 @@ namespace Garage_2._0.Controllers
             if (!string.IsNullOrEmpty(searchTerm))
             {
                 ViewBag.SearchTerm = searchTerm;
-                query = query.Where(x => x.MemberId.ToString().Contains(searchTerm) || x.vehicleType.Name.Contains(searchTerm) || x.RegNr.Contains(searchTerm) || x.ParkingLotNumber.Contains(searchTerm));
+                query = query.Where(x => x.MemberId.ToString().Contains(searchTerm) || x.VehicleType.Name.Contains(searchTerm) || x.RegNr.Contains(searchTerm) || x.ParkingLotNumber.Contains(searchTerm));
             }
             if (!string.IsNullOrEmpty(orderBy))
             {
@@ -69,7 +69,8 @@ namespace Garage_2._0.Controllers
                     {
                         Id = item.Id,
                         RegNr = item.RegNr,
-                        VehicleTypeId = item.vehicleType.Id,
+                        VehicleTypeId = item.VehicleType.Id,
+                        VehicleTypeName = item.VehicleType.Name,
                         ParkingLotNumber = item.ParkingLotNumber,
                         ParkingStartTime = item.ParkingStartTime,
                         Modell = item.Modell,
