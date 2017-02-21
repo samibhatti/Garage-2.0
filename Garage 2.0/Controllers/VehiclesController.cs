@@ -24,12 +24,12 @@ namespace Garage_2._0.Controllers
         // GET: Vehicles
         public ActionResult Index(string orderBy, string searchTerm)
         {
-            IQueryable<Vehicle> query = db.Vehicles;
+            IQueryable<Vehicle> query = db.Vehicles.Include(m => m.Member);
 
             if (!string.IsNullOrEmpty(searchTerm))
             {
                 ViewBag.SearchTerm = searchTerm;
-                query = query.Where(x => x.MemberId.ToString().Contains(searchTerm) || x.VehicleType.Name.Contains(searchTerm) || x.RegNr.Contains(searchTerm) || x.ParkingLotNumber.Contains(searchTerm));
+                query = query.Where(x => x.Member.FirstName.Contains(searchTerm) || x.Member.LastName.Contains(searchTerm) || x.VehicleType.Name.Contains(searchTerm) || x.RegNr.Contains(searchTerm));
             }
             if (!string.IsNullOrEmpty(orderBy))
             {
@@ -37,6 +37,9 @@ namespace Garage_2._0.Controllers
                 {
                     case "member id":
                         query = query.OrderBy(x => x.MemberId);
+                        break;
+                    case "owner":
+                        query = query.OrderBy(x => x.Member.FirstName);
                         break;
                     case "regnr":
                         query = query.OrderBy(x => x.RegNr);
