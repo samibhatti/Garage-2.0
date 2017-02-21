@@ -14,7 +14,7 @@ namespace Garage_2._0.Models.ViewModels
         public string RegNr { get; set; }
         [Display(Name = "Member Id")]
         public int MemberId { get; set; }
-        [Display(Name = "Vehicle Type")]
+        [Display(Name = "Vehicle Type Id")]
         public int VehicleTypeId { get; set; }
         [Display(Name = "Vehicle Type")]
         public string VehicleTypeName { get; set; }
