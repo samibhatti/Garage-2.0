@@ -13,7 +13,7 @@ namespace Garage_2._0.Helpers
         public static int PricePerHour = 60;
         public static List<int> accptedTyres = new List<int>() { 2, 4 };
 
-        public static string GetDuration(DateTime startTime)
+        public static string getDuration(DateTime startTime)
         {
             int days = (DateTime.Now - startTime).Days;
             int hours = (DateTime.Now - startTime).Hours;
@@ -22,7 +22,7 @@ namespace Garage_2._0.Helpers
             return duration;
         }
 
-        public static int GetCost(DateTime startTime)
+        public static int getCost(DateTime startTime)
         {
             int days = (DateTime.Now - startTime).Days;
             int hours = (DateTime.Now - startTime).Hours;
@@ -37,7 +37,7 @@ namespace Garage_2._0.Helpers
             return amount;
         }
 
-        public static List<string> GetFreeParkingLots(List<Vehicle> vehicles)
+        public static List<string> getFreeParkingLots(List<Vehicle> vehicles)
         {
             List<string> freeParkings = new ParkingsLots().parkingLots;
             foreach(var vehicle in vehicles)
@@ -48,7 +48,7 @@ namespace Garage_2._0.Helpers
             return freeParkings;
         }
 
-        public static List<string> GetParkingLots(List<Vehicle> vehicles)
+        public static List<string> getParkingSlots(List<Vehicle> vehicles)
         {
             ParkingsLots parkingLots = new ParkingsLots();
             List<string> parkingStatus =  parkingLots.parkingLots;
@@ -62,5 +62,6 @@ namespace Garage_2._0.Helpers
             }
             return parkingStatus;
         }
+
     }
 }

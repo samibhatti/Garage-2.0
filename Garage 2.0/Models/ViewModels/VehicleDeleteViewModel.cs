@@ -38,8 +38,8 @@ namespace Garage_2._0.Models.ViewModels
                 NoOfTyres = vehicle.NumberOfTyres,
                 Model = vehicle.Modell,
                 Fabricate = vehicle.Brand,
-                Duration = ParkingHelper.GetDuration(vehicle.ParkingStartTime),
-                PaymentAmount = ParkingHelper.GetCost(vehicle.ParkingStartTime)
+                Duration = ParkingHelper.getDuration(vehicle.ParkingStartTime),
+                PaymentAmount = ParkingHelper.getCost(vehicle.ParkingStartTime)
             };
             return model;
         }
